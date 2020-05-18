@@ -4,4 +4,5 @@
     <string name="title_activity_food">FoodActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="what_can_we_help_you_with_today">What can we help you with today?</string>
 </resources>

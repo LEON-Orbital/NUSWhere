@@ -36,12 +36,13 @@
 
     <ImageButton
         android:id="@+id/studyBackBtn"
-        android:layout_width="44dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="72dp"
-        android:background="#C3FFFFFF"
+        android:layout_width="23dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="86dp"
+        android:background="@drawable/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back"
         tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

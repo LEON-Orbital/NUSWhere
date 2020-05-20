@@ -7,16 +7,6 @@
     tools:context=".StudyActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="study!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/studySearch"
         android:layout_width="0dp"
         android:layout_height="72dp"
@@ -44,5 +34,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
+
+
+    <ListView
+        android:id="@+id/studyAreaListView"
+        android:layout_width="match_parent"
+        android:layout_height="472dp"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/studySearch"
+        app:layout_constraintVertical_bias="1.0">
+
+    </ListView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

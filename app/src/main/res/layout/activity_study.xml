@@ -16,13 +16,13 @@
         android:gravity="center"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
-        android:text="Search bar"
+        android:text="@string/search_bar"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" tools:targetApi="lollipop" />
 
     <ImageButton
         android:id="@+id/studyBackBtn"
@@ -31,6 +31,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="86dp"
         android:background="@drawable/back"
+        android:contentDescription="@string/backbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />

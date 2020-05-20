@@ -10,7 +10,7 @@
         android:id="@+id/textView3"
         android:layout_width="110dp"
         android:layout_height="64dp"
-        android:text="bus"
+        android:text="@string/bus"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +24,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="86dp"
         android:background="@drawable/back"
+        android:contentDescription="@string/backbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />

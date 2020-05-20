@@ -20,6 +20,23 @@
     <string name="foodstorebutton">foodstoreButton</string>
     <string name="supperbutton">supperButton</string>
     <string name="cafebakerybutton">cafebakeryButton</string>
+    <string name="school">school</string>
+    <string name="foodcourt">foodcourt</string>
+    <string name="foodstore">foodstore</string>
+    <string name="cafebakery">cafeBakery</string>
+    <string name="latenightfood">lateNightFood</string>
+    <string name="map">map</string>
+    <string name="bus">bus</string>
+    <string name="study">study</string>
+    <string name="food">food</string>
+    <string name="supper">supper</string>
+    <string name="business">Business</string>
+    <string name="nuswhere">NUSWhere</string>
+    <string name="mapppppp">mapppppp</string>
+    <string name="search_bar">Search bar</string>
+    <string name="place">Place</string>
+    <string name="category">Category:</string>
+    <string name="bus">bus</string>
 
     <string-array name="studyAreas">
         <item>By Faculty:</item> //position: 0

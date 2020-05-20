@@ -34,13 +34,13 @@
         android:gravity="center"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
-        android:text="NUSWhere"
+        android:text="@string/nuswhere"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" tools:targetApi="lollipop" />
 
     <RelativeLayout
         android:layout_width="411dp"
@@ -49,7 +49,7 @@
         android:elevation="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" tools:targetApi="lollipop">
 
         <ImageButton
             android:id="@+id/foodBtn"
@@ -61,7 +61,8 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/food" />
+            android:background="@drawable/food"
+            android:contentDescription="@string/food" />
 
         <ImageButton
             android:id="@+id/studyBtn"
@@ -75,7 +76,8 @@
             android:layout_marginBottom="22dp"
             android:layout_toEndOf="@+id/foodBtn"
             android:layout_toRightOf="@+id/foodBtn"
-            android:background="@drawable/study" />
+            android:background="@drawable/study"
+            android:contentDescription="@string/map" />
 
         <ImageButton
             android:id="@+id/busBtn"
@@ -88,7 +90,8 @@
             android:layout_marginBottom="22dp"
             android:layout_toEndOf="@+id/studyBtn"
             android:layout_toRightOf="@+id/studyBtn"
-            android:background="@drawable/bus" />
+            android:background="@drawable/bus"
+            android:contentDescription="@string/bus" />
 
         <ImageButton
             android:id="@+id/mapBtn"
@@ -104,7 +107,7 @@
             android:layout_toEndOf="@+id/busBtn"
             android:layout_toRightOf="@+id/busBtn"
             android:background="@drawable/map"
-            android:contentDescription="TODO" />
+            android:contentDescription="@string/map" />
 
     </RelativeLayout>
 

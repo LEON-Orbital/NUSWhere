@@ -50,7 +50,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,8 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="21dp"
-                android:background="@drawable/nus" />
+                android:background="@drawable/nus"
+                android:contentDescription="@string/school" />
 
             <TextView
                 android:id="@+id/nusFoodText"
@@ -81,7 +82,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +94,8 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/faculty" />
+                android:background="@drawable/faculty"
+                android:contentDescription="@string/by_faculty" />
 
             <TextView
                 android:id="@+id/facultyText"
@@ -112,7 +114,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="140dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +126,8 @@
                 android:layout_height="54dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/foodcourt" />
+                android:background="@drawable/foodcourt"
+                android:contentDescription="@string/food_courts" />
 
             <TextView
                 android:id="@+id/foodCourtText"
@@ -132,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="65dp"
+                android:contentDescription="@string/foodcourt"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/food_courts"
                 android:textAlignment="center"
@@ -143,7 +147,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="140dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +159,8 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/foodstall" />
+                android:background="@drawable/foodstall"
+                android:contentDescription="@string/food_stores" />
 
             <TextView
                 android:id="@+id/foodStoreText"
@@ -163,6 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="65dp"
+                android:contentDescription="@string/foodstore"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/food_stores"
                 android:textAlignment="center"
@@ -174,7 +180,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="265dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -186,7 +192,8 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/bakery" />
+                android:background="@drawable/bakery"
+                android:contentDescription="@string/cafebakery" />
 
             <TextView
                 android:id="@+id/cafeText"
@@ -194,6 +201,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="58dp"
+                android:contentDescription="@string/cafebakery"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/bakery_cafes"
                 android:textAlignment="center"
@@ -205,7 +213,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="265dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -217,7 +225,8 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/supper" />
+                android:background="@drawable/supper"
+                android:contentDescription="@string/supper" />
 
             <TextView
                 android:id="@+id/supperText"
@@ -225,6 +234,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="61dp"
+                android:contentDescription="@string/latenightfood"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/late_night_options"
                 android:textAlignment="center"
@@ -252,7 +262,8 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/food" />
+            android:background="@drawable/food"
+            android:contentDescription="@string/food" />
 
         <ImageButton
             android:id="@+id/studyBtn"
@@ -261,12 +272,11 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="50dp"
-            android:layout_marginLeft="46dp"
             android:layout_marginTop="22dp"
             android:layout_marginBottom="22dp"
             android:layout_toEndOf="@+id/foodBtn"
-            android:layout_toRightOf="@+id/foodBtn"
-            android:background="@drawable/study" />
+            android:background="@drawable/study"
+            android:contentDescription="@string/study" />
 
         <ImageButton
             android:id="@+id/busBtn"
@@ -278,8 +288,8 @@
             android:layout_marginTop="22dp"
             android:layout_marginBottom="22dp"
             android:layout_toEndOf="@+id/studyBtn"
-            android:layout_toRightOf="@+id/studyBtn"
-            android:background="@drawable/bus" />
+            android:background="@drawable/bus"
+            android:contentDescription="@string/bus" />
 
         <ImageButton
             android:id="@+id/mapBtn"
@@ -293,9 +303,8 @@
             android:layout_marginEnd="45dp"
             android:layout_marginBottom="18dp"
             android:layout_toEndOf="@+id/busBtn"
-            android:layout_toRightOf="@+id/busBtn"
             android:background="@drawable/map"
-            android:contentDescription="TODO" />
+            android:contentDescription="@string/map" />
 
     </RelativeLayout>
 

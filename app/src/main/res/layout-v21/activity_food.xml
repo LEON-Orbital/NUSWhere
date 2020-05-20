@@ -121,7 +121,7 @@
             <ImageView
                 android:id="@+id/foodCourtImg"
                 android:layout_width="58dp"
-                android:layout_height="58dp"
+                android:layout_height="54dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/foodcourt" />

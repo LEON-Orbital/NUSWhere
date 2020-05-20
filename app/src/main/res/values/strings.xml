@@ -5,6 +5,21 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="what_can_we_help_you_with_today">What can we help you with today?</string>
+    <string name="textview">TextView</string>
+    <string name="by_faculty">By Faculty</string>
+    <string name="search_bar">Search bar</string>
+    <string name="late_night_options">Late Night Options</string>
+    <string name="bakery_cafes"><![CDATA[Bakery & Cafes]]></string>
+    <string name="food_stores">Food Stores</string>
+    <string name="food_courts">Food Courts</string>
+    <string name="all">All</string>
+    <string name="backbutton">backButton</string>
+    <string name="allbutton">allButton</string>
+    <string name="facbutton">facButton</string>
+    <string name="foodcourtbutton">foodcourtButton</string>
+    <string name="foodstorebutton">foodstoreButton</string>
+    <string name="supperbutton">supperButton</string>
+    <string name="cafebakerybutton">cafebakeryButton</string>
 
     <string-array name="studyAreas">
         <item>By Faculty:</item> //position: 0

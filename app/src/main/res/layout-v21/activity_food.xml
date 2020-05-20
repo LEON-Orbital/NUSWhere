@@ -7,62 +7,62 @@
     tools:context=".FoodActivity">
 
     <TextView
-        android:id="@+id/facText"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
         android:fontFamily="@font/montserrat"
-        android:text="@string/by_faculty"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foodSortByFacButton" />
 
     <TextView
-        android:id="@+id/allText"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat"
-        android:text="@string/all"
+        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allFoodButton" />
 
     <TextView
-        android:id="@+id/bakeryAndCafeText"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat"
-        android:text="@string/bakery_cafes"
+        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cafeBakeryButton" />
 
     <TextView
-        android:id="@+id/supperText"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:fontFamily="@font/montserrat"
-        android:text="@string/late_night_options"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/supperButton" />
 
     <TextView
-        android:id="@+id/foodStoresText"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
         android:fontFamily="@font/montserrat"
-        android:text="@string/food_stores"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foodStoreButton" />
 
@@ -76,12 +76,12 @@
         android:gravity="center"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
-        android:text="@string/search_bar"
+        android:text="Search bar"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" tools:targetApi="lollipop" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/foodBackBtn"
@@ -89,11 +89,10 @@
         android:layout_height="24dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="86dp"
+        android:elevation="2dp"
         android:background="@drawable/back"
-        android:contentDescription="@string/backbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="lollipop"
         tools:visibility="visible" />
 
     <ImageButton
@@ -101,94 +100,80 @@
         android:layout_width="100dp"
         android:layout_height="84dp"
         android:layout_marginBottom="400dp"
-        android:background="@drawable/nus"
-        android:contentDescription="@string/allbutton"
         android:elevation="2dp"
+        android:background="@drawable/nus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.231"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/foodSortByFacButton"
         android:layout_width="100dp"
         android:layout_height="84dp"
         android:layout_marginBottom="400dp"
-        android:background="@drawable/faculty"
-        android:contentDescription="@string/facbutton"
         android:elevation="2dp"
+        android:background="@drawable/faculty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.749"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/foodCourtButton"
         android:layout_width="100dp"
         android:layout_height="84dp"
         android:layout_marginBottom="248dp"
-        android:background="@drawable/foodcourt"
-        android:contentDescription="@string/foodcourtbutton"
         android:elevation="2dp"
+        android:background="@drawable/foodcourt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.231"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/foodStoreButton"
         android:layout_width="100dp"
         android:layout_height="84dp"
         android:layout_marginBottom="248dp"
-        android:background="@drawable/foodstall"
-        android:contentDescription="@string/foodstorebutton"
         android:elevation="2dp"
+        android:background="@drawable/foodstall"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.749"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/supperButton"
         android:layout_width="100dp"
         android:layout_height="84dp"
         android:layout_marginBottom="96dp"
-        android:background="@drawable/supper"
-        android:contentDescription="@string/supperbutton"
         android:elevation="2dp"
+        android:background="@drawable/supper"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.749"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/cafeBakeryButton"
         android:layout_width="100dp"
         android:layout_height="84dp"
         android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
         android:layout_marginBottom="96dp"
-        android:background="@drawable/bakery"
-        android:contentDescription="@string/cafebakerybutton"
         android:elevation="2dp"
+        android:background="@drawable/bakery"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/foodCourtText"
-        android:layout_width="91dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat"
-        android:text="@string/food_courts"
+        android:text="@string/textview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foodCourtButton" />
 

@@ -6,65 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".FoodActivity">
 
-    <TextView
-        android:id="@+id/facText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/by_faculty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodSortByFacButton" />
-
-    <TextView
-        android:id="@+id/allText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/all"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allFoodButton" />
-
-    <TextView
-        android:id="@+id/bakeryAndCafeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/bakery_cafes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cafeBakeryButton" />
-
-    <TextView
-        android:id="@+id/supperText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/late_night_options"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/supperButton" />
-
-    <TextView
-        android:id="@+id/foodStoresText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/food_stores"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodStoreButton" />
 
     <TextView
         android:id="@+id/foodSearch"
@@ -96,100 +37,266 @@
         tools:targetApi="lollipop"
         tools:visibility="visible" />
 
-    <ImageButton
-        android:id="@+id/allFoodButton"
-        android:layout_width="100dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="400dp"
-        android:background="@drawable/nus"
-        android:contentDescription="@string/allbutton"
-        android:elevation="2dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="340dp"
+        android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/foodSortByFacButton"
-        android:layout_width="100dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="400dp"
-        android:background="@drawable/faculty"
-        android:contentDescription="@string/facbutton"
-        android:elevation="2dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/allCardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/nusFoodImg"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="21dp"
+                android:background="@drawable/nus" />
+
+            <TextView
+                android:id="@+id/nusFoodText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/all"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/facultyCardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="40dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/facultyImg"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/faculty" />
+
+            <TextView
+                android:id="@+id/facultyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/by_faculty"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/foodCourtCardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="40dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/foodCourtImg"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/foodcourt" />
+
+            <TextView
+                android:id="@+id/foodCourtText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/food_courts"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/foodStoreCardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginRight="40dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/foodStoreImg"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/foodstall" />
+
+            <TextView
+                android:id="@+id/foodStoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/food_stores"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cafeCardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="265dp"
+            android:layout_marginLeft="40dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/cafeImg"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bakery" />
+
+            <TextView
+                android:id="@+id/cafeText"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="58dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/bakery_cafes"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/supperCardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="265dp"
+            android:layout_marginRight="40dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/supperImg"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/supper" />
+
+            <TextView
+                android:id="@+id/supperText"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="61dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/late_night_options"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="411dp"
+        android:layout_height="82dp"
+        android:background="@drawable/main_bottom_rect"
+        android:elevation="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.749"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
-        android:id="@+id/foodCourtButton"
-        android:layout_width="100dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="248dp"
-        android:background="@drawable/foodcourt"
-        android:contentDescription="@string/foodcourtbutton"
-        android:elevation="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        <ImageButton
+            android:id="@+id/foodBtn"
+            android:layout_width="43dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/food" />
 
-    <ImageButton
-        android:id="@+id/foodStoreButton"
-        android:layout_width="100dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="248dp"
-        android:background="@drawable/foodstall"
-        android:contentDescription="@string/foodstorebutton"
-        android:elevation="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.749"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        <ImageButton
+            android:id="@+id/studyBtn"
+            android:layout_width="40dp"
+            android:layout_height="37dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="46dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="22dp"
+            android:layout_toEndOf="@+id/foodBtn"
+            android:layout_toRightOf="@+id/foodBtn"
+            android:background="@drawable/study" />
 
-    <ImageButton
-        android:id="@+id/supperButton"
-        android:layout_width="100dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="96dp"
-        android:background="@drawable/supper"
-        android:contentDescription="@string/supperbutton"
-        android:elevation="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.749"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        <ImageButton
+            android:id="@+id/busBtn"
+            android:layout_width="44dp"
+            android:layout_height="37dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="22dp"
+            android:layout_toEndOf="@+id/studyBtn"
+            android:layout_toRightOf="@+id/studyBtn"
+            android:background="@drawable/bus" />
 
-    <ImageButton
-        android:id="@+id/cafeBakeryButton"
-        android:layout_width="100dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginBottom="96dp"
-        android:background="@drawable/bakery"
-        android:contentDescription="@string/cafebakerybutton"
-        android:elevation="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop" />
+        <ImageButton
+            android:id="@+id/mapBtn"
+            android:layout_width="60dp"
+            android:layout_height="56dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="18dp"
+            android:layout_toEndOf="@+id/busBtn"
+            android:layout_toRightOf="@+id/busBtn"
+            android:background="@drawable/map"
+            android:contentDescription="TODO" />
 
-    <TextView
-        android:id="@+id/foodCourtText"
-        android:layout_width="91dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/food_courts"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodCourtButton" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

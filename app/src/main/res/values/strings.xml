@@ -8,8 +8,8 @@
     <string name="textview">TextView</string>
     <string name="by_faculty">By Faculty</string>
     <string name="search_bar">Search bar</string>
-    <string name="late_night_options">Late Night Options</string>
-    <string name="bakery_cafes"><![CDATA[Bakery & Cafes]]></string>
+    <string name="late_night_options">Late Night Food</string>
+    <string name="bakery_cafes">Cafes &amp; Bakeries</string>
     <string name="food_stores">Food Stores</string>
     <string name="food_courts">Food Courts</string>
     <string name="all">All</string>

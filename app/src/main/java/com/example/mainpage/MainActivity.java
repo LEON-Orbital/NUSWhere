@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // food button
         ImageButton foodActivity = (ImageButton) findViewById(R.id.foodBtn);
         foodActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // study button
         ImageButton studyActivity = (ImageButton) findViewById(R.id.studyBtn);
         studyActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // bus button
         ImageButton busActivity = (ImageButton) findViewById(R.id.busBtn);
         busActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // map button
         ImageButton mapActivity = (ImageButton) findViewById(R.id.mapBtn);
         mapActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,5 +60,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

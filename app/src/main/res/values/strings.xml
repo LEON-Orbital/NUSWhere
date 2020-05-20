@@ -5,4 +5,22 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="what_can_we_help_you_with_today">What can we help you with today?</string>
+
+    <string-array name="studyAreas">
+        <item>By Faculty:</item> //position: 0
+        <item>Business</item>
+        <item>Computing</item>
+        <item>Engineering</item>
+        <item>FASS</item>
+        <item>Science</item>
+        <item>SDE</item>
+        <item>Libraries:</item> //position: 7
+        <item>Central Library</item>
+        <item>Chinese Library</item>
+        <item>Hon Sui Sen Memorial Library</item>
+        <item>Medical Library</item>
+        <item>Music Library</item>
+        <item>Science Library</item>
+    </string-array>
+
 </resources>

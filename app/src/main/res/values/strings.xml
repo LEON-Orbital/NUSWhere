@@ -8,13 +8,17 @@
 
     <string-array name="studyAreas">
         <item>By Faculty:</item> //position: 0
+        <item>Arts and Social Sciences</item>
         <item>Business</item>
         <item>Computing</item>
+        <item>Dentistry</item>
+        <item>Design and Environment</item>
         <item>Engineering</item>
-        <item>FASS</item>
+        <item>Medicine</item>
+        <item>Music</item>
         <item>Science</item>
-        <item>SDE</item>
-        <item>Libraries:</item> //position: 7
+
+        <item>Libraries:</item> //position: 10
         <item>Central Library</item>
         <item>Chinese Library</item>
         <item>Hon Sui Sen Memorial Library</item>

@@ -29,7 +29,7 @@ public class StudyListAdapter extends ArrayAdapter<String> {
 
         TextView studyText;
 
-        if (position == 0 || position == 7) {
+        if (position == 0 || position == 10) {
             convertView = inflater.inflate(R.layout.study_category_row, parent, false);
             convertView.setOnClickListener(null);
             studyText = (TextView) convertView.findViewById(R.id.studyCategoryText);

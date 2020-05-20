@@ -37,7 +37,7 @@ public class StudyActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1) {
+                if (position == 2) {
                     Intent showBiz = new Intent(getApplicationContext(), BusinessStudyActivity.class);
                     startActivity(showBiz); //switches screen
                 }

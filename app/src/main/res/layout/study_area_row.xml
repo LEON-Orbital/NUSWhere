@@ -9,9 +9,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/studyAreaCard"
-        android:layout_width="325dp"
-        android:layout_height="58dp"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="7dp"
+        android:layout_marginEnd="18dp"
         android:layout_marginBottom="7dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="8dp"
@@ -24,7 +26,7 @@
 
         <TextView
             android:id="@+id/studyAreaText"
-            android:layout_width="325dp"
+            android:layout_width="match_parent"
             android:layout_height="58dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center_vertical"

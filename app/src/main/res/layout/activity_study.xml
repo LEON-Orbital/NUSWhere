@@ -40,7 +40,7 @@
         android:id="@+id/studyAreaListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="115dp"
         android:layout_marginBottom="82dp"
         android:divider="@null"
         android:listSelector="@android:color/transparent"

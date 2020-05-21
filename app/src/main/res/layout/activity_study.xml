@@ -16,7 +16,7 @@
         android:gravity="center"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
-        android:text="@string/search_bar"
+        android:text="@string/search_bar2"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,31 +36,71 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="410dp"
-        android:layout_height="544dp"
+    <ListView
+        android:id="@+id/studyAreaListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="82dp"
+        android:divider="@null"
+        android:listSelector="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
+    </ListView>
 
-        <ListView
-            android:id="@+id/studyAreaListView"
-            android:layout_width="410dp"
-            android:layout_height="544dp"
-            android:divider="@null"
-            android:listSelector="@android:color/transparent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_height="82dp"
+        android:background="@android:color/transparent"
+        android:elevation="23dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/foodBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/food"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </ListView>
+        <ImageButton
+            android:id="@+id/studyBtn"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="42dp"
+            android:background="@drawable/study"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/foodBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/busBtn"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="42dp"
+            android:background="@drawable/bus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/studyBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/mapBtn"
+            android:layout_width="50dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="42dp"
+            android:background="@drawable/map"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/busBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

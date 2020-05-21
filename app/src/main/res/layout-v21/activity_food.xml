@@ -17,7 +17,7 @@
         android:gravity="center"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
-        android:text="@string/search_bar"
+        android:text="@string/search_bar1"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -243,69 +243,55 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <RelativeLayout
-        android:layout_width="411dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
         android:layout_height="82dp"
-        android:background="@drawable/main_bottom_rect"
+        android:background="@android:color/transparent"
         android:elevation="23dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
             android:id="@+id/foodBtn"
-            android:layout_width="43dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:background="@drawable/food"
-            android:contentDescription="@string/food" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/studyBtn"
-            android:layout_width="40dp"
-            android:layout_height="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="22dp"
-            android:layout_toEndOf="@+id/foodBtn"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="42dp"
             android:background="@drawable/study"
-            android:contentDescription="@string/study" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/foodBtn"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/busBtn"
-            android:layout_width="44dp"
-            android:layout_height="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="22dp"
-            android:layout_toEndOf="@+id/studyBtn"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="42dp"
             android:background="@drawable/bus"
-            android:contentDescription="@string/bus" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/studyBtn"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/mapBtn"
-            android:layout_width="60dp"
-            android:layout_height="56dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="18dp"
-            android:layout_toEndOf="@+id/busBtn"
+            android:layout_width="50dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="42dp"
             android:background="@drawable/map"
-            android:contentDescription="@string/map" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/busBtn"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

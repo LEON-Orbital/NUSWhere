@@ -1,6 +1,7 @@
 package com.example.mainpage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,6 +54,15 @@ public class FoodActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        CardView facCardView = (CardView) findViewById(R.id.facultyCardView);
+        facCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FoodActivity.this, FacultyFoodActivity.class));
+            }
+        });
+
 
     }
 }

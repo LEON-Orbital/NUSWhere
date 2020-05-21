@@ -22,5 +22,37 @@ public class FoodActivity extends AppCompatActivity {
                 startActivity(startIntent);
             }
         });
+
+
+        // study button
+        ImageButton studyActivity = (ImageButton) findViewById(R.id.studyBtn);
+        studyActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StudyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // bus button
+        ImageButton busActivity = (ImageButton) findViewById(R.id.busBtn);
+        busActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), BusActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // map button
+        ImageButton mapActivity = (ImageButton) findViewById(R.id.mapBtn);
+        mapActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

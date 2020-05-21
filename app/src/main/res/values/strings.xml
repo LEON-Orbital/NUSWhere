@@ -7,7 +7,9 @@
     <string name="what_can_we_help_you_with_today">What can we help you with today?</string>
     <string name="textview">TextView</string>
     <string name="by_faculty">By Faculty</string>
-    <string name="search_bar">Search bar</string>
+    <string name="search_bar1">Search bar</string>
+    <string name="search_bar2">Search bar</string>
+
     <string name="late_night_options">Late Night Food</string>
     <string name="bakery_cafes">Cafes &amp; Bakeries</string>
     <string name="food_stores">Food Stores</string>
@@ -25,8 +27,11 @@
     <string name="foodstore">foodstore</string>
     <string name="cafebakery">cafeBakery</string>
     <string name="latenightfood">lateNightFood</string>
+
     <string name="map">map</string>
-    <string name="bus">bus</string>
+    <string name="bus1">bus</string>
+    <string name="bus2">bus</string>
+    <string name="busss">busss</string>
     <string name="study">study</string>
     <string name="food">food</string>
     <string name="supper">supper</string>

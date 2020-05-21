@@ -17,12 +17,11 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <TextView
         android:id="@+id/foodSearch"
@@ -40,76 +39,69 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" tools:targetApi="lollipop" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="lollipop" />
 
-    <RelativeLayout
-        android:layout_width="411dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
         android:layout_height="82dp"
         android:background="@drawable/main_bottom_rect"
         android:elevation="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" tools:targetApi="lollipop">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:targetApi="lollipop"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_height="82dp"
+        android:background="@android:color/transparent"
+        android:elevation="23dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
             android:id="@+id/foodBtn"
-            android:layout_width="43dp"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:background="@drawable/food"
-            android:contentDescription="@string/food" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/studyBtn"
-            android:layout_width="40dp"
-            android:layout_height="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="46dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="22dp"
-            android:layout_toEndOf="@+id/foodBtn"
-            android:layout_toRightOf="@+id/foodBtn"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="42dp"
             android:background="@drawable/study"
-            android:contentDescription="@string/map" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/foodBtn"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/busBtn"
-            android:layout_width="44dp"
-            android:layout_height="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="22dp"
-            android:layout_toEndOf="@+id/studyBtn"
-            android:layout_toRightOf="@+id/studyBtn"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="42dp"
             android:background="@drawable/bus"
-            android:contentDescription="@string/bus" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/studyBtn"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/mapBtn"
-            android:layout_width="60dp"
-            android:layout_height="56dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="45dp"
-            android:layout_marginBottom="18dp"
-            android:layout_toEndOf="@+id/busBtn"
-            android:layout_toRightOf="@+id/busBtn"
+            android:layout_width="50dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="42dp"
             android:background="@drawable/map"
-            android:contentDescription="@string/map" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/busBtn"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

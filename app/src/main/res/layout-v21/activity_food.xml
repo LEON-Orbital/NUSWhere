@@ -49,7 +49,7 @@
             android:id="@+id/allCardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
@@ -81,7 +81,7 @@
             android:id="@+id/facultyCardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
@@ -90,12 +90,12 @@
 
             <ImageView
                 android:id="@+id/facultyImg"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/faculty"
-                android:contentDescription="@string/by_faculty" />
+                android:layout_marginTop="15dp"
+                android:background="@drawable/nearby"
+                android:contentDescription="@string/by_location" />
 
             <TextView
                 android:id="@+id/facultyText"
@@ -104,7 +104,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="65dp"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/by_faculty"
+                android:text="@string/by_location"
                 android:textAlignment="center"
                 android:textSize="12sp" />
         </androidx.cardview.widget.CardView>
@@ -113,12 +113,12 @@
             android:id="@+id/foodCourtCardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="25dp"
             android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/allCardView">
 
             <ImageView
                 android:id="@+id/foodCourtImg"
@@ -146,12 +146,12 @@
             android:id="@+id/foodStoreCardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/facultyCardView">
 
             <ImageView
                 android:id="@+id/foodStoreImg"
@@ -179,12 +179,12 @@
             android:id="@+id/cafeCardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="265dp"
+            android:layout_marginTop="25dp"
             android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/foodCourtCardView">
 
             <ImageView
                 android:id="@+id/cafeImg"
@@ -212,12 +212,12 @@
             android:id="@+id/supperCardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="265dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/foodStoreCardView">
 
             <ImageView
                 android:id="@+id/supperImg"
@@ -244,7 +244,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="300dp"
+        android:layout_width="302dp"
         android:layout_height="82dp"
         android:background="@android:color/transparent"
         android:elevation="23dp"
@@ -258,6 +258,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/food"
+            android:contentDescription="@string/foodBtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -267,7 +268,9 @@
             android:layout_width="45dp"
             android:layout_height="40dp"
             android:layout_marginStart="42dp"
+            android:layout_marginLeft="42dp"
             android:background="@drawable/study"
+            android:contentDescription="@string/studyBtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/foodBtn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -277,7 +280,9 @@
             android:layout_width="45dp"
             android:layout_height="40dp"
             android:layout_marginStart="42dp"
+            android:layout_marginLeft="42dp"
             android:background="@drawable/bus"
+            android:contentDescription="@string/busBtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/studyBtn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -287,7 +292,9 @@
             android:layout_width="50dp"
             android:layout_height="46dp"
             android:layout_marginStart="42dp"
+            android:layout_marginLeft="42dp"
             android:background="@drawable/map"
+            android:contentDescription="@string/mapBtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/busBtn"
             app:layout_constraintTop_toTopOf="parent" />

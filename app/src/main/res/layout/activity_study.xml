@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".StudyActivity">
 
+
     <TextView
         android:id="@+id/studySearch"
         android:layout_width="0dp"
@@ -53,6 +54,17 @@
 
     </ListView>
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="@drawable/main_bottom_rect"
+        android:elevation="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:targetApi="lollipop"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="302dp"
         android:layout_height="82dp"

@@ -15,6 +15,7 @@ public class FoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
 
+        // back button
         ImageButton back = (ImageButton) findViewById(R.id.foodBackBtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +64,13 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
+        CardView foodStoreCardView = (CardView) findViewById(R.id.foodStoreCardView);
+        foodStoreCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FoodActivity.this, FoodStoreActivity.class));
+            }
+        });
 
     }
 }

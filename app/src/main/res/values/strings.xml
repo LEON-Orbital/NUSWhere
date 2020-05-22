@@ -22,6 +22,10 @@
     <string name="food_courts">Food Courts</string>
     <string name="all">All</string>
 
+    <string name="food_stalls">Food Stalls</string>
+    <string name="restaurants">Restaurants</string>
+
+
     <string name="business1">Business</string>
     <string name="businessfood">Business</string>
     <string name="computing1">Computing</string>
@@ -44,6 +48,8 @@
     <string name="school">school</string>
     <string name="foodcourt">foodcourt</string>
     <string name="foodstore">foodstore</string>
+    <string name="foodstall">foodstall</string>
+    <string name="restaurant1">restaurant</string>
     <string name="cafebakery">cafeBakery</string>
     <string name="latenightfood">lateNightFood</string>
 

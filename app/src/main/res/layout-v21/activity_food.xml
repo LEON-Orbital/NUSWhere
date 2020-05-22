@@ -38,8 +38,8 @@
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="340dp"
-        android:layout_height="400dp"
+        android:layout_width="370dp"
+        android:layout_height="435dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,8 +47,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/allCardView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="116dp"
+            android:layout_height="116dp"
             android:layout_marginTop="25dp"
             android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
@@ -58,8 +58,8 @@
 
             <ImageView
                 android:id="@+id/nusFoodImg"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="21dp"
                 android:background="@drawable/nus"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="65dp"
+                android:layout_marginTop="77dp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/all"
                 android:textAlignment="center"
@@ -79,8 +79,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/facultyCardView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="116dp"
+            android:layout_height="116dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
@@ -90,10 +90,10 @@
 
             <ImageView
                 android:id="@+id/facultyImg"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="14dp"
                 android:background="@drawable/nearby"
                 android:contentDescription="@string/by_location" />
 
@@ -102,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="65dp"
+                android:layout_marginTop="77dp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/by_location"
                 android:textAlignment="center"
@@ -111,8 +111,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/foodCourtCardView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="116dp"
+            android:layout_height="116dp"
             android:layout_marginTop="25dp"
             android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
@@ -122,8 +122,8 @@
 
             <ImageView
                 android:id="@+id/foodCourtImg"
-                android:layout_width="58dp"
-                android:layout_height="54dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/foodcourt"
@@ -134,7 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="65dp"
+                android:layout_marginTop="77dp"
                 android:contentDescription="@string/foodcourt"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/food_courts"
@@ -144,8 +144,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/foodStoreCardView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="116dp"
+            android:layout_height="116dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
@@ -155,10 +155,10 @@
 
             <ImageView
                 android:id="@+id/foodStoreImg"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="19dp"
                 android:background="@drawable/foodstall"
                 android:contentDescription="@string/food_stores" />
 
@@ -167,7 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="65dp"
+                android:layout_marginTop="77dp"
                 android:contentDescription="@string/foodstore"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/food_stores"
@@ -177,8 +177,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cafeCardView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="116dp"
+            android:layout_height="116dp"
             android:layout_marginTop="25dp"
             android:layout_marginStart="40dp"
             app:cardBackgroundColor="#FFFFFF"
@@ -188,8 +188,8 @@
 
             <ImageView
                 android:id="@+id/cafeImg"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/bakery"
@@ -200,7 +200,7 @@
                 android:layout_width="82dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="58dp"
+                android:layout_marginTop="70dp"
                 android:contentDescription="@string/cafebakery"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/bakery_cafes"
@@ -210,8 +210,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/supperCardView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="116dp"
+            android:layout_height="116dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="40dp"
             app:cardBackgroundColor="#FFFFFF"
@@ -221,10 +221,10 @@
 
             <ImageView
                 android:id="@+id/supperImg"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/supper"
                 android:contentDescription="@string/supper" />
 
@@ -233,7 +233,7 @@
                 android:layout_width="74dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="61dp"
+                android:layout_marginTop="70dp"
                 android:contentDescription="@string/latenightfood"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/late_night_options"

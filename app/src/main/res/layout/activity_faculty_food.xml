@@ -220,7 +220,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="65dp"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/medicinefood"
+                android:text="@string/science"
                 android:textAlignment="center"
                 android:textSize="12sp" />
         </androidx.cardview.widget.CardView>
@@ -347,7 +347,7 @@
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" tools:targetApi="lollipop">
 
         <ImageButton
             android:id="@+id/foodBtn"

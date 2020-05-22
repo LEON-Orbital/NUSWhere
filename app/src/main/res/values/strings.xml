@@ -61,6 +61,7 @@
     <string name="place">Place</string>
     <string name="category">Category:</string>
     <string name="bus">bus</string>
+    <string name="science">Science</string>
 
     <string-array name="studyAreas">
         <item>By Faculty:</item>

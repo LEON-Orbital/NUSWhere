@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "102969393021",
+    "firebase_url": "https://nuswhere-665b7.firebaseio.com",
+    "project_id": "nuswhere-665b7",
+    "storage_bucket": "nuswhere-665b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102969393021:android:428881db87f2249d3c9614",
+        "android_client_info": {
+          "package_name": "com.example.mainpage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102969393021-vftp0mi6uan3l6bpkvl93006iaeuh1nn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mainpage",
+            "certificate_hash": "b4850fe0771be023a3690a1776a02449fb5cffe8"
+          }
+        },
+        {
+          "client_id": "102969393021-teqi15qq3155v9n8lkup9gib3j2qtrtg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA85oaXvQCI8jvfCbu7psUVsy-5prgSSlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102969393021-teqi15qq3155v9n8lkup9gib3j2qtrtg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

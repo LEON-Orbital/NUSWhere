@@ -4,28 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00FFFFFF"
     tools:context=".BusActivity">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="110dp"
-        android:layout_height="64dp"
-        android:text="@string/busss"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/foodSearch"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@drawable/main_top_rect"
+        android:elevation="23dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/where_are_you_headed"
+        android:textColor="#000000"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="lollipop" />
 
     <ImageButton
         android:id="@+id/busBackBtn"
         android:layout_width="23dp"
         android:layout_height="24dp"
         android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="86dp"
         android:background="@drawable/back"
         android:contentDescription="@string/backbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/startLoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:ems="13"
+        android:hint="@string/start_location"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Dest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:ems="13"
+        android:hint="@string/destination"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/busSearch"
+        android:layout_width="104dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="352dp"
+        android:background="#00FFFFFF"
+        android:elevation="0dp"
+        android:fontFamily="@font/playfair_display"
+        android:stateListAnimator="@null"
+        android:text="@string/enter"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="lollipop" />
 </androidx.constraintlayout.widget.ConstraintLayout>

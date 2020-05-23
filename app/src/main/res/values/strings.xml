@@ -96,4 +96,10 @@
         <item>Science Library</item>
     </string-array>
 
+    <string name="location">Location: </string>
+    <string name="halal">Halal Certified: </string>
+    <string name="operatingHours">Term Time &amp; Vacation Operating Hours: </string>
+    <string name="termTime">Term Time Operating Hours: </string>
+    <string name="vacationTime">Vacation Time Operating Hours: </string>
+
 </resources>

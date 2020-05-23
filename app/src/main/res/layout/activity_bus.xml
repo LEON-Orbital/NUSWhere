@@ -19,7 +19,7 @@
         android:paddingBottom="10dp"
         android:text="@string/where_are_you_headed"
         android:textColor="#000000"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +42,7 @@
         android:id="@+id/startLoc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="230dp"
         android:ems="13"
         android:hint="@string/start_location"
         android:importantForAutofill="no"
@@ -56,7 +56,7 @@
         android:id="@+id/Dest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="20dp"
         android:ems="13"
         android:hint="@string/destination"
         android:importantForAutofill="no"
@@ -64,23 +64,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/startLoc" />
 
     <Button
         android:id="@+id/busSearch"
         android:layout_width="104dp"
         android:layout_height="49dp"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="30dp"
         android:background="#00FFFFFF"
-        android:elevation="0dp"
+        android:elevation="2dp"
         android:fontFamily="@font/playfair_display"
         android:stateListAnimator="@null"
         android:text="@string/enter"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Dest"
         tools:targetApi="lollipop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

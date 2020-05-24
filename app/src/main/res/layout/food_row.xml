@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/foodCardView"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_marginTop="15dp"
@@ -15,48 +14,103 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:cardElevation="2dp">>
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/foodImageView"
             android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/imagefood"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/foodTitleId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="185dp"
-            android:layout_marginLeft="185dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Title: "
-            android:textSize="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/foodImageView"
+            android:layout_toRightOf="@+id/foodImageView"
+            android:paddingTop="12dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="5dp"
             android:fontFamily="@font/montserrat"
-            android:textColor="#000000"/>
+            android:text="@string/titlefood"
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/foodDescId"
-            android:layout_width="197dp"
-            android:layout_height="117dp"
-            android:layout_marginStart="185dp"
-            android:layout_marginLeft="185dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
+            android:id="@+id/foodLocationId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/foodTitleId"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:layout_toEndOf="@+id/foodImageView"
+            android:layout_toRightOf="@+id/foodImageView"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="1dp"
             android:fontFamily="@font/montserrat"
-            android:text="Description: "
-            android:textSize="11dp" />
+            android:text="@string/location"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/foodHalalId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/foodLocationId"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/foodImageView"
+            android:layout_toRightOf="@+id/foodImageView"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="1dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/halal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/foodOperatingHoursId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/foodHalalId"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/foodImageView"
+            android:layout_toRightOf="@+id/foodImageView"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="1dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/operatingHours"
+            android:textSize="12sp"  />
 
 
-    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

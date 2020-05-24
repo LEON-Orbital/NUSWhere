@@ -29,7 +29,8 @@ public class FoodAllActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_all);
 
-        rcView = (RecyclerView) findViewById(R.id.allFoodRecView);
+        rcView = findViewById(R.id.allFoodRecView);
+        rcView.setHasFixedSize(true);
         rcView.setLayoutManager(new LinearLayoutManager(this));
 
 

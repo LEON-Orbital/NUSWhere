@@ -36,7 +36,7 @@
         tools:layout_editor_absoluteX="10dp" />
 
     <ImageButton
-        android:id="@+id/studyBackBtn"
+        android:id="@+id/foodBackBtn"
         android:layout_width="23dp"
         android:layout_height="24dp"
         android:layout_marginStart="10dp"

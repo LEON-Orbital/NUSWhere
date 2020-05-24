@@ -15,7 +15,7 @@ public class FacultyFoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_faculty_food);
 
         // back button
-        ImageButton back = (ImageButton) findViewById(R.id.foodBackBtn1);
+        ImageButton back = findViewById(R.id.foodBackBtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,8 +23,18 @@ public class FacultyFoodActivity extends AppCompatActivity {
             }
         });
 
+        // food button
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
+        foodActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // study button
-        ImageButton studyActivity = (ImageButton) findViewById(R.id.studyBtn);
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
         studyActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,7 +44,7 @@ public class FacultyFoodActivity extends AppCompatActivity {
         });
 
         // bus button
-        ImageButton busActivity = (ImageButton) findViewById(R.id.busBtn);
+        ImageButton busActivity = findViewById(R.id.busBtn);
         busActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +54,7 @@ public class FacultyFoodActivity extends AppCompatActivity {
         });
 
         // map button
-        ImageButton mapActivity = (ImageButton) findViewById(R.id.mapBtn);
+        ImageButton mapActivity = findViewById(R.id.mapBtn);
         mapActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

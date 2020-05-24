@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" tools:targetApi="lollipop" />
 
     <ImageButton
-        android:id="@+id/foodBackBtn2"
+        android:id="@+id/foodBackBtn"
         android:layout_width="23dp"
         android:layout_height="24dp"
         android:layout_marginStart="10dp"

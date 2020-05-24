@@ -1,5 +1,6 @@
 package com.example.mainpage;
 
+import android.content.Context;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,15 +12,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class FoodList {
 
-    ArrayList<Food> foods = new ArrayList<Food>();
-    DatabaseReference dbRef;
+    private ArrayList<Food> foods = new ArrayList<>();
 
-    public FoodList() {
+    FoodList() {
         this.foods = foods;
     }
 
@@ -33,21 +32,53 @@ public class FoodList {
         return foods;
     }
 
-    public ArrayList<Food> getFoodCourts() {
-        return foods;
+    private ArrayList<Food> getByCategory(Category cat) {
+        ArrayList<Food> newFoodList = new ArrayList<>();
+        switch (cat) {
+            case ALL: newFoodList.addAll(foods);
+        }
+        Collections.sort(newFoodList);
+        return newFoodList;
     }
-    public ArrayList<Food> getFoodStalls() {
-        return foods;
+
+
+    void readData(final FirebaseCallback fbCallback, final Context context, final Category cat) {
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Food");
+        ValueEventListener vel = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dS : dataSnapshot.getChildren()) {
+                    Food f = dS.getValue(Food.class);
+                    foods.add(f);
+                }
+                ArrayList<Food> foodList = getByCategory(cat);
+                fbCallback.onCallBack(foodList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        };
+        dbRef.addValueEventListener(vel);
     }
-    public ArrayList<Food> getRestaurants() {
-        return foods;
-    }
-    public ArrayList<Food> getCafeBakeries() {
-        return foods;
-    }
-    public ArrayList<Food> getLateNightFood() {
-        return foods;
-    }
+
+    enum Category {
+        ALL,
+        BUSINESS,
+        COMPUTING,
+        ENGINEERING,
+        FASS,
+        MEDICINE,
+        SCIENCE,
+        SDE,
+        UTOWN,
+        YSTCM,
+        FOODCOURT,
+        FOODSTALL,
+        RESTAURANT,
+        CAFEBAKERY,
+        LATENIGHT }
 
 
 }

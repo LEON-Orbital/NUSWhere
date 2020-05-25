@@ -30,6 +30,10 @@ public class FoodList {
         foodList.addAll(foods);
     }
 
+    void replace(ArrayList<Food> foods) {
+        foodList = foods;
+    }
+
     ArrayList<Food> getByCategory(FoodCategory cat) {
         ArrayList<Food> newFoodList = new ArrayList<>();
         switch (cat) {

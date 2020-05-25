@@ -11,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FoodAllActivity"></activity>
+        <activity android:name=".FoodYSTCMActivity"></activity>
+        <activity android:name=".FoodUtownActivity" />
+        <activity android:name=".FoodSDEActivity" />
+        <activity android:name=".FoodScienceActivity" />
+        <activity android:name=".FoodMedicineActivity" />
+        <activity android:name=".FoodFASSActivity" />
+        <activity android:name=".FoodEngineActivity" />
+        <activity android:name=".FoodComActivity" />
+        <activity android:name=".FoodBizActivity" />
+        <activity android:name=".FoodAllActivity" />
         <activity android:name=".FoodStoreActivity" />
         <activity android:name=".FacultyFoodActivity" />
         <activity android:name=".BusinessStudyActivity" />

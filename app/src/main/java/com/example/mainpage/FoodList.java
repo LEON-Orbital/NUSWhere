@@ -34,10 +34,11 @@ public class FoodList {
         foodList = foods;
     }
 
-    ArrayList<Food> getByCategory(FoodCategory cat) {
+    ArrayList<Food> getByCategory(FoodCategory cat) {  // switch statement for categories
         ArrayList<Food> newFoodList = new ArrayList<>();
         switch (cat) {
             case ALL: newFoodList.addAll(foodList);
+
         }
         Collections.sort(newFoodList);
         return newFoodList;

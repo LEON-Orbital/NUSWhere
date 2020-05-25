@@ -33,7 +33,7 @@ public class FoodActivity extends AppCompatActivity {
         new DatabaseHandler().readData(new FirebaseCallback() {
             @Override
             public void onCallBack(ArrayList<Food> list) {
-                foodList.addAll(list);
+                foodList.replace(list);
             }
         }, FoodActivity.this);
 

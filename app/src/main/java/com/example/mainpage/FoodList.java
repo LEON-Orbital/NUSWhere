@@ -1,6 +1,8 @@
 package com.example.mainpage;
 
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,69 +18,26 @@ import java.util.Collections;
 
 public class FoodList {
 
-    private ArrayList<Food> foods = new ArrayList<>();
+    private static ArrayList<Food> foodList = new ArrayList<>();
 
-    FoodList() {
-        this.foods = foods;
-    }
+    FoodList() {}
 
     public void add(Food f) {
-        foods.add(f);
+        foodList.add(f);
     }
 
-    // for all food
-    public ArrayList<Food> getAll() {
-        Collections.sort(foods);
-        return foods;
+    void addAll(ArrayList<Food> foods) {
+        foodList.addAll(foods);
     }
 
-    private ArrayList<Food> getByCategory(Category cat) {
+    ArrayList<Food> getByCategory(FoodCategory cat) {
         ArrayList<Food> newFoodList = new ArrayList<>();
         switch (cat) {
-            case ALL: newFoodList.addAll(foods);
+            case ALL: newFoodList.addAll(foodList);
         }
         Collections.sort(newFoodList);
         return newFoodList;
     }
-
-
-    void readData(final FirebaseCallback fbCallback, final Context context, final Category cat) {
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Food");
-        ValueEventListener vel = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dS : dataSnapshot.getChildren()) {
-                    Food f = dS.getValue(Food.class);
-                    foods.add(f);
-                }
-                ArrayList<Food> foodList = getByCategory(cat);
-                fbCallback.onCallBack(foodList);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
-            }
-        };
-        dbRef.addValueEventListener(vel);
-    }
-
-    enum Category {
-        ALL,
-        BUSINESS,
-        COMPUTING,
-        ENGINEERING,
-        FASS,
-        MEDICINE,
-        SCIENCE,
-        SDE,
-        UTOWN,
-        YSTCM,
-        FOODCOURT,
-        FOODSTALL,
-        RESTAURANT,
-        CAFEBAKERY,
-        LATENIGHT }
 
 
 }

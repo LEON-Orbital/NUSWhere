@@ -29,9 +29,17 @@ public class FoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
 
+        final FoodList foodList = new FoodList();
+        new DatabaseHandler().readData(new FirebaseCallback() {
+            @Override
+            public void onCallBack(ArrayList<Food> list) {
+                foodList.addAll(list);
+            }
+        }, FoodActivity.this);
+
 
         // back button
-        ImageButton back = (ImageButton) findViewById(R.id.foodBackBtn);
+        ImageButton back = findViewById(R.id.foodBackBtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +50,7 @@ public class FoodActivity extends AppCompatActivity {
 
 
         // study button
-        ImageButton studyActivity = (ImageButton) findViewById(R.id.studyBtn);
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
         studyActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +60,7 @@ public class FoodActivity extends AppCompatActivity {
         });
 
         // bus button
-        ImageButton busActivity = (ImageButton) findViewById(R.id.busBtn);
+        ImageButton busActivity = findViewById(R.id.busBtn);
         busActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +70,7 @@ public class FoodActivity extends AppCompatActivity {
         });
 
         // map button
-        ImageButton mapActivity = (ImageButton) findViewById(R.id.mapBtn);
+        ImageButton mapActivity = findViewById(R.id.mapBtn);
         mapActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,31 +79,39 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
-        CardView allCardView = (CardView) findViewById(R.id.allCardView);
+        CardView allCardView = findViewById(R.id.allCardView);
         allCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FoodActivity.this, FoodAllActivity.class));
+                Intent intent = new Intent(FoodActivity.this, FoodAllActivity.class);
+                ArrayList<Food> allFoodList = foodList.getByCategory(FoodCategory.ALL);
+                intent.putExtra("add", allFoodList);
+                startActivity(intent);
             }
         });
 
-        CardView facCardView = (CardView) findViewById(R.id.facultyCardView);
+        CardView facCardView = findViewById(R.id.facultyCardView);
         facCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FoodActivity.this, FacultyFoodActivity.class));
+                Intent intent = new Intent(FoodActivity.this, FacultyFoodActivity.class);
+                ArrayList<Food> allFoodList = foodList.getByCategory(FoodCategory.ALL);
+                intent.putExtra("add", allFoodList);
+                startActivity(intent);
             }
         });
 
-        CardView foodStoreCardView = (CardView) findViewById(R.id.foodStoreCardView);
+        CardView foodStoreCardView = findViewById(R.id.foodStoreCardView);
         foodStoreCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FoodActivity.this, FoodStoreActivity.class));
+                Intent intent = new Intent(FoodActivity.this, FoodStoreActivity.class);
+                ArrayList<Food> allFoodList = foodList.getByCategory(FoodCategory.ALL);
+                intent.putExtra("add", allFoodList);
+                startActivity(intent);
             }
         });
-
-
+        
     }
 
 }

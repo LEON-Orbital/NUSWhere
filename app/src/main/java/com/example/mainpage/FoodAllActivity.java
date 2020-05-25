@@ -2,11 +2,13 @@ package com.example.mainpage;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -15,7 +17,6 @@ import java.util.ArrayList;
 public class FoodAllActivity extends AppCompatActivity {
 
     RecyclerView rcView;
-    FoodList foodList;
     FoodListAdapter adapter;
 
     @Override
@@ -25,17 +26,12 @@ public class FoodAllActivity extends AppCompatActivity {
 
         rcView = findViewById(R.id.allFoodRecView);
         rcView.setHasFixedSize(true);
+        rcView.setNestedScrollingEnabled(false);
         rcView.setLayoutManager(new LinearLayoutManager(this));
 
-        foodList = new FoodList();
-        foodList.readData(new FirebaseCallback() {
-            @Override
-            public void onCallBack(ArrayList<Food> list) {
-                adapter = new FoodListAdapter(FoodAllActivity.this, list);
-                rcView.setAdapter(adapter);
-            }
-        }, FoodAllActivity.this, FoodList.Category.ALL);
-
+        ArrayList<Food> allFoodList = getIntent().getParcelableArrayListExtra("add");
+        adapter = new FoodListAdapter(FoodAllActivity.this, allFoodList);
+        rcView.setAdapter(adapter);
 
         // back button
         ImageButton back = findViewById(R.id.foodBackBtn);

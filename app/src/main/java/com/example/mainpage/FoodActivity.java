@@ -79,6 +79,7 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
+        // all food button
         CardView allCardView = findViewById(R.id.allCardView);
         allCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +91,7 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
+        // sort by faculty button
         CardView facCardView = findViewById(R.id.facultyCardView);
         facCardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +103,7 @@ public class FoodActivity extends AppCompatActivity {
             }
         });
 
+        // food store button
         CardView foodStoreCardView = findViewById(R.id.foodStoreCardView);
         foodStoreCardView.setOnClickListener(new View.OnClickListener() {
             @Override

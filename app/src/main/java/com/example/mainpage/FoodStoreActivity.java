@@ -7,12 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 public class FoodStoreActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_store);
+
+        ArrayList<Food> allFoodList = getIntent().getParcelableArrayListExtra("add");
+
+
 
         // back button
         ImageButton back = findViewById(R.id.foodBackBtn);

@@ -25,9 +25,9 @@ public class FoodAllActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_all);
 
         rcView = findViewById(R.id.allFoodRecView);
+        rcView.setLayoutManager(new LinearLayoutManager(this));
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
-        rcView.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<Food> allFoodList = getIntent().getParcelableArrayListExtra("add");
         adapter = new FoodListAdapter(FoodAllActivity.this, allFoodList);

@@ -25,7 +25,7 @@ public class Food implements Comparable<Food>, Parcelable {
         return name;
     }
 
-    String getLocation() {
+    public String getLocation() {
         return location;
     }
 
@@ -37,19 +37,19 @@ public class Food implements Comparable<Food>, Parcelable {
         return faculty;
     }
 
-    String getTermOperatingHours() {
+    public String getTermOperatingHours() {
         return termOperatingHours;
     }
 
-    String getVacationOperatingHours() {
+    public String getVacationOperatingHours() {
         return vacationOperatingHours;
     }
 
-    String getHalalCertified() {
+    public String getHalalCertified() {
         return halalCertified;
     }
 
-    String getImage() {
+    public String getImage() {
         return image;
     }
 

@@ -14,13 +14,7 @@ public class BusActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus);
 
-        ImageButton back = (ImageButton) findViewById(R.id.busBackBtn);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(startIntent);
-            }
-        });
+        ImageButton back = findViewById(R.id.busBackBtn);
+        back.setOnClickListener(v -> finish());
     }
 }

@@ -7,7 +7,7 @@
     tools:context=".FoodAllActivity">
 
     <TextView
-        android:id="@+id/studySearch"
+        android:id="@+id/foodSearch"
         android:layout_width="0dp"
         android:layout_height="72dp"
         android:background="@drawable/main_top_rect"
@@ -28,7 +28,7 @@
         android:id="@+id/allFoodRecView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="87dp"
         android:layout_marginBottom="82dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -58,7 +58,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="lollipop"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="302dp"
         android:layout_height="82dp"
         android:background="@android:color/transparent"

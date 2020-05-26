@@ -30,90 +30,109 @@ public class FoodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food);
 
         final FoodList foodList = new FoodList();
-        new DatabaseHandler().readData(new FirebaseCallback() {
-            @Override
-            public void onCallBack(ArrayList<Food> list) {
-                foodList.replace(list);
-            }
-        }, FoodActivity.this);
+        new DatabaseHandler().readData(foodList::replace, FoodActivity.this);
 
 
         // back button
         ImageButton back = findViewById(R.id.foodBackBtn);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(startIntent);
-            }
-        });
+        back.setOnClickListener(v -> finish());
 
 
         // study button
         ImageButton studyActivity = findViewById(R.id.studyBtn);
-        studyActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), StudyActivity.class);
-                startActivity(intent);
-            }
+        studyActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), StudyActivity.class);
+            startActivity(intent);
         });
 
         // bus button
         ImageButton busActivity = findViewById(R.id.busBtn);
-        busActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), BusActivity.class);
-                startActivity(intent);
-            }
+        busActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), BusActivity.class);
+            startActivity(intent);
         });
 
         // map button
         ImageButton mapActivity = findViewById(R.id.mapBtn);
-        mapActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                startActivity(intent);
-            }
+        mapActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+            startActivity(intent);
         });
 
         // all food button
         CardView allCardView = findViewById(R.id.allCardView);
-        allCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FoodActivity.this, FoodAllActivity.class);
-                ArrayList<Food> allFoodList = foodList.getByCategory(FoodCategory.ALL);
-                intent.putExtra("add", allFoodList);
-                startActivity(intent);
-            }
+        allCardView.setOnClickListener(v -> {
+            ArrayList<Food> allFoodList = foodList.getAll();
+            Intent intent = new Intent(FoodActivity.this, FoodAllActivity.class);
+            intent.putExtra("add", allFoodList);
+            startActivity(intent);
         });
 
         // sort by faculty button
         CardView facCardView = findViewById(R.id.facultyCardView);
-        facCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FoodActivity.this, FacultyFoodActivity.class);
-                ArrayList<Food> allFoodList = foodList.getByCategory(FoodCategory.ALL);
-                intent.putExtra("add", allFoodList);
-                startActivity(intent);
-            }
+        facCardView.setOnClickListener(v -> {
+            ArrayList<Food> bizFoodList = foodList.getByFaculty("Business");
+            ArrayList<Food> comFoodList = foodList.getByFaculty("Computing");
+            ArrayList<Food> engineFoodList = foodList.getByFaculty("Engineering");
+            ArrayList<Food> fassFoodList = foodList.getByFaculty("FASS");
+            ArrayList<Food> medFoodList = foodList.getByFaculty("Medicine");
+            ArrayList<Food> sciFoodList = foodList.getByFaculty("Science");
+            ArrayList<Food> sdeFoodList = foodList.getByFaculty("SDE");
+            ArrayList<Food> utownFoodList = foodList.getByFaculty("UTown");
+            ArrayList<Food> ystFoodList = foodList.getByFaculty("YSTCM");
+
+            Intent intent = new Intent(FoodActivity.this, FacultyFoodActivity.class);
+            intent.putExtra("addBiz", bizFoodList);
+            intent.putExtra("addCom", comFoodList);
+            intent.putExtra("addEngine", engineFoodList);
+            intent.putExtra("addFASS", fassFoodList);
+            intent.putExtra("addMed", medFoodList);
+            intent.putExtra("addSci", sciFoodList);
+            intent.putExtra("addSDE", sdeFoodList);
+            intent.putExtra("addUTown", utownFoodList);
+            intent.putExtra("addYST", ystFoodList);
+            startActivity(intent);
+        });
+
+        // food court button
+        CardView foodCourtCardView = findViewById(R.id.foodCourtCardView);
+        foodCourtCardView.setOnClickListener(v -> {
+            ArrayList<Food> foodCourtList = foodList.getByType("Foodcourt");
+            Intent intent = new Intent(FoodActivity.this, FoodCourtActivity.class);
+            intent.putExtra("add", foodCourtList);
+            startActivity(intent);
         });
 
         // food store button
         CardView foodStoreCardView = findViewById(R.id.foodStoreCardView);
-        foodStoreCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FoodActivity.this, FoodStoreActivity.class);
-                ArrayList<Food> allFoodList = foodList.getByCategory(FoodCategory.ALL);
-                intent.putExtra("add", allFoodList);
-                startActivity(intent);
-            }
+        foodStoreCardView.setOnClickListener(v -> {
+            ArrayList<Food> foodStallList = foodList.getByType("Stall");
+            ArrayList<Food> restaurantList = foodList.getByType("Restaurant");
+
+            Intent intent = new Intent(FoodActivity.this, FoodStoreActivity.class);
+            intent.putExtra("addStall", foodStallList);
+            intent.putExtra("addRes", restaurantList);
+            startActivity(intent);
         });
+
+        // cafe button
+        CardView cafeCardView = findViewById(R.id.cafeCardView);
+        cafeCardView.setOnClickListener(v -> {
+            ArrayList<Food> cafeList = foodList.getByType("Cafe");
+            Intent intent = new Intent(FoodActivity.this, FoodCafeBakeryActivity.class);
+            intent.putExtra("add", cafeList);
+            startActivity(intent);
+        });
+
+        // supper button
+        CardView supperCardView = findViewById(R.id.supperCardView);
+        supperCardView.setOnClickListener(v -> {
+            ArrayList<Food> supperList = foodList.getLateNight();
+            Intent intent = new Intent(FoodActivity.this, FoodCafeBakeryActivity.class);
+            intent.putExtra("add", supperList);
+            startActivity(intent);
+        });
+
         
     }
 

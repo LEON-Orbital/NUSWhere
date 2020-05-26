@@ -26,23 +26,39 @@ public class FoodList {
         foodList.add(f);
     }
 
-    void addAll(ArrayList<Food> foods) {
-        foodList.addAll(foods);
-    }
-
     void replace(ArrayList<Food> foods) {
         foodList = foods;
     }
 
-    ArrayList<Food> getByCategory(FoodCategory cat) {  // switch statement for categories
-        ArrayList<Food> newFoodList = new ArrayList<>();
-        switch (cat) {
-            case ALL: newFoodList.addAll(foodList);
+    ArrayList<Food> getAll() { return foodList; }
 
+    ArrayList<Food> getByFaculty(String fac) {
+        ArrayList<Food> newFoodList = new ArrayList<>();
+        for (Food f : foodList) {
+            if (f.getFaculty().equals(fac)) {
+                newFoodList.add(f);
+            }
         }
         Collections.sort(newFoodList);
         return newFoodList;
     }
+
+    ArrayList<Food> getByType(String type) {
+        ArrayList<Food> newFoodList = new ArrayList<>();
+        for (Food f : foodList) {
+            if (f.getType().equals(type)) {
+                newFoodList.add(f);
+            }
+        }
+        Collections.sort(newFoodList);
+        return newFoodList;
+    }
+
+    //to change when settled
+    ArrayList<Food> getLateNight() {
+        return foodList;
+    }
+
 
 
 }

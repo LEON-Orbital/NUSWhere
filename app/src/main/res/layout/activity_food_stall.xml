@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FoodUtownActivity">
+    tools:context=".FoodStallActivity">
 
     <TextView
         android:id="@+id/foodSearch"
@@ -22,14 +22,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="lollipop" />
+        app:layout_constraintTop_toTopOf="parent" tools:targetApi="lollipop" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/utownFoodRecView"
+        android:id="@+id/foodStallRecView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="87dp"
         android:layout_marginBottom="82dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,7 +58,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="lollipop"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="302dp"
         android:layout_height="82dp"
         android:background="@android:color/transparent"

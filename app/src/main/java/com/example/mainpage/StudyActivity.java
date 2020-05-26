@@ -17,62 +17,44 @@ public class StudyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
 
-        ImageButton back = (ImageButton) findViewById(R.id.studyBackBtn);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(startIntent);
-            }
-        });
+        ImageButton back = findViewById(R.id.studyBackBtn);
+        back.setOnClickListener(v -> finish());
 
         //Study area list
-        ListView listView = (ListView) findViewById(R.id.studyAreaListView);
+        ListView listView = findViewById(R.id.studyAreaListView);
         Resources res = getResources();
         String[] studyAreas = res.getStringArray(R.array.studyAreas);
 
         StudyListAdapter studyListAdapter = new StudyListAdapter(this, studyAreas);
         listView.setAdapter(studyListAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 2) {
-                    Intent showBiz = new Intent(getApplicationContext(), BusinessStudyActivity.class);
-                    startActivity(showBiz); //switches screen
-                }
-
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            if (position == 2) {
+                Intent showBiz = new Intent(getApplicationContext(), StudyBusinessActivity.class);
+                startActivity(showBiz); //switches screen
             }
+
         });
 
         // food button
-        ImageButton foodActivity = (ImageButton) findViewById(R.id.foodBtn);
-        foodActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
-                startActivity(intent);
-            }
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
+        foodActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
+            startActivity(intent);
         });
 
         // bus button
-        ImageButton busActivity = (ImageButton) findViewById(R.id.busBtn);
-        busActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), BusActivity.class);
-                startActivity(intent);
-            }
+        ImageButton busActivity = findViewById(R.id.busBtn);
+        busActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), BusActivity.class);
+            startActivity(intent);
         });
 
         // map button
-        ImageButton mapActivity = (ImageButton) findViewById(R.id.mapBtn);
-        mapActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-                startActivity(intent);
-            }
+        ImageButton mapActivity = findViewById(R.id.mapBtn);
+        mapActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+            startActivity(intent);
         });
 
     }

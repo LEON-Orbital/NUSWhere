@@ -14,13 +14,7 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        ImageButton back = (ImageButton) findViewById(R.id.mapBackBtn);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(startIntent);
-            }
-        });
+        ImageButton back = findViewById(R.id.mapBackBtn);
+        back.setOnClickListener(v -> finish());
     }
 }

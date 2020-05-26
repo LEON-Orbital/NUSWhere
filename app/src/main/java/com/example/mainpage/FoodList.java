@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 
 import com.google.firebase.database.DataSnapshot;
@@ -56,9 +55,14 @@ public class FoodList {
 
     //to change when settled
     ArrayList<Food> getLateNight() {
-        return foodList;
+        ArrayList<Food> newFoodList = new ArrayList<>();
+        for (Food f : foodList) {
+            if (f.getSupper().equals("Y")) {
+                newFoodList.add(f);
+            }
+        }
+        Collections.sort(newFoodList);
+        return newFoodList;
     }
-
-
 
 }

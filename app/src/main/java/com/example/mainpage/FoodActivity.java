@@ -78,7 +78,7 @@ public class FoodActivity extends AppCompatActivity {
             ArrayList<Food> medFoodList = foodList.getByFaculty("Medicine");
             ArrayList<Food> sciFoodList = foodList.getByFaculty("Science");
             ArrayList<Food> sdeFoodList = foodList.getByFaculty("SDE");
-            ArrayList<Food> utownFoodList = foodList.getByFaculty("UTown");
+            ArrayList<Food> utownFoodList = foodList.getByFaculty("Utown");
             ArrayList<Food> ystFoodList = foodList.getByFaculty("YSTCM");
 
             Intent intent = new Intent(FoodActivity.this, FacultyFoodActivity.class);
@@ -128,7 +128,7 @@ public class FoodActivity extends AppCompatActivity {
         CardView supperCardView = findViewById(R.id.supperCardView);
         supperCardView.setOnClickListener(v -> {
             ArrayList<Food> supperList = foodList.getLateNight();
-            Intent intent = new Intent(FoodActivity.this, FoodCafeBakeryActivity.class);
+            Intent intent = new Intent(FoodActivity.this, FoodLateNightActivity.class);
             intent.putExtra("add", supperList);
             startActivity(intent);
         });

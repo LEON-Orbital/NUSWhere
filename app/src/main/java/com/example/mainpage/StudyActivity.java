@@ -10,12 +10,16 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class StudyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
+
+        LibraryList libraryList = new LibraryList();
 
         ImageButton back = findViewById(R.id.studyBackBtn);
         back.setOnClickListener(v -> finish());
@@ -28,13 +32,7 @@ public class StudyActivity extends AppCompatActivity {
         StudyListAdapter studyListAdapter = new StudyListAdapter(this, studyAreas);
         listView.setAdapter(studyListAdapter);
 
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            if (position == 2) {
-                Intent showBiz = new Intent(getApplicationContext(), StudyBusinessActivity.class);
-                startActivity(showBiz); //switches screen
-            }
-
-        });
+        ///////////////////////////////////////////////////////////////////
 
         // food button
         ImageButton foodActivity = findViewById(R.id.foodBtn);
@@ -56,6 +54,16 @@ public class StudyActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), MapActivity.class);
             startActivity(intent);
         });
+
+        ///////////////////////////////////////////////////////////////////
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            if (position == 2) {
+                Intent showBiz = new Intent(getApplicationContext(), StudyBusinessActivity.class);
+                startActivity(showBiz); //switches screen
+            }
+        });
+
 
     }
 }

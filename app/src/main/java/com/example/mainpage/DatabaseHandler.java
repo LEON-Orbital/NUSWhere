@@ -16,8 +16,9 @@ import java.util.ArrayList;
 class DatabaseHandler {
 
     private ArrayList<Food> foodList = new ArrayList<>();
+    private ArrayList<Library> libraryList = new ArrayList<>();
 
-    void readData(final FirebaseCallback fbCallback, final Context context) {
+    void readFoodData(final FirebaseCallback fbCallback, final Context context) {
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Food");
         ValueEventListener vel = new ValueEventListener() {
             @Override
@@ -26,7 +27,27 @@ class DatabaseHandler {
                     Food f = dS.getValue(Food.class);
                     foodList.add(f);
                 }
-                fbCallback.onCallBack(foodList);
+                fbCallback.onFoodCallBack(foodList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        };
+        dbRef.addValueEventListener(vel);
+    }
+
+    void readLibraryData(final FirebaseCallback fbCallback, final Context context) {
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Libraries");
+        ValueEventListener vel = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dS : dataSnapshot.getChildren()) {
+                    Library lib = dS.getValue(Library.class);
+                    libraryList.add(lib);
+                }
+                fbCallback.onLibraryCallBack(libraryList);
             }
 
             @Override

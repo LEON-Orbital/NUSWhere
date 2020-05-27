@@ -25,9 +25,10 @@ public class FoodList {
         foodList.add(f);
     }
 
-    void replace(ArrayList<Food> foods) {
-        foodList = foods;
+    void addAll(ArrayList<Food> foods) {
+        foodList.addAll(foods);
     }
+    void replace(ArrayList<Food> foods) {foodList = foods;}
 
     ArrayList<Food> getAll() { return foodList; }
 

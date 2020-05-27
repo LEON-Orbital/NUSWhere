@@ -23,15 +23,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class FoodActivity extends AppCompatActivity {
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
 
-        final FoodList foodList = new FoodList();
-        new DatabaseHandler().readData(foodList::replace, FoodActivity.this);
+        FoodList foodList = new FoodList();
 
+        ///////////////////////////////////////////////////////////////////
 
         // back button
         ImageButton back = findViewById(R.id.foodBackBtn);
@@ -67,6 +68,8 @@ public class FoodActivity extends AppCompatActivity {
             intent.putExtra("add", allFoodList);
             startActivity(intent);
         });
+
+        ///////////////////////////////////////////////////////////////////
 
         // sort by faculty button
         CardView facCardView = findViewById(R.id.facultyCardView);
@@ -108,10 +111,12 @@ public class FoodActivity extends AppCompatActivity {
         foodStoreCardView.setOnClickListener(v -> {
             ArrayList<Food> foodStallList = foodList.getByType("Stall");
             ArrayList<Food> restaurantList = foodList.getByType("Restaurant");
+            ArrayList<Food> martList = foodList.getByType("Mart");
 
             Intent intent = new Intent(FoodActivity.this, FoodStoreActivity.class);
             intent.putExtra("addStall", foodStallList);
             intent.putExtra("addRes", restaurantList);
+            intent.putExtra("addMart", martList);
             startActivity(intent);
         });
 

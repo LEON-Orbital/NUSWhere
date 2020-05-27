@@ -3,5 +3,6 @@ package com.example.mainpage;
 import java.util.ArrayList;
 
 public interface FirebaseCallback {
-    void onCallBack(ArrayList<Food> list);
+    void onFoodCallBack(ArrayList<Food> list);
+    void onLibraryCallBack(ArrayList<Library> list);
 }

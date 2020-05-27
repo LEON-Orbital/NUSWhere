@@ -12,11 +12,11 @@ import androidx.annotation.Nullable;
 
 public class StudyListAdapter extends ArrayAdapter<String> {
 
-    Context context;
-    String[] studyAreas;
-    LayoutInflater inflater;
+    private Context context;
+    private String[] studyAreas;
+    private LayoutInflater inflater;
 
-    public StudyListAdapter(Context c, String[] s) {
+    StudyListAdapter(Context c, String[] s) {
         super(c, R.layout.study_area_row, s);
         this.studyAreas = s;
         this.context = c;
@@ -29,13 +29,13 @@ public class StudyListAdapter extends ArrayAdapter<String> {
 
         TextView studyText;
 
-        if (position == 0 || position == 10) {
+        if (position == 0 || position == 10 || position == 17) {
             convertView = inflater.inflate(R.layout.study_category_row, parent, false);
             convertView.setOnClickListener(null);
-            studyText = (TextView) convertView.findViewById(R.id.studyCategoryText);
+            studyText = convertView.findViewById(R.id.studyCategoryText);
         } else {
             convertView = inflater.inflate(R.layout.study_area_row, parent, false);
-            studyText = (TextView) convertView.findViewById(R.id.studyAreaText);
+            studyText = convertView.findViewById(R.id.studyAreaText);
         }
 
         String area = studyAreas[position];

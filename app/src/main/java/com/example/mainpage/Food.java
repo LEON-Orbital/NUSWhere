@@ -99,14 +99,14 @@ public class Food implements Comparable<Food>, Parcelable {
     // all parcelables must have a creator that implements these two methods
     public static final Parcelable.Creator<Food> CREATOR = new Parcelable.Creator<Food>() {
         @Override
+        public Food createFromParcel(Parcel source) {
+            return new Food(source);
+        }
+        @Override
         public Food[] newArray(int size) {
             return new Food[size];
         }
 
-        @Override
-        public Food createFromParcel(Parcel source) {
-            return new Food(source);
-        }
     };
 
 }

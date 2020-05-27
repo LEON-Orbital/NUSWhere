@@ -24,6 +24,7 @@
 
     <string name="food_stalls">Food Stalls</string>
     <string name="restaurants">Restaurants</string>
+    <string name="marts">Convenience Stores</string>
 
 
     <string name="business1">Business</string>
@@ -50,6 +51,7 @@
     <string name="foodstore">foodstore</string>
     <string name="foodstall">foodstall</string>
     <string name="restaurant1">restaurant</string>
+    <string name="mart1">conveniencestore</string>
     <string name="cafebakery">cafeBakery</string>
     <string name="latenightfood">lateNightFood</string>
 
@@ -94,6 +96,10 @@
         <item>Medical Library</item>
         <item>Music Library</item>
         <item>Science Library</item>
+
+        <item>Others:</item>
+        //position: 17
+        <item>UTown</item>
     </string-array>
 
     <string name="imagefood">imageFood</string>

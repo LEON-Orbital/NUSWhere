@@ -19,8 +19,7 @@ public class FoodStoreActivity extends AppCompatActivity {
 
         ArrayList<Food> foodStallList = getIntent().getParcelableArrayListExtra("addStall");
         ArrayList<Food> restaurantList = getIntent().getParcelableArrayListExtra("addRes");
-
-
+        ArrayList<Food> martList = getIntent().getParcelableArrayListExtra("addMart");
 
         // back button
         ImageButton back = findViewById(R.id.foodBackBtn);
@@ -67,6 +66,14 @@ public class FoodStoreActivity extends AppCompatActivity {
         restaurantCardView.setOnClickListener(v -> {
             Intent intent = new Intent(FoodStoreActivity.this, FoodRestaurantActivity.class);
             intent.putExtra("add", restaurantList);
+            startActivity(intent);
+        });
+
+        // CONVENIENCE STORE button
+        CardView martCardView = findViewById(R.id.martCardView);
+        martCardView.setOnClickListener(v -> {
+            Intent intent = new Intent(FoodStoreActivity.this, FoodConvenienceActivity.class);
+            intent.putExtra("add", martList);
             startActivity(intent);
         });
     }

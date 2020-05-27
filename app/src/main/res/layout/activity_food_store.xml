@@ -39,8 +39,8 @@
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="392dp"
-        android:layout_height="166dp"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,22 +48,21 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/foodStallCardView"
-            android:layout_width="116dp"
-            android:layout_height="116dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5">
 
             <ImageView
                 android:id="@+id/foodStallFoodImg"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="19dp"
+                android:layout_marginTop="17dp"
                 android:background="@drawable/foodstall"
                 android:contentDescription="@string/foodstall" />
 
@@ -72,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="77dp"
+                android:layout_marginTop="65dp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/food_stalls"
                 android:textAlignment="center"
@@ -81,22 +80,25 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/restaurantCardView"
-            android:layout_width="116dp"
-            android:layout_height="116dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
             app:cardBackgroundColor="#FFFFFF"
             app:cardElevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/foodStallCardView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5">
 
             <ImageView
                 android:id="@+id/restaurantFoodImg"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/restaurant"
                 android:contentDescription="@string/restaurant1" />
 
@@ -105,9 +107,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="77dp"
+                android:layout_marginTop="65dp"
                 android:fontFamily="@font/montserrat"
                 android:text="@string/restaurants"
+                android:textAlignment="center"
+                android:textSize="12sp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/martCardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardElevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/restaurantCardView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5">
+
+            <ImageView
+                android:id="@+id/martFoodImg"
+                android:layout_width="59dp"
+                android:layout_height="59dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/conveniencestore"
+                android:contentDescription="@string/mart1" />
+
+            <TextView
+                android:id="@+id/martText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/marts"
                 android:textAlignment="center"
                 android:textSize="12sp" />
         </androidx.cardview.widget.CardView>

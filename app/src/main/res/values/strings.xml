@@ -131,12 +131,5 @@
     <string name="termTime">Term Time Operating Hours: </string>
     <string name="vacationTime">Vacation Time Operating Hours: </string>
 
-    <string name="libraryName">Name: </string>
-    <string name="imagelibrary">imageLibrary</string>
-    <string name="address">Address: </string>
-    <string name="Opening_hours">Opening hours: </string>
-    <string name="nearbus">Nearby bus stops: </string>
-    <string name="pic_1">pic 1</string>
-    <string name="pic_2">pic 2</string>
 
 </resources>

@@ -15,4 +15,16 @@ public class LibraryList {
     void addAll(ArrayList<Library> list) {
         libraryList.addAll(list);
     }
+
+    // FIND THE LIBRARY BASED ON THE LIBRARY NAME
+    ArrayList<Library> getLibrary(String libName) {
+        ArrayList<Library> libraryNeeded = new ArrayList<>();
+        for (Library lib : libraryList) {
+            if (lib.getName().equals(libName)){
+                libraryNeeded.add(lib);
+                break;
+            }
+        }
+        return libraryNeeded;
+    }
 }

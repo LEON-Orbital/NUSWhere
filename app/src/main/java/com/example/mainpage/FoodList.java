@@ -54,7 +54,6 @@ public class FoodList {
         return newFoodList;
     }
 
-    //to change when settled
     ArrayList<Food> getLateNight() {
         ArrayList<Food> newFoodList = new ArrayList<>();
         for (Food f : foodList) {

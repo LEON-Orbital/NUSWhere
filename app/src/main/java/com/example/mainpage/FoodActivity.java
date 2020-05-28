@@ -111,7 +111,7 @@ public class FoodActivity extends AppCompatActivity {
         foodStoreCardView.setOnClickListener(v -> {
             ArrayList<Food> foodStallList = foodList.getByType("Stall");
             ArrayList<Food> restaurantList = foodList.getByType("Restaurant");
-            ArrayList<Food> martList = foodList.getByType("Mart");
+            ArrayList<Food> martList = foodList.getByType("ConvenienceStore");
 
             Intent intent = new Intent(FoodActivity.this, FoodStoreActivity.class);
             intent.putExtra("addStall", foodStallList);

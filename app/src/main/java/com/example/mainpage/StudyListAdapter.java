@@ -29,6 +29,7 @@ public class StudyListAdapter extends ArrayAdapter<String> {
 
         TextView studyText;
 
+        //   faculty          library          others
         if (position == 0 || position == 10 || position == 17) {
             convertView = inflater.inflate(R.layout.study_category_row, parent, false);
             convertView.setOnClickListener(null);

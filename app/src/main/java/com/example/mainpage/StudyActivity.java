@@ -58,10 +58,50 @@ public class StudyActivity extends AppCompatActivity {
         ///////////////////////////////////////////////////////////////////
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
+            //BUSINESS
             if (position == 2) {
                 Intent showBiz = new Intent(getApplicationContext(), StudyBusinessActivity.class);
                 startActivity(showBiz); //switches screen
             }
+/*
+            ///////////// LIBRARIES ////////////////
+            // Central Library
+            if (position == 11) {
+                Intent showCLB = new Intent(getApplicationContext(), StudyCentralLibraryActivity.class);
+                startActivity(showCLB);
+            }
+
+            //Chinese Library
+            if (position == 12) {
+                Intent showCL = new Intent(getApplicationContext(), StudyChineseLibraryActivity.class);
+                startActivity(showCL);
+            }
+
+            //Hon Sui Sen Memorial Library
+            if (position == 13) {
+                Intent showMemL = new Intent(getApplicationContext(), StudyMemorialLibraryActivity.class);
+                startActivity(showMemL);
+            }
+
+            //Medical Library
+            if (position == 14) {
+                Intent showMedL = new Intent(getApplicationContext(), StudyMedicalLibraryActivity.class);
+                startActivity(showMedL);
+            }
+
+            //Music Library
+            if (position == 15) {
+                Intent showMusB = new Intent(getApplicationContext(), StudyMusicLibraryActivity.class);
+                startActivity(showMusB);
+            }
+
+            //Science Library
+            if (position == 16) {
+                Intent showSL = new Intent(getApplicationContext(), StudyScienceLibraryActivity.class);
+                startActivity(showSL);
+            }
+
+*/
         });
 
 

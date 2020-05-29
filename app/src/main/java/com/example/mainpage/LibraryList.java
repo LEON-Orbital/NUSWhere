@@ -17,14 +17,12 @@ public class LibraryList {
     }
 
     // FIND THE LIBRARY BASED ON THE LIBRARY NAME
-    ArrayList<Library> getLibrary(String libName) {
-        ArrayList<Library> libraryNeeded = new ArrayList<>();
+    Library getLibrary(String libName) {
         for (Library lib : libraryList) {
             if (lib.getName().equals(libName)){
-                libraryNeeded.add(lib);
-                break;
+                return lib;
             }
         }
-        return libraryNeeded;
+        return null;
     }
 }

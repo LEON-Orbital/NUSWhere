@@ -63,14 +63,15 @@ public class StudyActivity extends AppCompatActivity {
                 Intent showBiz = new Intent(getApplicationContext(), StudyBusinessActivity.class);
                 startActivity(showBiz); //switches screen
             }
-/*
+
             ///////////// LIBRARIES ////////////////
-            // Central Library
+            //Central Library
             if (position == 11) {
                 Intent showCLB = new Intent(getApplicationContext(), StudyCentralLibraryActivity.class);
+                showCLB.putExtra("add", libraryList.getLibrary("Central Library"));
                 startActivity(showCLB);
             }
-
+/*
             //Chinese Library
             if (position == 12) {
                 Intent showCL = new Intent(getApplicationContext(), StudyChineseLibraryActivity.class);

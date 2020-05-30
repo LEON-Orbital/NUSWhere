@@ -16,9 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<Food> foods = new ArrayList<>();
-        ArrayList<Library> libraries = new ArrayList<>();
-
         // initialises classes with static variables
         FoodList foodList = new FoodList();
         LibraryList libraryList = new LibraryList();
@@ -27,13 +24,11 @@ public class MainActivity extends AppCompatActivity {
         new DatabaseHandler().readFoodData(new FirebaseCallback() {
             @Override
             public void onFoodCallBack(ArrayList<Food> list) {
-                foods.addAll(list);
                 foodList.addAll(list);
             }
 
             @Override
             public void onLibraryCallBack(ArrayList<Library> list) {
-                libraries.addAll(list);
                 libraryList.addAll(list);
             }
         }, MainActivity.this);
@@ -44,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
-                intent.putExtra("add", foods);
                 startActivity(intent);
             }
         });
@@ -55,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), StudyActivity.class);
-                intent.putExtra("add", libraries);
                 startActivity(intent);
             }
         });

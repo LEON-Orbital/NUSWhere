@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
-public class FoodStallActivity extends AppCompatActivity {
+public class FoodStallActivity extends AppCompatActivity implements View.OnClickListener {
 
     RecyclerView rcView;
     FoodListAdapter adapter;
@@ -30,36 +30,37 @@ public class FoodStallActivity extends AppCompatActivity {
         adapter = new FoodListAdapter(FoodStallActivity.this, foodCourtList);
         rcView.setAdapter(adapter);
 
-        // back button
-        ImageButton back = findViewById(R.id.foodBackBtn);
-        back.setOnClickListener(v -> finish());
-
-        // food button
+        ImageButton backActivity = findViewById(R.id.foodBackBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
-        foodActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
-            startActivity(intent);
-        });
-
-        // study button
         ImageButton studyActivity = findViewById(R.id.studyBtn);
-        studyActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), StudyActivity.class);
-            startActivity(intent);
-        });
-
-        // bus button
         ImageButton busActivity = findViewById(R.id.busBtn);
-        busActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), BusActivity.class);
-            startActivity(intent);
-        });
-
-        // map button
         ImageButton mapActivity = findViewById(R.id.mapBtn);
-        mapActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-            startActivity(intent);
-        });
+
+        backActivity.setOnClickListener(this);
+        foodActivity.setOnClickListener(this);
+        studyActivity.setOnClickListener(this);
+        busActivity.setOnClickListener(this);
+        mapActivity.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.foodBackBtn:
+                finish();
+                break;
+            case R.id.foodBtn:
+                startActivity(new Intent(getApplicationContext(), FoodActivity.class));
+                break;
+            case R.id.studyBtn:
+                startActivity(new Intent(getApplicationContext(), StudyActivity.class));
+                break;
+            case R.id.busBtn:
+                startActivity(new Intent(getApplicationContext(), BusActivity.class));
+                break;
+            case R.id.mapBtn:
+                startActivity(new Intent(getApplicationContext(), MapActivity.class));
+                break;
+        }
     }
 }

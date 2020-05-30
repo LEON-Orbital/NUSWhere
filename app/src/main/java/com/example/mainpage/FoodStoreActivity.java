@@ -10,72 +10,68 @@ import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
-public class FoodStoreActivity extends AppCompatActivity {
+public class FoodStoreActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_store);
 
-        ArrayList<Food> foodStallList = getIntent().getParcelableArrayListExtra("addStall");
-        ArrayList<Food> restaurantList = getIntent().getParcelableArrayListExtra("addRes");
-        ArrayList<Food> martList = getIntent().getParcelableArrayListExtra("addMart");
-
-        // back button
-        ImageButton back = findViewById(R.id.foodBackBtn);
-        back.setOnClickListener(v -> finish());
-
-        // food button
+        ImageButton backActivity = findViewById(R.id.foodBackBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
-        foodActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
-            startActivity(intent);
-        });
-
-        // study button
         ImageButton studyActivity = findViewById(R.id.studyBtn);
-        studyActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), StudyActivity.class);
-            startActivity(intent);
-        });
-
-        // bus button
         ImageButton busActivity = findViewById(R.id.busBtn);
-        busActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), BusActivity.class);
-            startActivity(intent);
-        });
-
-        // map button
         ImageButton mapActivity = findViewById(R.id.mapBtn);
-        mapActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-            startActivity(intent);
-        });
 
-        // FOOD STALL button
         CardView foodStallCardView = findViewById(R.id.foodStallCardView);
-        foodStallCardView.setOnClickListener(v -> {
-            Intent intent = new Intent(FoodStoreActivity.this, FoodStallActivity.class);
-            intent.putExtra("add", foodStallList);
-            startActivity(intent);
-        });
-
-        // RESTAURANT button
         CardView restaurantCardView = findViewById(R.id.restaurantCardView);
-        restaurantCardView.setOnClickListener(v -> {
-            Intent intent = new Intent(FoodStoreActivity.this, FoodRestaurantActivity.class);
-            intent.putExtra("add", restaurantList);
-            startActivity(intent);
-        });
-
-        // CONVENIENCE STORE button
         CardView martCardView = findViewById(R.id.martCardView);
-        martCardView.setOnClickListener(v -> {
-            Intent intent = new Intent(FoodStoreActivity.this, FoodConvenienceActivity.class);
-            intent.putExtra("add", martList);
-            startActivity(intent);
-        });
+
+
+        backActivity.setOnClickListener(this);
+        foodActivity.setOnClickListener(this);
+        studyActivity.setOnClickListener(this);
+        busActivity.setOnClickListener(this);
+        mapActivity.setOnClickListener(this);
+
+        foodStallCardView.setOnClickListener(this);
+        restaurantCardView.setOnClickListener(this);
+        martCardView.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            ////////////// Navigation bar //////////////
+            case R.id.foodBackBtn:
+                finish();
+                break;
+            case R.id.foodBtn:
+                startActivity(new Intent(getApplicationContext(), FoodActivity.class));
+                break;
+            case R.id.studyBtn:
+                startActivity(new Intent(getApplicationContext(), StudyActivity.class));
+                break;
+            case R.id.busBtn:
+                startActivity(new Intent(getApplicationContext(), BusActivity.class));
+                break;
+            case R.id.mapBtn:
+                startActivity(new Intent(getApplicationContext(), MapActivity.class));
+                break;
+
+            ////////////// Food cases //////////////
+            case R.id.foodStallCardView:
+                ArrayList<Food> foodStallList = getIntent().getParcelableArrayListExtra("addStall");
+                startActivity(new Intent(FoodStoreActivity.this, FoodStallActivity.class).putExtra("add", foodStallList));
+                break;
+            case R.id.restaurantCardView:
+                ArrayList<Food> restaurantList = getIntent().getParcelableArrayListExtra("addRes");
+                startActivity(new Intent(FoodStoreActivity.this, FoodRestaurantActivity.class).putExtra("add", restaurantList));
+                break;
+            case R.id.martCardView:
+                ArrayList<Food> martList = getIntent().getParcelableArrayListExtra("addMart");
+                startActivity(new Intent(FoodStoreActivity.this, FoodConvenienceActivity.class).putExtra("add", martList));
+                break;
+        }
+    }
 }

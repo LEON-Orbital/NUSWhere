@@ -2,94 +2,230 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="195dp"
+    android:layout_height="220dp"
+    android:layout_marginStart="17dp"
+    android:layout_marginLeft="17dp"
+    android:layout_marginTop="17dp"
+    android:layout_marginEnd="17dp"
+    android:layout_marginRight="17dp"
+    android:layout_marginBottom="5dp"
     android:weightSum="2"
     android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/foodRowCardView"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:weightSum="2"
-        android:orientation="horizontal">
+        android:layout_height="match_parent" >
 
-        <ImageView
-            android:id="@+id/foodImageView"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:contentDescription="@string/imagefood"
-            android:scaleType="centerCrop"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="180dp">
+            <ImageView
+                android:id="@+id/foodImageView"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:contentDescription="@string/imagefood"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/foodTitleId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/montserrat"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="@string/titlefood"
-                android:textColor="#000000"
-                android:textSize="15sp" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/showLessFoodCard"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#F2EFEA"
+                app:layout_constraintBottom_toBottomOf="@+id/foodImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/foodLocationId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingBottom="1dp"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/location"
-                android:textSize="12sp" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F2EFEA">
 
-            <TextView
-                android:id="@+id/foodHalalId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:paddingBottom="1dp"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/halal"
-                android:textSize="12sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/foodOperatingHoursId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/montserrat"
-                android:text="@string/operatingHours"
-                android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/foodTitleId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="17dp"
+                            android:layout_marginRight="17dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="@string/titlefood"
+                            android:textAllCaps="true"
+                            android:textColor="#000000"
+                            android:textSize="14sp" />
 
-        </LinearLayout>
+                        <TextView
+                            android:id="@+id/foodLocationId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginEnd="17dp"
+                            android:layout_marginRight="17dp"
+                            android:fontFamily="@font/lato_light"
+                            android:text="@string/location"
+                            android:textColor="#000000"
+                            android:textSize="13sp" />
 
-    </LinearLayout>
+                    </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:background="@drawable/grey_divider"/>
+                    <ImageView
+                        android:id="@+id/foodStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="17dp"
+                        android:layout_marginRight="17dp"
+                        android:background="@drawable/star"
+                        android:contentDescription="@string/noStar"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/showMoreFoodCard"
+                android:layout_width="match_parent"
+                android:layout_height="154dp"
+                android:background="#F2EFEA"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/foodImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F2EFEA">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/food2TitleId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginEnd="17dp"
+                            android:layout_marginRight="17dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:paddingBottom="4dp"
+                            android:text="@string/titlefood"
+                            android:textAllCaps="true"
+                            android:textColor="#000000"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/food2LocationId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginEnd="17dp"
+                            android:layout_marginRight="17dp"
+                            android:fontFamily="@font/lato_light"
+                            android:paddingBottom="8dp"
+                            android:text="@string/location"
+                            android:textColor="#000000"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/foodHalalId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginLeft="17dp"
+                            android:layout_marginEnd="17dp"
+                            android:layout_marginRight="17dp"
+                            android:fontFamily="@font/lato_light"
+                            android:paddingBottom="8dp"
+                            android:text="@string/halal"
+                            android:textColor="#000000"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/foodOperatingHoursId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="17dp"
+                                android:layout_marginLeft="17dp"
+                                android:layout_marginEnd="17dp"
+                                android:layout_marginRight="17dp"
+                                android:fontFamily="@font/lato_light"
+                                android:text="@string/operatingHours"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/food2OperatingHoursId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="17dp"
+                                android:layout_marginLeft="17dp"
+                                android:layout_marginEnd="17dp"
+                                android:layout_marginRight="17dp"
+                                android:fontFamily="@font/lato_light"
+                                android:text="@string/operatingHours"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/foodStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="17dp"
+                        android:layout_marginRight="17dp"
+                        android:background="@drawable/star"
+                        android:contentDescription="@string/noStar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>

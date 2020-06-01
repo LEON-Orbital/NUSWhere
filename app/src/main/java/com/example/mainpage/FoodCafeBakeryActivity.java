@@ -30,6 +30,22 @@ public class FoodCafeBakeryActivity extends AppCompatActivity implements View.On
         adapter = new FoodListAdapter(FoodCafeBakeryActivity.this, cafeList);
         rcView.setAdapter(adapter);
 
+        adapter.collapse();
+        adapter.notifyDataSetChanged();
+        adapter.setOnItemClickListener(new FoodListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                if (!adapter.isExpanded()) {
+                    adapter.expand(position);
+                    adapter.notifyItemChanged(position);
+                } else {
+                    int oldPos = adapter.getExpandedPosition();
+                    adapter.collapse();
+                    adapter.notifyItemChanged(oldPos);
+                }
+            }
+        });
+
         ImageButton backActivity = findViewById(R.id.foodBackBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);

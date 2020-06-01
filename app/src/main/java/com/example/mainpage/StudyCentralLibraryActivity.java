@@ -39,7 +39,6 @@ public class StudyCentralLibraryActivity extends AppCompatActivity {
         GridView libraryMorePhotosGrid = findViewById(R.id.libraryMorePhotosGrid);
         LibraryPhotosAdapter adapter = new LibraryPhotosAdapter(StudyCentralLibraryActivity.this, clb.getImages());
         libraryMorePhotosGrid.setAdapter(adapter);
-        libraryMorePhotosGrid.hea
 
     }
 }

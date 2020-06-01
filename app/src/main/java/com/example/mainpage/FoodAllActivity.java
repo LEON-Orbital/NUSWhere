@@ -2,6 +2,7 @@ package com.example.mainpage;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -32,6 +35,22 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
         ArrayList<Food> allFoodList = getIntent().getParcelableArrayListExtra("add");
         adapter = new FoodListAdapter(FoodAllActivity.this, allFoodList);
         rcView.setAdapter(adapter);
+
+        adapter.collapse();
+        adapter.notifyDataSetChanged();
+        adapter.setOnItemClickListener(new FoodListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                if (!adapter.isExpanded()) {
+                    adapter.expand(position);
+                    adapter.notifyItemChanged(position);
+                } else {
+                    int oldPos = adapter.getExpandedPosition();
+                    adapter.collapse();
+                    adapter.notifyItemChanged(oldPos);
+                }
+            }
+        });
 
         ImageButton backActivity = findViewById(R.id.foodBackBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
@@ -65,5 +84,6 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(getApplicationContext(), MapActivity.class));
                 break;
         }
+
     }
 }

@@ -28,9 +28,11 @@ public class FoodList {
     void addAll(ArrayList<Food> foods) {
         foodList.addAll(foods);
     }
-    void replace(ArrayList<Food> foods) {foodList = foods;}
 
-    ArrayList<Food> getAll() { return foodList; }
+    ArrayList<Food> getAll() {
+        Collections.sort(foodList);
+        return foodList;
+    }
 
     ArrayList<Food> getByFaculty(String fac) {
         ArrayList<Food> newFoodList = new ArrayList<>();

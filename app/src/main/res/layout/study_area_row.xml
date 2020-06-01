@@ -9,14 +9,14 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/studyAreaCard"
         android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_height="70dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="7dp"
         android:layout_marginEnd="18dp"
+        android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
+        app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,13 +26,14 @@
         <TextView
             android:id="@+id/studyAreaText"
             android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:fontFamily="@font/montserrat"
-            android:gravity="center_vertical"
+            android:layout_height="70dp"
+            android:gravity="center"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:text="@string/place"
-            android:textSize="15sp" />
+            android:textSize="16sp"
+            android:textColor="#404040"
+            android:fontFamily="@font/montserrat_semibold"/>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

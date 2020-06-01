@@ -75,54 +75,6 @@
     <string name="start_location">Start Location</string>
     <string name="destination">Destination</string>
 
-    <string-array name="studyAreas">
-        <item>By Faculty:</item>
-        //position: 0
-
-        <item>Arts and Social Sciences</item>
-        // position: 1
-
-
-        <item>Business</item>
-        // position: 2
-        <item>Computing</item>
-        // position: 3
-        <item>Dentistry</item>
-        // position: 4
-        <item>Design and Environment</item>
-        // position: 5
-        <item>Engineering</item>
-        // position: 6
-        <item>Medicine</item>
-        // position: 7
-        <item>Music</item>
-        // position: 8
-        <item>Science</item>
-        // position: 9
-
-        <item>Libraries:</item>
-        //position: 10
-
-        <item>Central Library</item>
-        // position: 11
-        <item>Chinese Library</item>
-        // position: 12
-        <item>Hon Sui Sen Memorial Library</item>
-        // position: 13
-        <item>Medical Library</item>
-        // position: 14
-        <item>Music Library</item>
-        // position: 15
-        <item>Science Library</item>
-        // position: 16
-
-        <item>Others:</item>
-        //position: 17
-
-        <item>UTown</item>
-        // position: 18
-    </string-array>
-
     <string name="imagefood">imageFood</string>
     <string name="titlefood">Title: </string>
     <string name="location">Location: </string>
@@ -130,6 +82,70 @@
     <string name="operatingHours">Term Time &amp; Vacation Operating Hours: </string>
     <string name="termTime">Term Time Operating Hours: </string>
     <string name="vacationTime">Vacation Time Operating Hours: </string>
+
+
+    <string-array name="studyAreas">
+        <item>BY FACULTY:</item>
+        //position: 0
+
+        <item>ARTS AND SOCIAL SCIENCES</item>
+        // position: 1
+
+        <item>BUSINESS</item>
+        // position: 2
+        <item>COMPUTING</item>
+        // position: 3
+        <item>DENTISTRY</item>
+        // position: 4
+        <item>DESIGN AND ENVIRONMENT</item>
+        // position: 5
+        <item>ENGINEERING</item>
+        // position: 6
+        <item>MEDICINE</item>
+        // position: 7
+        <item>MUSIC</item>
+        // position: 8
+        <item>SCIENCE</item>
+        // position: 9
+
+        <item>LIBRARIES:</item>
+        //position: 10
+
+        <item>CENTRAL LIBRARY</item>
+        // position: 11
+        <item>CHINESE LIBRARY</item>
+        // position: 12
+        <item>HON SUI SEN MEMORIAL LIBRARY</item>
+        // position: 13
+        <item>MEDICAL LIBRARY</item>
+        // position: 14
+        <item>MUSIC LIBRARY</item>
+        // position: 15
+        <item>SCIENCE LIBRARY</item>
+        // position: 16
+        <item>YALE-NUS LIBRARY</item>
+        // position: 17
+
+        <item>OTHERS:</item>
+        //position: 18
+
+        <item>UTOWN:</item>
+        // position: 19
+    </string-array>
+
+    <string name="clb1">CENTRAL LIBRARY</string>
+    <string name="chilib1">CHINESE LIBRARY</string>
+    <string name="bizlib1">HON SUI SEN MEMORIAL LIBRARY</string>
+    <string name="medlib1">MEDICAL LIBRARY</string>
+    <string name="musiclib1">MUSIC LIBRARY</string>
+    <string name="scilib">SCIENCE LIBRARY</string>
+    <string name="yalelib">YALE-NUS LIBRARY</string>
+    
+    <string name="address1">Address: </string>
+    <string name="busstop1">Nearby Bus Stops: </string>
+    <string name="opHours1">Opening Hours: </string>
+    <string name="more1">More Photos: </string>
+    <string name="placeholder1">PlaceHolder</string>
 
 
 </resources>

@@ -13,6 +13,8 @@
     <string name="studyBtn">studyBtn</string>
     <string name="busBtn">busBtn</string>
     <string name="mapBtn">mapBtn</string>
+    <string name="noStar">blankStar</string>
+    <string name="yesStar">filledStar</string>
 
 
     <string name="by_location">By Location</string>

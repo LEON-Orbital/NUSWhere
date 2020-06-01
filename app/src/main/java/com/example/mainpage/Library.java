@@ -7,24 +7,26 @@ import java.util.ArrayList;
 
 public class Library implements Parcelable {
 
-    private String address = "";
-    private ArrayList<String> images = new ArrayList<>();
-    private String name = "";
-    private String nearbyBusStops = "";
-    private String opHoursMonFri = "";
-    private String opHoursSat = "";
-    private String opHoursSunPH = "";
-    private String vacationOpHours = "";
+    private String address;
+    private ArrayList<String> images;
+    private String mainimage;
+    private String name;
+    private String nearbyBusStops;
+    private String opHoursSat;
+    private String opHoursSemMonFri;
+    private String opHoursSunPH;
+    private String opHoursVacayMonFri;
 
-    public Library(String address, ArrayList<String> images, String name, String nearbyBusStops, String opHoursMonFri, String opHoursSat, String opHoursSunPH, String vacationOpHours) {
+    public Library(String address, ArrayList<String> images, String mainimage, String name, String nearbyBusStops, String opHoursSat, String opHoursSemMonFri, String opHoursSunPH, String opHoursVacayMonFri) {
         this.address = address;
         this.images = images;
+        this.mainimage = mainimage;
         this.name = name;
         this.nearbyBusStops = nearbyBusStops;
-        this.opHoursMonFri = opHoursMonFri;
         this.opHoursSat = opHoursSat;
+        this.opHoursSemMonFri = opHoursSemMonFri;
         this.opHoursSunPH = opHoursSunPH;
-        this.vacationOpHours = vacationOpHours;
+        this.opHoursVacayMonFri = opHoursVacayMonFri;
     }
 
     /////////////GETTERS
@@ -34,6 +36,10 @@ public class Library implements Parcelable {
 
     public ArrayList<String> getImages() { return images; }
 
+    public String getMainimage() {
+        return mainimage;
+    }
+
     public String getName() {
         return name;
     }
@@ -42,10 +48,9 @@ public class Library implements Parcelable {
         return nearbyBusStops;
     }
 
-    public String getOpHoursMonFri() {
-        return opHoursMonFri;
+    public String getOpHoursSemMonFri() {
+        return opHoursSemMonFri;
     }
-
     public String getOpHoursSat() {
         return opHoursSat;
     }
@@ -54,8 +59,16 @@ public class Library implements Parcelable {
         return opHoursSunPH;
     }
 
-    public String getVacationOpHours() {
-        return vacationOpHours;
+    public String getOpHoursVacayMonFri() {
+        return opHoursVacayMonFri;
+    }
+
+
+    public String getOpHours() {
+        return "Mon-Fri: Semester: " + this.opHoursSemMonFri + "\n"
+                + "Vacation: " + this.opHoursVacayMonFri + "\n"
+                + "Sat: " + this.opHoursSat + "\n"
+                +"Sun/PH: " + this.opHoursSunPH;
     }
 
     ////////////////SETTERS
@@ -67,6 +80,10 @@ public class Library implements Parcelable {
         images.add(url);
     }
 
+    public void setMainimage(String mainimage) {
+        this.mainimage = mainimage;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -75,33 +92,35 @@ public class Library implements Parcelable {
         this.nearbyBusStops = nearbyBusStops;
     }
 
-    public void setOpHoursMonFri(String opHoursMonFri) {
-        this.opHoursMonFri = opHoursMonFri;
-    }
-
     public void setOpHoursSat(String opHoursSat) {
         this.opHoursSat = opHoursSat;
+    }
+
+    public void setOpHoursSemMonFri(String opHoursSemMonFri) {
+        this.opHoursSemMonFri = opHoursSemMonFri;
     }
 
     public void setOpHoursSunPH(String opHoursSunPH) {
         this.opHoursSunPH = opHoursSunPH;
     }
 
-    public void setVacationOpHours(String vacationOpHours) {
-        this.vacationOpHours = vacationOpHours;
+    public void setOpHoursVacayMonFri(String opHoursVacayMonFri) {
+        this.opHoursVacayMonFri = opHoursVacayMonFri;
     }
+
 
 
     //////////////////PARCEL STUFF
     Library(Parcel source) {
         this.address = source.readString();
         this.images = source.createStringArrayList();
+        this.mainimage = source.readString();
         this.name = source.readString();
         this.nearbyBusStops = source.readString();
-        this.opHoursMonFri = source.readString();
         this.opHoursSat = source.readString();
+        this.opHoursSemMonFri = source.readString();
         this.opHoursSunPH = source.readString();
-        this.vacationOpHours = source.readString();
+        this.opHoursVacayMonFri = source.readString();
     }
 
     @Override
@@ -113,12 +132,13 @@ public class Library implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(address);
         dest.writeStringList(images);
+        dest.writeString(mainimage);
         dest.writeString(name);
         dest.writeString(nearbyBusStops);
-        dest.writeString(opHoursMonFri);
         dest.writeString(opHoursSat);
+        dest.writeString(opHoursSemMonFri);
         dest.writeString(opHoursSunPH);
-        dest.writeString(vacationOpHours);
+        dest.writeString(opHoursVacayMonFri);
     }
 
     public static final Creator<Library> CREATOR = new Creator<Library>() {

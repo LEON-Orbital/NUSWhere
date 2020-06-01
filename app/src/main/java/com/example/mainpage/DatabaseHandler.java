@@ -53,14 +53,15 @@ class DatabaseHandler {
                     for (DataSnapshot dSimages : dS.child("images").getChildren()) {
                         images.add( (String) dSimages.getValue());
                     }
+                    String mainimage = (String) dS.child("mainimage").getValue();
                     String name = (String) dS.child("name").getValue();
                     String nearbyBusStops = (String) dS.child("nearbyBusStops").getValue();
-                    String opHoursMonFri = (String) dS.child("opHoursMonFri").getValue();
                     String opHoursSat = (String) dS.child("opHoursSat").getValue();
+                    String opHoursSemMonFri = (String) dS.child("opHoursSemMonFri").getValue();
                     String opHoursSunPH = (String) dS.child("opHoursSunPH").getValue();
-                    String vacationOpHours = (String) dS.child("vacationOpHours").getValue();
+                    String opHoursVacayMonFri = (String) dS.child("opHoursVacayMonFri").getValue();
 
-                    Library newLib = new Library(address, images, name, nearbyBusStops, opHoursMonFri, opHoursSat, opHoursSunPH, vacationOpHours);
+                    Library newLib = new Library(address, images, mainimage, name, nearbyBusStops, opHoursSat, opHoursSemMonFri, opHoursSunPH, opHoursVacayMonFri);
 
                     libraryList.add(newLib);
                 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="@drawable/main_bottom_rect"
+        android:elevation="23dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="82dp"
+        android:elevation="23dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/foodBtn"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/foodBtn"
+            app:srcCompat="@drawable/food_button" />
+
+        <ImageButton
+            android:id="@+id/studyBtn"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/foodBtn"
+            app:srcCompat="@drawable/study_button" />
+
+        <ImageButton
+            android:id="@+id/busBtn"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/foodBtn"
+            app:srcCompat="@drawable/bus_button" />
+
+        <ImageButton
+            android:id="@+id/mapBtn"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/foodBtn"
+            app:srcCompat="@drawable/map_button" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

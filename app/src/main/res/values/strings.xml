@@ -148,6 +148,8 @@
     <string name="opHours1">Opening Hours: </string>
     <string name="more1">More Photos: </string>
     <string name="placeholder1">PlaceHolder</string>
+    <string name="busMap">TODO</string>
+    <string name="gMap">TODO</string>
 
 
 </resources>

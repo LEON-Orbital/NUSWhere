@@ -142,7 +142,7 @@
     <string name="musiclib1">MUSIC LIBRARY</string>
     <string name="scilib">SCIENCE LIBRARY</string>
     <string name="yalelib">YALE-NUS LIBRARY</string>
-    
+
     <string name="address1">Address: </string>
     <string name="busstop1">Nearby Bus Stops: </string>
     <string name="opHours1">Opening Hours: </string>
@@ -150,6 +150,7 @@
     <string name="placeholder1">PlaceHolder</string>
     <string name="busMap">TODO</string>
     <string name="gMap">TODO</string>
+    <string name="title_activity_google_maps">Map</string>
 
 
 </resources>

@@ -49,12 +49,12 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.busBtn:
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
                 break;
-/*
+
             //// MAP BUTTONS ////
             case R.id.gMapsButton:
                 startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;
-*/
+
         }
     }
 }

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 
@@ -30,19 +31,32 @@ public class FoodCafeBakeryActivity extends AppCompatActivity implements View.On
         adapter = new FoodListAdapter(FoodCafeBakeryActivity.this, cafeList);
         rcView.setAdapter(adapter);
 
+        // Pop up information
         adapter.collapse();
         adapter.notifyDataSetChanged();
-        adapter.setOnItemClickListener(new FoodListAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(position -> {
+            if (!adapter.isExpanded()) {
+                adapter.expand(position);
+                adapter.notifyItemChanged(position);
+            } else {
+                int oldPos = adapter.getExpandedPosition();
+                adapter.collapse();
+                adapter.notifyItemChanged(oldPos);
+            }
+        });
+
+        // Food search
+        SearchView foodSearch = findViewById(R.id.foodSearchView);
+        foodSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onItemClick(int position) {
-                if (!adapter.isExpanded()) {
-                    adapter.expand(position);
-                    adapter.notifyItemChanged(position);
-                } else {
-                    int oldPos = adapter.getExpandedPosition();
-                    adapter.collapse();
-                    adapter.notifyItemChanged(oldPos);
-                }
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
             }
         });
 

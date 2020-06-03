@@ -2,6 +2,7 @@ package com.example.mainpage;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.transition.AutoTransition;
-import android.transition.TransitionManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 
@@ -36,19 +37,32 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
         adapter = new FoodListAdapter(FoodAllActivity.this, allFoodList);
         rcView.setAdapter(adapter);
 
+        // Pop up information
         adapter.collapse();
         adapter.notifyDataSetChanged();
-        adapter.setOnItemClickListener(new FoodListAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(position -> {
+            if (!adapter.isExpanded()) {
+                adapter.expand(position);
+                adapter.notifyItemChanged(position);
+            } else {
+                int oldPos = adapter.getExpandedPosition();
+                adapter.collapse();
+                adapter.notifyItemChanged(oldPos);
+            }
+        });
+
+        // Food search
+        SearchView foodSearch = findViewById(R.id.foodSearchView);
+        foodSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onItemClick(int position) {
-                if (!adapter.isExpanded()) {
-                    adapter.expand(position);
-                    adapter.notifyItemChanged(position);
-                } else {
-                    int oldPos = adapter.getExpandedPosition();
-                    adapter.collapse();
-                    adapter.notifyItemChanged(oldPos);
-                }
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
             }
         });
 
@@ -86,4 +100,29 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
+/*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.food_menu, menu);
+
+        //MenuItem menuItem = menu.findItem(R.id.foodSearchView);
+        SearchView searchView = (SearchView) findViewById(R.id.foodSearchView);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+ */
 }

@@ -6,29 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".FoodYSTCMActivity">
 
-    <TextView
-        android:id="@+id/foodSearch"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:background="@drawable/main_top_rect"
-        android:elevation="23dp"
-        android:fontFamily="@font/playfair_display"
-        android:gravity="center"
-        android:paddingTop="17dp"
-        android:paddingBottom="17dp"
-        android:text="@string/search_bar2"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="lollipop" />
+    <include layout="@layout/search_bar_layout"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ystcmFoodRecView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="72dp"
         android:layout_marginBottom="82dp"
         app:layout_constraintBottom_toBottomOf="parent"

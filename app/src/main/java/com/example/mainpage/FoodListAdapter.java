@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,16 +17,24 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
-public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodViewHolder> {
+public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodViewHolder> implements Filterable {
 
     private Context context;
-    private ArrayList<Food> foods;
+    private ArrayList<Food> foodList;
+    private ArrayList<Food> foodListFull;
     private OnItemClickListener mListener;
     private boolean expanded = false;
     private int expandedPosition = -1;
+
+    FoodListAdapter(Context c, ArrayList<Food> f) {
+        this.context = c;
+        this.foodList = f;
+        this.foodListFull = new ArrayList<>(f);
+    }
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -32,11 +42,6 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
-    }
-
-    FoodListAdapter(Context c, ArrayList<Food> f) {
-        this.context = c;
-        this.foods = f;
     }
 
     @NonNull
@@ -48,12 +53,12 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
-        String image = foods.get(position).getImage();
-        String title = foods.get(position).getName();
-        String location = foods.get(position).getLocation();
-        String halal =  "Halal Certified: " + foods.get(position).getHalalCertified();
-        String termTime = foods.get(position).getTermOperatingHours();
-        String vacationTime = foods.get(position).getVacationOperatingHours();
+        String image = foodList.get(position).getImage();
+        String title = foodList.get(position).getName();
+        String location = foodList.get(position).getLocation();
+        String halal =  "Halal Certified: " + foodList.get(position).getHalalCertified();
+        String termTime = foodList.get(position).getTermOperatingHours();
+        String vacationTime = foodList.get(position).getVacationOperatingHours();
 
         String opHours;
         String opHours2;
@@ -86,9 +91,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
     @Override
     public int getItemCount() {
-        return foods.size();
+        return foodList.size();
     }
-
 
     static class FoodViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
@@ -116,18 +120,52 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
             this.foodShowLessCard = v.findViewById(R.id.showLessFoodCard);
             this.foodShowMoreCard = v.findViewById(R.id.showMoreFoodCard);
 
-            foodShowLessCard.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(position);
-                        }
+            foodShowLessCard.setOnClickListener(v1 -> {
+                if (listener != null) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(position);
                     }
                 }
             });
         }
+    }
+
+    private Filter foodFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Food> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(foodListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Food f : foodListFull) {
+                    if (f.getName().toLowerCase().contains(filterPattern)
+                            || f.getLocation().toLowerCase().contains(filterPattern)
+                            || f.getTags().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(f);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            foodList.clear();
+            foodList.addAll((ArrayList<Food>) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+    @Override
+    public Filter getFilter() {
+        return foodFilter;
     }
 
     public void expand(int position) {

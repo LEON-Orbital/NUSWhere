@@ -121,6 +121,8 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.cafeCardView:
                 ArrayList<Food> cafeList = foodList.getByType("Cafe");
+                ArrayList<Food> bakeryList = foodList.getByType("Bakery");
+                cafeList.addAll(bakeryList);
                 startActivity(new Intent(FoodActivity.this, FoodCafeBakeryActivity.class).putExtra("add", cafeList));
                 break;
             case R.id.supperCardView:

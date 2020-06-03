@@ -15,6 +15,9 @@ public class Food implements Comparable<Food>, Parcelable {
     private String halalCertified;
     private String image;
     private String supper;
+    private String tags;
+
+
 
     Food() {}
 
@@ -56,6 +59,10 @@ public class Food implements Comparable<Food>, Parcelable {
 
     public String getSupper() { return supper;}
 
+    public String getTags() {
+        return tags;
+    }
+
     @Override
     public int compareTo(Food f) {
         return this.getName().compareTo(f.getName());
@@ -73,6 +80,7 @@ public class Food implements Comparable<Food>, Parcelable {
         this.halalCertified = source.readString();
         this.image = source.readString();
         this.supper = source.readString();
+        this.tags = source.readString();
     }
 
     // from parcelable interface
@@ -94,6 +102,7 @@ public class Food implements Comparable<Food>, Parcelable {
         dest.writeString(halalCertified);
         dest.writeString(image);
         dest.writeString(supper);
+        dest.writeString(tags);
     }
 
     // all parcelables must have a creator that implements these two methods

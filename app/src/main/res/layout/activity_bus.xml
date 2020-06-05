@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FFFFFF"
+    android:background="#FFFFFF"
     tools:context=".BusActivity">
 
     <TextView
@@ -25,120 +25,93 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="lollipop" />
 
-    <ImageButton
-        android:id="@+id/busBackBtn"
-        android:layout_width="23dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="86dp"
-        android:background="@drawable/back"
-        android:contentDescription="@string/backbutton"
+    <ImageView
+        android:id="@+id/busBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/busbackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:srcCompat="@drawable/mapphototrans" />
 
-    <EditText
-        android:id="@+id/startLoc"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
-        android:ems="13"
-        android:hint="@string/start_location"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/montserrat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/Dest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="13"
-        android:hint="@string/destination"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/montserrat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/startLoc" />
-
-    <Button
-        android:id="@+id/busSearch"
-        android:layout_width="104dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="30dp"
-        android:background="#00FFFFFF"
-        android:elevation="2dp"
-        android:fontFamily="@font/playfair_display"
-        android:stateListAnimator="@null"
-        android:text="@string/enter"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Dest"
-        tools:targetApi="lollipop" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="82dp"
-        android:background="@drawable/main_bottom_rect"
-        android:elevation="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop"/>
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="82dp"
-        android:gravity="center_horizontal"
-        android:elevation="23dp"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.40">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.93"
+            android:contentDescription="@string/businputrect"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bus_large_rect" />
+
+        <EditText
+            android:id="@+id/startLocation"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="90dp"
+            android:layout_marginRight="90dp"
+            android:ems="13"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/start_location"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/destination"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="90dp"
+            android:layout_marginRight="90dp"
+            android:ems="13"
+            android:fontFamily="@font/lato_regular"
+            android:hint="@string/destination"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/startLocation" />
 
         <ImageButton
-            android:id="@+id/foodBtn"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/food_button" />
+            android:id="@+id/busSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#00FFFFFF"
+            android:elevation="2dp"
+            android:stateListAnimator="@null"
+            android:text="@string/enter"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/busenter" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageButton
-            android:id="@+id/studyBtn"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/study_button" />
-
-        <ImageButton
-            android:id="@+id/busBtn"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/bus_button" />
-
-        <ImageButton
-            android:id="@+id/mapBtn"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/map_button" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/bottom_bar_layout" />
 
 
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

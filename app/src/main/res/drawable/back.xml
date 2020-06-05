@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF"/>
+            <size android:height="36dp"/>
+            <size android:width="36dp"/>
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/back_pic"
+        android:height="20dp"
+        android:width="20dp"
+        android:top="8dp"
+        android:left="7dp">
+    </item>
+
+
+</layer-list>

@@ -22,7 +22,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         photoView.setImageResource(R.drawable.busmap);
 
         ImageButton gmapActivity = findViewById(R.id.gMapsButton);
-        ImageButton backActivity = findViewById(R.id.mapBackBtn);
+        ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
@@ -38,7 +38,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch(v.getId()) {
             //// NAV BAR ////
-            case R.id.mapBackBtn:
+            case R.id.backBtn:
                 finish();
                 break;
             case R.id.foodBtn:

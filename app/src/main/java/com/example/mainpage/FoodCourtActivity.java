@@ -60,7 +60,7 @@ public class FoodCourtActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-        ImageButton backActivity = findViewById(R.id.foodBackBtn);
+        ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
@@ -76,7 +76,7 @@ public class FoodCourtActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.foodBackBtn:
+            case R.id.backBtn:
                 finish();
                 break;
             case R.id.foodBtn:

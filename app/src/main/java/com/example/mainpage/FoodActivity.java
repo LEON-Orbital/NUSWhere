@@ -33,7 +33,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
 
-        ImageButton backActivity = findViewById(R.id.foodBackBtn);
+        ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
@@ -63,7 +63,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()) {
             ////////////// Navigation bar //////////////
-            case R.id.foodBackBtn:
+            case R.id.backBtn:
                 finish();
                 break;
             case R.id.studyBtn:

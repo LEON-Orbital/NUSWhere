@@ -143,6 +143,11 @@
     <string name="scilib">SCIENCE LIBRARY</string>
     <string name="yalelib">YALE-NUS LIBRARY</string>
 
+
+    <string name="busbackground">Bus Background>Map</string>
+    <string name="businputrect">Bus Input Rectangle</string>
+    <string name="busmapbutton">Bus Map Button</string>
+    <string name="gmapbutton">GMap Button</string>
     <string name="address1">Address: </string>
     <string name="busstop1">Nearby Bus Stops: </string>
     <string name="opHours1">Opening Hours: </string>

@@ -66,7 +66,7 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        ImageButton backActivity = findViewById(R.id.foodBackBtn);
+        ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
@@ -82,7 +82,7 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.foodBackBtn:
+            case R.id.backBtn:
                 finish();
                 break;
             case R.id.foodBtn:
@@ -100,29 +100,4 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.food_menu, menu);
-
-        //MenuItem menuItem = menu.findItem(R.id.foodSearchView);
-        SearchView searchView = (SearchView) findViewById(R.id.foodSearchView);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-
-        return true;
-    }
-
- */
 }

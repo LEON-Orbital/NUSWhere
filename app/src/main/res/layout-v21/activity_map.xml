@@ -43,20 +43,6 @@
         tools:targetApi="lollipop" />
 
 
-    <ImageButton
-        android:id="@+id/mapBackBtn"
-        android:layout_width="23dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="86dp"
-        android:background="@drawable/back"
-        android:contentDescription="@string/backbutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible"
-        />
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="70dp"
         android:layout_height="136dp"
@@ -75,6 +61,7 @@
             android:layout_marginEnd="5dp"
             android:background="@drawable/map_button_busroutes"
             android:elevation="5dp"
+            android:contentDescription="@string/busmapbutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -88,6 +75,7 @@
             android:layout_marginEnd="5dp"
             android:background="@drawable/map_button_gmaps"
             android:elevation="5dp"
+            android:contentDescription="@string/gmapbutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
@@ -96,60 +84,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="82dp"
-        android:background="@drawable/main_bottom_rect"
-        android:elevation="23dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:targetApi="lollipop"/>
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="82dp"
-        android:gravity="center_horizontal"
-        android:elevation="23dp"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/foodBtn"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/food_button" />
-
-        <ImageButton
-            android:id="@+id/studyBtn"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/study_button" />
-
-        <ImageButton
-            android:id="@+id/busBtn"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/bus_button" />
-
-        <ImageButton
-            android:id="@+id/mapBtn"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/map_button" />
-
-
-    </LinearLayout>
+    <include layout="@layout/bottom_bar_layout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,17 +5,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.mainpage.food.Food;
+import com.example.mainpage.study.Library;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 class DatabaseHandler {
 

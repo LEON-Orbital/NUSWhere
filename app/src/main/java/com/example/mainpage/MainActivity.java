@@ -2,13 +2,22 @@ package com.example.mainpage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.mainpage.bus.BusActivity;
+import com.example.mainpage.food.Food;
+
 import java.util.ArrayList;
+
+import com.example.mainpage.food.FoodActivity;
+import com.example.mainpage.food.FoodList;
+import com.example.mainpage.map.MapActivity;
+import com.example.mainpage.study.Library;
+import com.example.mainpage.study.LibraryList;
+import com.example.mainpage.study.StudyActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

@@ -95,18 +95,25 @@
 
         <item>BUSINESS</item>
         // position: 2
+
         <item>COMPUTING</item>
         // position: 3
+
         <item>DENTISTRY</item>
         // position: 4
+
         <item>DESIGN AND ENVIRONMENT</item>
         // position: 5
+
         <item>ENGINEERING</item>
         // position: 6
+
         <item>MEDICINE</item>
         // position: 7
+
         <item>MUSIC</item>
         // position: 8
+
         <item>SCIENCE</item>
         // position: 9
 

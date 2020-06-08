@@ -16,7 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bus.BusResultActivity"/>
+        <activity android:name=".study.StudyScienceActivity"></activity>
+        <activity android:name=".study.StudyYSTActivity" />
+        <activity android:name=".study.StudyMedicineActivity" />
+        <activity android:name=".study.StudyEngineActivity" />
+        <activity android:name=".study.StudySDEActivity" />
+        <activity android:name=".study.StudyDentistryActivity" />
+        <activity android:name=".study.StudyFASSActivity" />
+        <activity android:name=".study.StudyComputingActivity" />
+        <activity android:name=".bus.BusResultActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

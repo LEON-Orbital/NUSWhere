@@ -1,6 +1,8 @@
 package com.example.mainpage.study;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,22 +17,40 @@ import com.example.mainpage.food.FoodActivity;
 import com.example.mainpage.map.MapActivity;
 import com.squareup.picasso.Picasso;
 
-public class StudyBusinessActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+
+public class StudyComputingActivity extends AppCompatActivity implements View.OnClickListener {
 
     StudyList studyList = new StudyList();
+    RecyclerView rcView;
+    StudySpotColumnAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_study_business);
+        setContentView(R.layout.activity_study_computing);
 
-        StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.BIZ);
+        StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.COM);
+
+        String mainImage = studySpot.getImage();
+        String name = studySpot.getName();
+        ArrayList<StudySpot> studyAreas = studySpot.getStudyAreas();
 
         ImageView imageStudy = findViewById(R.id.imageStudy);
-        Picasso.get().load(studySpot.getImage()).into(imageStudy);
+        Picasso.get().load(mainImage).into(imageStudy);
 
         TextView textStudy = findViewById(R.id.textStudy);
-        textStudy.setText(studySpot.getName());
+        textStudy.setText(name);
+
+        rcView = findViewById(R.id.studySpotRcView);
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        rcView.setLayoutManager(layoutManager);
+        rcView.setHasFixedSize(true);
+        rcView.setNestedScrollingEnabled(false);
+
+        adapter = new StudySpotColumnAdapter(this, studyAreas);
+        rcView.setAdapter(adapter);
 
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);

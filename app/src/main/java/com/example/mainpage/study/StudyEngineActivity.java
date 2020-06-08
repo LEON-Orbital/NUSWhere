@@ -1,4 +1,4 @@
-package com.example.mainpage;
+package com.example.mainpage.study;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,61 +6,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
-import com.example.mainpage.food.Food;
-
-import java.util.ArrayList;
-
 import com.example.mainpage.food.FoodActivity;
-import com.example.mainpage.food.FoodList;
 import com.example.mainpage.map.MapActivity;
-import com.example.mainpage.study.Library;
-import com.example.mainpage.study.LibraryList;
-import com.example.mainpage.study.StudyActivity;
-import com.example.mainpage.study.StudyFaculty;
-import com.example.mainpage.study.StudyList;
+import com.squareup.picasso.Picasso;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class StudyEngineActivity extends AppCompatActivity implements View.OnClickListener {
 
-    FoodList foodList;
-    LibraryList libraryList;
-    StudyList studyList;
+    StudyList studyList = new StudyList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_study_engine);
 
-        // initialises classes with static variables
-        foodList = new FoodList();
-        libraryList = new LibraryList();
-        studyList = new StudyList();
+        StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.ENGINE);
 
-        // retrieves the data and stores it inside static variables
-        new DatabaseHandler().readFoodData(new FirebaseCallback() {
-            @Override
-            public void onFoodCallBack(ArrayList<Food> list) {
-                foodList.addAll(list);  // adds all the food data into the static variable in FoodList class
-            }
+        ImageView imageStudy = findViewById(R.id.imageStudy);
+        Picasso.get().load(studySpot.getImage()).into(imageStudy);
 
-            @Override
-            public void onLibraryCallBack(ArrayList<Library> list) {
-                libraryList.addAll(list);
-            }
+        TextView textStudy = findViewById(R.id.textStudy);
+        textStudy.setText(studySpot.getName());
 
-            @Override
-            public void onStudyCallBack(ArrayList<StudyFaculty> list) {
-                studyList.addAll(list);
-            }
-        }, MainActivity.this);
-
-
+        ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
+        backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
@@ -70,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
+            case R.id.backBtn:
+                finish();
+                break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));
                 break;
@@ -85,4 +66,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
-

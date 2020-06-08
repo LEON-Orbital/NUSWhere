@@ -1,12 +1,15 @@
 package com.example.mainpage;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.example.mainpage.food.Food;
 import com.example.mainpage.study.Library;
+import com.example.mainpage.study.StudyFaculty;
+import com.example.mainpage.study.StudySpot;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,10 +22,12 @@ class DatabaseHandler {
 
     private ArrayList<Food> foodList = new ArrayList<>();
     private ArrayList<Library> libraryList = new ArrayList<>();
+    private ArrayList<StudyFaculty> studyList = new ArrayList<>();
 
     void readFoodData(final FirebaseCallback fbCallback, final Context context) {
         DatabaseReference dbFoodRef = FirebaseDatabase.getInstance().getReference().child("Food");
         DatabaseReference dbLibRef = FirebaseDatabase.getInstance().getReference().child("Libraries");
+        DatabaseReference dbStudyRef = FirebaseDatabase.getInstance().getReference().child("Study");
 
         ValueEventListener velFood = new ValueEventListener() {
             @Override
@@ -72,7 +77,50 @@ class DatabaseHandler {
             }
         };
 
+        ValueEventListener velStudy = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dS : dataSnapshot.getChildren()) {
+
+                    String image = (String) dS.child("image").getValue();
+                    String name = (String) dS.child("name").getValue();
+                    ArrayList<StudySpot> spotList = new ArrayList<>();
+
+                    ///// BECAUSE FOR NOW ONLY COMPUTING HAS EXTRA STUDY SPOTS
+                    if (name.equals("Computing")) {
+
+                        for (DataSnapshot studyArea : dS.child("studyAreas").getChildren()) {
+                            Log.d("Retrieving data", studyArea.child("images").getValue().toString());
+
+                            ArrayList<String> images = new ArrayList<>();
+                            for (DataSnapshot imageURL : studyArea.child("images").getChildren()) {
+                                images.add((String)imageURL.getValue());
+                            }
+                            String location = (String) studyArea.child("location").getValue();
+                            String spotName = (String) studyArea.child("name").getValue();
+                            String nearbyBusStops = (String) studyArea.child("nearbyBusStops").getValue();
+                            String opHours = (String) studyArea.child("opHours").getValue();
+                            Long seatingCap = (Long) studyArea.child("seatingCap").getValue();
+
+                            StudySpot newStudySpot = new StudySpot(images, location, spotName, nearbyBusStops, opHours, seatingCap);
+                            spotList.add(newStudySpot);
+                        }
+                    }
+
+                    StudyFaculty newStudyFac = new StudyFaculty(image, name, spotList);
+                    studyList.add(newStudyFac);
+                }
+                fbCallback.onStudyCallBack(studyList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
+            }
+        };
+
         dbFoodRef.addValueEventListener(velFood);
         dbLibRef.addValueEventListener(velLibrary);
+        dbStudyRef.addValueEventListener(velStudy);
     }
 }

@@ -22,7 +22,7 @@ public class StudyActivity extends AppCompatActivity {
 
         LibraryList libraryList = new LibraryList();
 
-        ImageButton back = findViewById(R.id.studyBackBtn);
+        ImageButton back = findViewById(R.id.backBtn);
         back.setOnClickListener(v -> finish());
 
         //Study area list
@@ -59,11 +59,60 @@ public class StudyActivity extends AppCompatActivity {
         ///////////////////////////////////////////////////////////////////
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
+            //FASS
+            if (position == 1) {
+                Intent showFASS = new Intent(getApplicationContext(), StudyFASSActivity.class);
+                startActivity(showFASS); //switches screen
+            }
+
             //BUSINESS
             if (position == 2) {
                 Intent showBiz = new Intent(getApplicationContext(), StudyBusinessActivity.class);
                 startActivity(showBiz); //switches screen
             }
+
+            //COMPUTING
+            if (position == 3) {
+                Intent showCom = new Intent(getApplicationContext(), StudyComputingActivity.class);
+                startActivity(showCom); //switches screen
+            }
+
+            //DENTISTRY
+            if (position == 4) {
+                Intent showDent = new Intent(getApplicationContext(), StudyDentistryActivity.class);
+                startActivity(showDent); //switches screen
+            }
+
+            //SDE
+            if (position == 5) {
+                Intent showSDE = new Intent(getApplicationContext(), StudySDEActivity.class);
+                startActivity(showSDE); //switches screen
+            }
+
+            //ENGINE
+            if (position == 6) {
+                Intent showEng = new Intent(getApplicationContext(), StudyEngineActivity.class);
+                startActivity(showEng); //switches screen
+            }
+
+            //MED
+            if (position == 7) {
+                Intent showMed = new Intent(getApplicationContext(), StudyMedicineActivity.class);
+                startActivity(showMed); //switches screen
+            }
+
+            //MUSIC
+            if (position == 8) {
+                Intent showYST = new Intent(getApplicationContext(), StudyYSTActivity.class);
+                startActivity(showYST); //switches screen
+            }
+
+            //SCIENCE
+            if (position == 9) {
+                Intent showSCI = new Intent(getApplicationContext(), StudyScienceActivity.class);
+                startActivity(showSCI); //switches screen
+            }
+
 
             ///////////// LIBRARIES ////////////////
             //Central Library

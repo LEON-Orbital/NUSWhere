@@ -1,13 +1,16 @@
 package com.example.mainpage.food;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -27,6 +30,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
     private OnItemClickListener mListener;
     private boolean expanded = false;
     private int expandedPosition = -1;
+
 
     FoodListAdapter(Context c, ArrayList<Food> f) {
         this.context = c;
@@ -58,6 +62,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         String termTime = foodList.get(position).getTermOperatingHours();
         String vacationTime = foodList.get(position).getVacationOperatingHours();
 
+
         String opHours;
         String opHours2;
         if (termTime.equals(vacationTime)) {
@@ -85,6 +90,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
             holder.foodShowMoreCard.setVisibility(View.GONE);
         }
 
+
     }
 
     @Override
@@ -92,7 +98,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         return foodList.size();
     }
 
-    static class FoodViewHolder extends RecyclerView.ViewHolder {
+    class FoodViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title;
         TextView location;
@@ -103,6 +109,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         TextView location2;
         CardView foodShowLessCard;
         CardView foodShowMoreCard;
+        View favBtn;
+        View favBtn2;
 
         FoodViewHolder(View v, OnItemClickListener listener) {
             super(v);
@@ -118,7 +126,30 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
             this.foodShowLessCard = v.findViewById(R.id.showLessFoodCard);
             this.foodShowMoreCard = v.findViewById(R.id.showMoreFoodCard);
 
-            foodShowLessCard.setOnClickListener(v1 -> {
+            this.favBtn = v.findViewById(R.id.favBtn);
+            this.favBtn2 = v.findViewById(R.id.favBtn2);
+
+            favBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Food food = foodList.get(position);
+
+                    if (!food.getFavStatus()) {
+                        food.setFavStatus(true);
+                        favBtn.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
+                        favBtn2.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
+                        Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT).show();
+                    } else {
+                        food.setFavStatus(false);
+                        favBtn.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
+                        favBtn2.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
+                        Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+            foodShowLessCard.setOnClickListener(v2 -> {
                 if (listener != null) {
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
@@ -126,6 +157,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                     }
                 }
             });
+
         }
     }
 

@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="220dp"
     android:layout_marginStart="17dp"
@@ -86,15 +87,15 @@
 
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/foodStar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <Button
+                        android:id="@+id/favBtn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="17dp"
                         android:layout_marginRight="17dp"
-                        android:background="@drawable/star"
-                        android:contentDescription="@string/noStar"
+                        android:background="@drawable/ic_favorite_shadow_24dp"
+                        android:contentDescription="@string/noHeart"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -124,8 +125,10 @@
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0">
 
                         <TextView
                             android:id="@+id/food2TitleId"
@@ -206,15 +209,15 @@
 
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/foodStar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <Button
+                        android:id="@+id/favBtn2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginEnd="17dp"
                         android:layout_marginRight="17dp"
-                        android:background="@drawable/star"
-                        android:contentDescription="@string/noStar"
+                        android:background="@drawable/ic_favorite_shadow_24dp"
+                        android:contentDescription="@string/noHeart"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -229,3 +232,12 @@
 
 
 </LinearLayout>
+
+
+
+
+
+
+
+
+

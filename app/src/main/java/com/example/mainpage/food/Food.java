@@ -16,10 +16,15 @@ public class Food implements Comparable<Food>, Parcelable {
     private String image;
     private String supper;
     private String tags;
+    private boolean favourite = false;
 
 
 
     Food() {}
+
+    public boolean getFavStatus() { return favourite;}
+
+    public void setFavStatus(Boolean b) {this.favourite = b;}
 
     public String getId() {
         return id;

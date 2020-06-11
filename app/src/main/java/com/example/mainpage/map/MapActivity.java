@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
@@ -20,16 +21,23 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        // JUST A RANDOM CODE TO TEST THAT IT WORKS
+        // can delete anytime
+        VenueList venueList = new VenueList();
+        String eg = venueList.get(0).getId();
+        TextView tv2 = findViewById(R.id.textView2);
+        tv2.setText(eg);
+
         PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
         photoView.setImageResource(R.drawable.busmap);
 
-        ImageButton gmapActivity = findViewById(R.id.gMapsButton);
+        ImageButton gMapActivity = findViewById(R.id.gMapsButton);
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
 
-        gmapActivity.setOnClickListener(this);
+        gMapActivity.setOnClickListener(this);
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);

@@ -89,16 +89,15 @@
 
                     <Button
                         android:id="@+id/favBtn"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="2dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_marginEnd="17dp"
                         android:layout_marginRight="17dp"
-                        android:background="@drawable/ic_favorite_shadow_24dp"
                         android:contentDescription="@string/noHeart"
+                        android:background="@drawable/ic_favorite_shadow_24dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -211,8 +210,8 @@
 
                     <Button
                         android:id="@+id/favBtn2"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginEnd="17dp"
                         android:layout_marginRight="17dp"

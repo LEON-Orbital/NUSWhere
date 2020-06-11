@@ -90,7 +90,6 @@ class DatabaseHandler {
                     if (name.equals("Computing")) {
 
                         for (DataSnapshot studyArea : dS.child("studyAreas").getChildren()) {
-                            Log.d("Retrieving data", studyArea.child("images").getValue().toString());
 
                             ArrayList<String> images = new ArrayList<>();
                             for (DataSnapshot imageURL : studyArea.child("images").getChildren()) {

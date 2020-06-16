@@ -12,6 +12,10 @@ public class VenueList {
         return venueList.get(position);
     }
 
+    public ArrayList<Venue> getVenueList() {
+        return this.venueList;
+    }
+
     public void add(Venue v) {
         venueList.add(v);
     }

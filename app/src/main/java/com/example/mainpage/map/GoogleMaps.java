@@ -76,7 +76,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
-        ImageButton mapActivity = findViewById(R.id.gMapsButton);
+        ImageButton mapActivity = findViewById(R.id.busRouteButton);
         mapActivity.setOnClickListener(this);
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);

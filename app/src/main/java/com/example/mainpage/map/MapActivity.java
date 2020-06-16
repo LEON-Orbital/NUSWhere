@@ -21,13 +21,6 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        // JUST A RANDOM CODE TO TEST THAT IT WORKS
-        // can delete anytime
-        VenueList venueList = new VenueList();
-        String eg = venueList.get(0).getId();
-        TextView tv2 = findViewById(R.id.textView2);
-        tv2.setText(eg);
-
         PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
         photoView.setImageResource(R.drawable.busmap);
 

@@ -165,5 +165,7 @@
     <string name="title_activity_google_maps">Map</string>
     <string name="noHeart" />
 
+    <string name="map_key" translatable="false">AIzaSyDeHyGlJ-VsnMRksoEffv90bRZmo_uWJKw</string>
+
 
 </resources>

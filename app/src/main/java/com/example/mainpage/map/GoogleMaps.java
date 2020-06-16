@@ -48,19 +48,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener{
-    LocationManager locationManager;
-    LocationListener locationListener;
-    LatLng userLatLong;
-
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
 
-
     private GoogleMap mMap;
     Marker venuneMarker;
     Boolean markerPresent = false; // to prevent null errors for the remove() method
-    SupportMapFragment mapFragment;
+    //SupportMapFragment mapFragment;
     SearchView searchView;
     double locX;
     double locY;
@@ -90,7 +85,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 
         searchView = findViewById(R.id.sv_location);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -100,11 +95,9 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                 }
 
                 String location = searchView.getQuery().toString().toLowerCase();
-                //List<Address> addressList = null;
+
 
                 if (location != null || !location.equals("")) {
-                    //Geocoder geocoder = new Geocoder(GoogleMaps.this);
-                    //addressList = geocoder.getFromLocationName(location, 1);
 
                     for (Venue v : venueList.getVenueList()) {   // search for matching venueId from the API
                         if (location.equals(v.getId().toLowerCase())) {
@@ -115,11 +108,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                             break;
                         }
                     }
-/*
-                    Address address = addressList.get(0);
-                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(latLng).title(location));
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));*/
 
                     TextView roomNameTV = findViewById(R.id.roomNameHere);
                     TextView floorTV = findViewById(R.id.floorNumHere);
@@ -129,7 +117,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                     venuneMarker = mMap.addMarker(new MarkerOptions().position(latLngNUS).title(location));
                     markerPresent = true;  // set markerPresent to true
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngNUS, 18));
-
                 }
                 return false;
             }
@@ -140,7 +127,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
             }
         });
 
-        mapFragment.getMapAsync(this);
+        //mapFragment.getMapAsync(this);
     }
 
     private void fetchLastLocation() {
@@ -149,68 +136,29 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
             return;
         }
         Task<Location> task = fusedLocationProviderClient.getLastLocation();
-        task.addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    currentLocation = location;
-                    mapFragment.getMapAsync(GoogleMaps.this);
-                }
+        task.addOnSuccessListener(location -> {
+            if (location != null) {
+                currentLocation = location;
+                SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+                supportMapFragment.getMapAsync(GoogleMaps.this);
             }
         });
     }
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        /*
+
         LatLng currentLatLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions().position(currentLatLng).title("Your Location");
         mMap = googleMap;
-        mMap.animateCamera(CameraUpdateFactory.newLatLng(currentLatLng));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15));
-        mMap.addMarker(markerOptions);
-*/
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18));
+        googleMap.addMarker(markerOptions);                                                         // move to user's current location and set a marker
 
-        CameraUpdate defaultView = CameraUpdateFactory.newLatLngZoom(new LatLng(1.2966, 103.7764),15);
-        mMap = googleMap;
-        mMap.moveCamera(defaultView);  // set default view for the gMaps to be NUS
-
-
-/*
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                // store user latlong
-                userLatLong = new LatLng(location.getLatitude(), location.getLongitude());
-                mMap.clear();
-                mMap.addMarker(new MarkerOptions().position(userLatLong).title("Your Location"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(userLatLong));
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
-
-        // asking for map permission with user / location permission
-        //askLocationPermission();*/
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {  // for user location permission
         switch (requestCode) {
             case REQUEST_CODE:
                 if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {

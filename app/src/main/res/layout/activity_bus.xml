@@ -55,13 +55,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bus_large_rect" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/startLocation"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:layout_marginEnd="90dp"
             android:layout_marginRight="90dp"
+            android:backgroundTint="#676665"
             android:ems="13"
             android:fontFamily="@font/lato_regular"
             android:hint="@string/start_location"
@@ -70,16 +71,18 @@
             android:singleLine="true"
             android:textSize="18sp"
             android:textColor="#000000"
+            android:completionThreshold="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/destination"
             android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="90dp"
             android:layout_marginRight="90dp"
+            android:backgroundTint="#676665"
             android:ems="13"
             android:fontFamily="@font/lato_regular"
             android:hint="@string/destination"
@@ -88,6 +91,7 @@
             android:singleLine="true"
             android:textSize="18sp"
             android:textColor="#000000"
+            android:completionThreshold="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/startLocation" />
 

@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 
 import com.example.mainpage.API.NUSModsAPI;
 import com.example.mainpage.bus.BusActivity;
+import com.example.mainpage.bus.BusVenue;
+import com.example.mainpage.bus.BusVenueList;
 import com.example.mainpage.food.Food;
 
 import java.io.IOException;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FoodList foodList;
     LibraryList libraryList;
     StudyList studyList;
+    BusVenueList busVenueList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         foodList = new FoodList();
         libraryList = new LibraryList();
         studyList = new StudyList();
+        busVenueList = new BusVenueList();
+
 
         // retrieves the data and stores it inside static variables
         new DatabaseHandler().readFoodData(new FirebaseCallback() {
@@ -58,6 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onStudyCallBack(ArrayList<StudyFaculty> list) {
                 studyList.addAll(list);
+            }
+
+            @Override
+            public void onBusCallBack(ArrayList<BusVenue> list) {
+                busVenueList.addAll(list);
             }
         }, MainActivity.this);
 
@@ -114,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // this method performs an action after the rest of the async task is done.
             // right now its opening the map activity only after all venue data has been loaded.
             // but that takes long so preferably we will insert the relevant method below
-            // BUT FOR NOW bc we haven't done anything with the lat and long yet.
+            // BUT FOR NOW I did this bc we haven't done anything with the lat and long yet.
             startActivity(new Intent(MainActivity.this, MapActivity.class));
             //insert a setLocationMarker method here or smth
         }

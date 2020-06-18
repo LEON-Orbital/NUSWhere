@@ -9,11 +9,12 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:orientation="vertical"
-        android:elevation="12dp"
+        android:layout_height="132dp"
         android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,30 +29,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="65dp"
                 android:layout_marginLeft="65dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="17dp"
                 android:background="@drawable/main_top_rect"
                 android:fontFamily="@font/lato_light"
                 android:text="Start:"
                 android:textColor="#000000"
-                android:textSize="19sp"/>
+                android:textSize="19sp" />
 
             <TextView
                 android:id="@+id/startResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
-                android:paddingStart="18dp"
-                android:paddingEnd="18dp"
-                android:paddingTop="12dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/busresultrect1"
                 android:fontFamily="@font/lato_regular"
+                android:paddingStart="18dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="18dp"
                 android:text="start result"
                 android:textColor="#AFAFAF"
-                android:textSize="18sp"
-                android:background="@drawable/busresultrect1" />
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -65,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="65dp"
                 android:layout_marginLeft="65dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/main_top_rect"
                 android:fontFamily="@font/lato_light"
                 android:text="Destination: "
@@ -76,16 +77,18 @@
                 android:id="@+id/endResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/busresultrect2"
+                android:fontFamily="@font/lato_regular"
                 android:paddingStart="18dp"
                 android:paddingLeft="18dp"
+                android:paddingEnd="18dp"
+                android:paddingRight="18dp"
                 android:paddingTop="12dp"
-                android:fontFamily="@font/lato_regular"
-                android:background="@drawable/busresultrect2"
                 android:text="end result"
                 android:textColor="#AFAFAF"
                 android:textSize="18sp" />
@@ -93,6 +96,74 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/etaBox"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:orientation="horizontal"
+        android:background="#EEEEEE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center_vertical"
+            android:letterSpacing="0.03"
+            android:paddingStart="14dp"
+            android:paddingLeft="14dp"
+            android:paddingEnd="14dp"
+            android:paddingRight="14dp"
+            android:text="@string/eta"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/busResultTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:fontFamily="@font/lato_regular"
+            android:gravity="center_vertical"
+            android:letterSpacing="0.03"
+            android:text="20 Min"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/busResultListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="212dp"
+        android:layout_marginBottom="96dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:orientation="horizontal"
+        android:divider="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etaBox" />
+
 
     <ImageButton
         android:id="@+id/backBtn"

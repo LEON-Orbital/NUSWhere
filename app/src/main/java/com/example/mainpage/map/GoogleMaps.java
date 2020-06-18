@@ -31,6 +31,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -61,6 +63,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
     double locY;
     String roomName;
     String floor;
+    Boolean foundLocation = false; // check if the location is found alr or not
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +108,11 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                             locX = v.getLocX();
                             roomName = v.getRoomName();
                             floor = v.getFloor().toString();
+                            foundLocation = true;
                             break;
+                        } else {               // if room not found, foundLocation remains false
+                            roomName = "Room not found";
+                            floor = "Floor not found";
                         }
                     }
 
@@ -113,10 +120,12 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                     TextView floorTV = findViewById(R.id.floorNumHere);
                     roomNameTV.setText(roomName);
                     floorTV.setText(floor);
-                    LatLng latLngNUS = new LatLng(locY, locX);
-                    venuneMarker = mMap.addMarker(new MarkerOptions().position(latLngNUS).title(location));
-                    markerPresent = true;  // set markerPresent to true
-                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngNUS, 18));
+                    if (foundLocation == true) {
+                        LatLng latLngNUS = new LatLng(locY, locX);
+                        venuneMarker = mMap.addMarker(new MarkerOptions().position(latLngNUS).title(location));
+                        markerPresent = true;  // set markerPresent to true
+                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngNUS, 18));
+                    }
                 }
                 return false;
             }
@@ -150,6 +159,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 
         LatLng currentLatLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions().position(currentLatLng).title("Your Location");
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
         mMap = googleMap;
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18));

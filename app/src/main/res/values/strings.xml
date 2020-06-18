@@ -166,4 +166,10 @@
     <string name="noHeart" />
 
 
+    <string name="eta">Estimated Travel Time: </string>
+    <string name="busCircle">Bus Circle</string>
+    <string name="busDirection">Directions</string>
+
+
+
 </resources>

@@ -1,25 +1,42 @@
 package com.example.mainpage.bus;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.example.mainpage.FirebaseCallback;
+import com.example.mainpage.FirebaseCallback2;
 import com.example.mainpage.map.MapActivity;
 import com.example.mainpage.R;
 import com.example.mainpage.food.FoodActivity;
 import com.example.mainpage.study.StudyActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class BusActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText startLocation;
-    EditText destination;
+    AutoCompleteTextView startLocation;
+    AutoCompleteTextView destination;
     ImageButton busResult;
+
+    BusVenueList busVenueList = new BusVenueList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +48,48 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
         busResult = findViewById(R.id.busSearch);
         busResult.setEnabled(false);
 
+        // to make sure the user is unable to click the button until they input something
         startLocation.addTextChangedListener(resultTextWatcher);
         destination.addTextChangedListener(resultTextWatcher);
 
+        // AutoCompleteTextView
+        ArrayList<String> locList = busVenueList.getLocations();
+        ArrayAdapter<String> adapterStart = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, locList);
+        startLocation.setAdapter(adapterStart);
+        ArrayAdapter<String> adapterEnd = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, locList);
+        destination.setAdapter(adapterEnd);
+
+        // initialise the map of bus services
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("BusStops");
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                BusService newBus = new BusService();
+
+                for (DataSnapshot busService : dataSnapshot.getChildren()) {
+                    String id = busService.getKey();
+                    Log.d("Bus Service: ", id);
+                    ArrayList<BusStop> busStopList = new ArrayList<>();
+
+                    for (DataSnapshot busStop : busService.getChildren()) {
+                        String name = busStop.getKey();
+                        Long busStopNo = (Long) busStop.child("busStopNo").getValue();
+                        Long time = (Long) busStop.child("time").getValue();
+
+                        BusStop newBusStop = new BusStop(name, busStopNo, time);
+                        busStopList.add(newBusStop);
+                    }
+                    Collections.sort(busStopList); // sort the bus stops
+                    newBus.put(id, busStopList); // add e.g ["A2":["PGP", "TCOMS", "OppHSSML", "OppNUSS"]] into BusServices
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(BusActivity.this, "Could not initialise Bus Service list", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
         // compulsory buttons
@@ -94,6 +150,7 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
                 startActivity(new Intent(getApplicationContext(), MapActivity.class));
                 break;
             case R.id.busSearch:
+
                 Intent intent = new Intent(getApplicationContext(), BusResultActivity.class);
                 String startResultText = startLocation.getText().toString().trim();
                 String endResultText = destination.getText().toString().trim();

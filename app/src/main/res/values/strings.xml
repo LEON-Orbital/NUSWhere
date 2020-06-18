@@ -168,4 +168,10 @@
     <string name="map_key" translatable="false">AIzaSyDeHyGlJ-VsnMRksoEffv90bRZmo_uWJKw</string>
 
 
+    <string name="eta">Estimated Travel Time: </string>
+    <string name="busCircle">Bus Circle</string>
+    <string name="busDirection">Directions</string>
+
+
+
 </resources>

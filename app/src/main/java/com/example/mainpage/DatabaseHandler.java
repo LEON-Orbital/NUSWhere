@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.mainpage.bus.BusVenue;
 import com.example.mainpage.food.Food;
 import com.example.mainpage.study.Library;
 import com.example.mainpage.study.StudyFaculty;
@@ -23,11 +24,14 @@ class DatabaseHandler {
     private ArrayList<Food> foodList = new ArrayList<>();
     private ArrayList<Library> libraryList = new ArrayList<>();
     private ArrayList<StudyFaculty> studyList = new ArrayList<>();
+    private ArrayList<BusVenue> busVenueList = new ArrayList<>();
 
     void readFoodData(final FirebaseCallback fbCallback, final Context context) {
         DatabaseReference dbFoodRef = FirebaseDatabase.getInstance().getReference().child("Food");
         DatabaseReference dbLibRef = FirebaseDatabase.getInstance().getReference().child("Libraries");
         DatabaseReference dbStudyRef = FirebaseDatabase.getInstance().getReference().child("Study");
+        DatabaseReference dbBusRef = FirebaseDatabase.getInstance().getReference().child("BusRoutes");
+
 
         ValueEventListener velFood = new ValueEventListener() {
             @Override
@@ -42,7 +46,7 @@ class DatabaseHandler {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Could not initialise Food list", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -73,7 +77,7 @@ class DatabaseHandler {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Could not initialise Library list", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -114,12 +118,33 @@ class DatabaseHandler {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(context, "Cancelled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Could not initialise Study list", Toast.LENGTH_SHORT).show();
             }
         };
+
+        ValueEventListener velBus = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dS : dataSnapshot.getChildren()) {
+                    BusVenue bv = dS.getValue(BusVenue.class);
+                    busVenueList.add(bv);
+                }
+                Log.d("CheckDatabaseHandler", String.valueOf(busVenueList.size()));
+                fbCallback.onBusCallBack(busVenueList);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(context, "Could not initialise Bus Route list", Toast.LENGTH_SHORT).show();
+
+            }
+        };
+
 
         dbFoodRef.addValueEventListener(velFood);
         dbLibRef.addValueEventListener(velLibrary);
         dbStudyRef.addValueEventListener(velStudy);
+        dbBusRef.addValueEventListener(velBus);
     }
 }

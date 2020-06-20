@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -71,81 +72,96 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="280dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="97dp"
+        android:elevation="12dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/ve"
-        android:layout_width="260dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="410dp"
-        android:background="@android:drawable/screen_background_light"
-        android:bufferType="spannable"
-        android:fontFamily="@font/lato_regular"
-        android:text="  Room Name: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/map"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.855" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-    <TextView
-        android:id="@+id/floor"
-        android:layout_width="45dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="180dp"
-        android:layout_marginLeft="180dp"
-        android:layout_marginBottom="38dp"
-        android:fontFamily="@font/lato_regular"
-        android:text="  Floor: "
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ve"
-        app:layout_constraintStart_toStartOf="@+id/ve" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:paddingStart="22dp"
+                android:paddingLeft="22dp"
+                android:paddingTop="22dp"
+                android:paddingEnd="8dp"
+                android:paddingRight="8dp"
+                android:text="Room Name:"
+                android:textColor="#9A9A9A"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/roomNameHere"
-        android:layout_width="164dp"
-        android:layout_height="18dp"
-        android:fontFamily="@font/lato_regular"
-        app:layout_constraintBottom_toBottomOf="@+id/ve"
-        app:layout_constraintEnd_toEndOf="@+id/ve"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="@+id/ve"
-        app:layout_constraintTop_toTopOf="@+id/ve"
-        app:layout_constraintVertical_bias="0.75" />
+            <TextView
+                android:id="@+id/roomNameHere"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:paddingStart="22dp"
+                android:paddingLeft="22dp"
+                android:paddingEnd="12dp"
+                android:paddingRight="12dp"
+                android:paddingBottom="22dp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/floorNumHere"
-        android:layout_width="35dp"
-        android:layout_height="19dp"
-        android:layout_marginEnd="204dp"
-        android:layout_marginRight="204dp"
-        android:fontFamily="@font/lato_regular"
-        app:layout_constraintBottom_toBottomOf="@+id/ve"
-        app:layout_constraintEnd_toEndOf="@+id/ve"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toEndOf="@+id/floor"
-        app:layout_constraintTop_toTopOf="@+id/ve"
-        app:layout_constraintVertical_bias="0.75" />
+            <View
+                android:id="@+id/view"
+                android:layout_width="1.2dp"
+                android:layout_height="54dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/roomNameHere"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:layout_width="1dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="179dp"
-        android:layout_marginLeft="179dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toBottomOf="@+id/ve"
-        app:layout_constraintEnd_toEndOf="@+id/ve"
-        app:layout_constraintHorizontal_bias="0.00  "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ve"
-        app:layout_constraintVertical_bias="0.5" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="22dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:text="Floor:"
+                android:textColor="#9A9A9A"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/view"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/include3"
-        layout="@layout/bottom_bar_layout"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="10dp" />
+            <TextView
+                android:id="@+id/floorNumHere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:paddingStart="12dp"
+                android:paddingLeft="12dp"
+                android:paddingBottom="22dp"
+                android:paddingEnd="22dp"
+                android:paddingRight="22dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <include layout="@layout/bottom_bar_layout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

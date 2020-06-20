@@ -185,8 +185,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         switch(v.getId()) {
             //// NAV BAR ////
             case R.id.backBtn:
-                startActivity(new Intent(getApplicationContext(), MapActivity.class));
-                break;
+                finish();
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));
                 break;

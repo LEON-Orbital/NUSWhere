@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.food.FoodActivity;
@@ -42,7 +43,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         switch(v.getId()) {
             //// NAV BAR ////
             case R.id.backBtn:
-                finish();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

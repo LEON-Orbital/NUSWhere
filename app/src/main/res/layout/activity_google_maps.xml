@@ -72,59 +72,80 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <TextView
         android:id="@+id/ve"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="508dp"
+        android:layout_width="260dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="410dp"
         android:background="@android:drawable/screen_background_light"
+        android:bufferType="spannable"
+        android:fontFamily="@font/lato_regular"
         android:text="  Room Name: "
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/map"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.855" />
 
     <TextView
         android:id="@+id/floor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_width="45dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginBottom="38dp"
+        android:fontFamily="@font/lato_regular"
         android:text="  Floor: "
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/ve"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ve"
-        app:layout_constraintTop_toTopOf="@+id/ve" />
+        app:layout_constraintBottom_toBottomOf="@+id/ve"
+        app:layout_constraintStart_toStartOf="@+id/ve" />
 
     <TextView
         android:id="@+id/roomNameHere"
-        android:layout_width="318dp"
+        android:layout_width="164dp"
         android:layout_height="18dp"
+        android:fontFamily="@font/lato_regular"
         app:layout_constraintBottom_toBottomOf="@+id/ve"
         app:layout_constraintEnd_toEndOf="@+id/ve"
-        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="@+id/ve"
         app:layout_constraintTop_toTopOf="@+id/ve"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <TextView
         android:id="@+id/floorNumHere"
-        android:layout_width="147dp"
+        android:layout_width="35dp"
         android:layout_height="19dp"
         android:layout_marginEnd="204dp"
         android:layout_marginRight="204dp"
+        android:fontFamily="@font/lato_regular"
         app:layout_constraintBottom_toBottomOf="@+id/ve"
         app:layout_constraintEnd_toEndOf="@+id/ve"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toEndOf="@+id/floor"
         app:layout_constraintTop_toTopOf="@+id/ve"
-        app:layout_constraintVertical_bias="0.777" />
+        app:layout_constraintVertical_bias="0.75" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="179dp"
+        android:layout_marginLeft="179dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/ve"
+        app:layout_constraintEnd_toEndOf="@+id/ve"
+        app:layout_constraintHorizontal_bias="0.00  "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ve"
+        app:layout_constraintVertical_bias="0.5" />
 
     <include
         android:id="@+id/include3"
-        layout="@layout/bottom_bar_layout" />
+        layout="@layout/bottom_bar_layout"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

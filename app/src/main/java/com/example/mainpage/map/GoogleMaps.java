@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
@@ -110,9 +111,10 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                             floor = v.getFloor().toString();
                             foundLocation = true;
                             break;
-                        } else {               // if room not found, foundLocation remains false
-                            roomName = "Room not found";
-                            floor = "Floor not found";
+                        } else {               // if room not found, foundLocation remains false + Toast message
+                            roomName = "Location not found";
+                            floor = "  ";
+                            //Toast.makeText(getApplicationContext(), "Location not found",Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -183,7 +185,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         switch(v.getId()) {
             //// NAV BAR ////
             case R.id.backBtn:
-                finish();
+                startActivity(new Intent(getApplicationContext(), MapActivity.class));
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

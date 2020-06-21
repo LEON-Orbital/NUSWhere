@@ -121,38 +121,49 @@ public class StudyActivity extends AppCompatActivity {
                 showCLB.putExtra("add", libraryList.getLibrary("Central Library"));
                 startActivity(showCLB);
             }
-/*
+
             //Chinese Library
             if (position == 12) {
                 Intent showCL = new Intent(getApplicationContext(), StudyChineseLibraryActivity.class);
+                showCL.putExtra("add", libraryList.getLibrary("Chinese Library"));
                 startActivity(showCL);
             }
 
             //Hon Sui Sen Memorial Library
             if (position == 13) {
                 Intent showMemL = new Intent(getApplicationContext(), StudyMemorialLibraryActivity.class);
+                showMemL.putExtra("add", libraryList.getLibrary("Hon Sui Sen Memorial Library"));
                 startActivity(showMemL);
             }
 
             //Medical Library
             if (position == 14) {
                 Intent showMedL = new Intent(getApplicationContext(), StudyMedicalLibraryActivity.class);
+                showMedL.putExtra("add", libraryList.getLibrary("Medical Library"));
                 startActivity(showMedL);
             }
 
             //Music Library
             if (position == 15) {
-                Intent showMusB = new Intent(getApplicationContext(), StudyMusicLibraryActivity.class);
-                startActivity(showMusB);
+                Intent showMusL = new Intent(getApplicationContext(), StudyMusicLibraryActivity.class);
+                showMusL.putExtra("add", libraryList.getLibrary("Music Library"));
+                startActivity(showMusL);
             }
 
             //Science Library
             if (position == 16) {
                 Intent showSL = new Intent(getApplicationContext(), StudyScienceLibraryActivity.class);
+                showSL.putExtra("add", libraryList.getLibrary("Science Library"));
                 startActivity(showSL);
             }
 
-*/
+            //Yale Nus Library
+            if (position == 17) {
+                Intent showYale = new Intent(getApplicationContext(), StudyYaleLibraryActivity.class);
+                showYale.putExtra("add", libraryList.getLibrary("Yale-NUS College Library"));
+                startActivity(showYale);
+            }
+
         });
 
 

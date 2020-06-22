@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".study.StudyYaleLibraryActivity"></activity>
+        <activity android:name=".study.StudyUtownActivity"></activity>
+        <activity android:name=".study.StudyYaleLibraryActivity" />
         <activity android:name=".study.StudyScienceLibraryActivity" />
         <activity android:name=".study.StudyMusicLibraryActivity" />
         <activity android:name=".study.StudyMedicalLibraryActivity" />

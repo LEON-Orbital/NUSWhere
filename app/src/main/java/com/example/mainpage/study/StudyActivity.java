@@ -164,6 +164,13 @@ public class StudyActivity extends AppCompatActivity {
                 startActivity(showYale);
             }
 
+            ///////////// LIBRARIES ////////////////
+            //UTOWN
+            if (position == 19) {
+                Intent showUtown = new Intent(getApplicationContext(), StudyUtownActivity.class);
+                startActivity(showUtown); //switches screen
+            }
+
         });
 
 

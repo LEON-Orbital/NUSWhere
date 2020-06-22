@@ -55,7 +55,7 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/studySpotRcView"
+                android:id="@+id/studySpotRcViewUTOWN"
                 android:layout_width="match_parent"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"

@@ -42,7 +42,7 @@ public class StudyUtownActivity extends AppCompatActivity implements View.OnClic
         TextView textStudy = findViewById(R.id.textStudy);
         textStudy.setText(name);
 
-        rcView = findViewById(R.id.studySpotRcView);
+        rcView = findViewById(R.id.studySpotRcViewUTOWN);
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         rcView.setLayoutManager(layoutManager);

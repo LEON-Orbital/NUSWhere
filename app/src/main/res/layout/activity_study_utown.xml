@@ -4,10 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".study.StudyCentralLibraryActivity">
+    tools:context=".study.StudyUtownActivity">
 
-
-    <include layout="@layout/study_top_bar"/>
+    <TextView
+        android:id="@+id/studySearch"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@drawable/main_top_rect"
+        android:elevation="23dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:text="@string/search_bar2"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" tools:targetApi="lollipop" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,14 +51,15 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:ignore="VectorDrawableCompat" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/studySpotRcView"
+                android:id="@+id/studySpotRcViewUTOWN"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +90,5 @@
     <include
         android:id="@+id/include4"
         layout="@layout/bottom_bar_layout" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

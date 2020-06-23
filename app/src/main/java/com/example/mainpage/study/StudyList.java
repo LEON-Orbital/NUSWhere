@@ -28,6 +28,8 @@ public class StudyList {
                 return this.getByName("Design and Environment");
             case YST:
                 return this.getByName("Music");
+            case UTOWN:
+                return this.getByName("Utown");
 
         }
         return null;

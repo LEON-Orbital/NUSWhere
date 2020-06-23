@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".study.StudyChineseLibraryActivity">
+
+    <TextView
+        android:id="@+id/studySearch"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@drawable/main_top_rect"
+        android:elevation="23dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center"
+        android:paddingTop="17dp"
+        android:paddingBottom="17dp"
+        android:text="@string/search_bar2"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="lollipop" />
+
+    <ImageView
+        android:id="@+id/imageCL"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:layout_marginTop="72dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:ignore="VectorDrawableCompat" />
+
+
+    <ScrollView
+        android:id="@+id/libraryScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="332dp"
+        android:layout_marginBottom="82dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageCLB">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginStart="25dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/address1"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="25dp" />
+
+                <TextView
+                    android:id="@+id/libraryAddressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:fontFamily="@font/lato_light"
+                    android:text="@string/placeholder1"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="25dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/busstop1"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="25dp" />
+
+                <TextView
+                    android:id="@+id/libraryBusStopText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:fontFamily="@font/lato_light"
+                    android:text="@string/placeholder1"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="25dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/opHours1"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="25dp" />
+
+                <TextView
+                    android:id="@+id/libraryOpHoursText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:fontFamily="@font/lato_light"
+                    android:text="@string/placeholder1"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="25dp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/more1"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="25dp" />
+
+                <GridView
+                    android:id="@+id/libraryMorePhotosGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginTop="10dp"
+                    android:numColumns="2"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="5dp">
+
+                </GridView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <TextView
+        android:id="@+id/textCL"
+        android:layout_width="230dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="307dp"
+        android:background="@drawable/study_name_label"
+        android:gravity="center"
+        android:letterSpacing="0.15"
+        android:text="Chinese Library"
+        android:textColor="#404040"
+        android:textSize="16sp"
+        android:fontFamily="@font/montserrat_semibold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/studyBackBtn"
+        android:layout_width="23dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="86dp"
+        android:background="@drawable/back"
+        android:contentDescription="@string/backbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible"
+        android:layout_marginLeft="10dp" />
+
+    <include layout="@layout/bottom_bar_layout"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

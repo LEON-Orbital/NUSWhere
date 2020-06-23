@@ -9,5 +9,6 @@ public enum StudyNUSFaculties {
     MED,
     SCI,
     SDE,
-    YST
+    YST,
+    UTOWN
 }

@@ -141,7 +141,7 @@
         <item>OTHERS:</item>
         //position: 18
 
-        <item>UTOWN:</item>
+        <item>UTOWN</item>
         // position: 19
     </string-array>
 
@@ -174,7 +174,6 @@
     <string name="eta">Estimated Travel Time: </string>
     <string name="busCircle">Bus Circle</string>
     <string name="busDirection">Directions</string>
-
 
 
 </resources>

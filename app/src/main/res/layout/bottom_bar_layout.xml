@@ -42,7 +42,7 @@
             android:layout_height="82dp"
             android:layout_weight="1"
             android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/food_button" />
+            android:src="@drawable/food_button" />
 
         <ImageButton
             android:id="@+id/studyBtn"
@@ -50,7 +50,7 @@
             android:layout_height="82dp"
             android:layout_weight="1"
             android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/study_button" />
+            android:src="@drawable/study_button" />
 
         <ImageButton
             android:id="@+id/busBtn"
@@ -58,7 +58,7 @@
             android:layout_height="82dp"
             android:layout_weight="1"
             android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/bus_button" />
+            android:src="@drawable/bus_button" />
 
         <ImageButton
             android:id="@+id/mapBtn"
@@ -66,7 +66,7 @@
             android:layout_height="82dp"
             android:layout_weight="1"
             android:contentDescription="@string/foodBtn"
-            app:srcCompat="@drawable/map_button" />
+            android:src="@drawable/map_button" />
 
 
     </LinearLayout>

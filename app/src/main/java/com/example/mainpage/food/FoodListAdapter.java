@@ -2,6 +2,8 @@ package com.example.mainpage.food;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,12 +141,17 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                         food.setFavStatus(true);
                         favBtn.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
                         favBtn2.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
-                        Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT).show();
+                        Toast toast = Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 700);
+                        toast.show();
+
                     } else {
                         food.setFavStatus(false);
                         favBtn.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
                         favBtn2.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
-                        Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT).show();
+                        Toast toast = Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 700);
+                        toast.show();
                     }
                 }
             });

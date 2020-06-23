@@ -6,24 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".study.StudyCentralLibraryActivity">
 
-
-    <TextView
-        android:id="@+id/studySearch"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:background="@drawable/main_top_rect"
-        android:elevation="23dp"
-        android:fontFamily="@font/playfair_display"
-        android:gravity="center"
-        android:paddingTop="17dp"
-        android:paddingBottom="17dp"
-        android:text="@string/search_bar2"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" tools:targetApi="lollipop" />
+    <include layout="@layout/study_top_bar"/>
 
     <ImageView
         android:id="@+id/imageStudy"

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -196,7 +197,9 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         // set adapter to listview
         ListView busResultListView = findViewById(R.id.busResultListView);
         if (headers.isEmpty()) {
-            Toast.makeText(BusResultActivity.this, "Could not find route", Toast.LENGTH_LONG).show();
+            Toast toast = Toast.makeText(BusResultActivity.this, "Could not find route", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 700);
+            toast.show();
         } else {
             BusResultAdapter brAdapter = new BusResultAdapter(BusResultActivity.this, resultsToPrint, timeToPrint, STATE);
             busResultListView.setAdapter(brAdapter);

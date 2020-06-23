@@ -12,8 +12,21 @@ public class VenueList {
         return venueList.get(position);
     }
 
-    public ArrayList<Venue> getVenueList() {
-        return this.venueList;
+    public Venue getFromID(String itemId) {
+        for (Venue v : venueList) {
+            if (v.getId().equals(itemId)) {
+                return v;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<String> getVenueListString() {
+        ArrayList<String> list = new ArrayList<>();
+        for (Venue v :  venueList) {
+            list.add(v.getId());
+        }
+        return list;
     }
 
     public void add(Venue v) {

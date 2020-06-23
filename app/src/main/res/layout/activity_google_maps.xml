@@ -19,6 +19,17 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:context=".map.GoogleMaps" />
 
+    <AutoCompleteTextView
+        android:id="@+id/sv_location"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_margin="12dp"
+        android:iconifiedByDefault="false"
+        android:hint="@string/search2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="70dp"
@@ -58,19 +69,6 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <SearchView
-        android:id="@+id/sv_location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="16dp"
-        android:elevation="5dp"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search..."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="280dp"
@@ -162,6 +160,7 @@
     </androidx.cardview.widget.CardView>
 
     <include layout="@layout/bottom_bar_layout"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

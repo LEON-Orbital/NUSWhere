@@ -17,7 +17,7 @@
         android:gravity="center"
         android:paddingTop="17dp"
         android:paddingBottom="17dp"
-        android:text="@string/search_bar2"
+        android:text="@string/study2"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

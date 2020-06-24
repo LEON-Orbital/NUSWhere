@@ -124,7 +124,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 
         });
 
-
         /*
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -222,6 +221,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
             //// NAV BAR ////
             case R.id.backBtn:
                 finish();
+                break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));
                 break;

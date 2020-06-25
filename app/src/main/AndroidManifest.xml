@@ -49,25 +49,25 @@
             android:name=".map.GoogleMaps"
             android:label="@string/title_activity_google_maps" />
         <activity android:name=".study.StudyCentralLibraryActivity" />
-        <activity android:name=".food.FoodConvenienceActivity" />
-        <activity android:name=".food.FoodLateNightActivity" />
-        <activity android:name=".food.FoodCafeBakeryActivity" />
-        <activity android:name=".food.FoodCourtActivity" />
-        <activity android:name=".food.FoodRestaurantActivity" />
-        <activity android:name=".food.FoodStallActivity" />
+        <activity android:name=".food.FoodConvenienceActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodLateNightActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodCafeBakeryActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodCourtActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodRestaurantActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodStallActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".study.StudyBusinessActivity" />
-        <activity android:name=".food.FoodYSTCMActivity" />
-        <activity android:name=".food.FoodUtownActivity" />
-        <activity android:name=".food.FoodSDEActivity" />
-        <activity android:name=".food.FoodScienceActivity" />
-        <activity android:name=".food.FoodMedicineActivity" />
-        <activity android:name=".food.FoodFASSActivity" />
-        <activity android:name=".food.FoodEngineActivity" />
-        <activity android:name=".food.FoodComActivity" />
-        <activity android:name=".food.FoodBizActivity" />
-        <activity android:name=".food.FoodAllActivity" />
-        <activity android:name=".food.FoodStoreActivity" />
-        <activity android:name=".food.FacultyFoodActivity" />
+        <activity android:name=".food.FoodYSTCMActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodUtownActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodSDEActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodScienceActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodMedicineActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodFASSActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodEngineActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodComActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodBizActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodAllActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FoodStoreActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".food.FacultyFoodActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".map.MapActivity" />
         <activity android:name=".bus.BusActivity" />
         <activity android:name=".study.StudyActivity" />

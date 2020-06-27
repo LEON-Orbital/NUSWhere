@@ -33,7 +33,7 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
     String endBusHeader = "";
     String busCode = "";
 
-    String STATE = ""; //(insert 12/23/2/123 here)
+    String STATE = ""; //(insert 12/23/2/123/1/3 here)
 
     ArrayList<String> resultsToPrint = new ArrayList<>();
     ArrayList<Long> timeToPrint = new ArrayList<>();
@@ -185,6 +185,42 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
             timeToPrint.add((long) endTime);
 
         }
+        else if (STATE.equals("1")) {
+            ///////////////////////////////////////////////////////////
+            int startTime;
+            // add top chunk
+            resultsToPrint.add(startResultText);
+            if (startRoute.getB_nearestBusStop().equals(startBusHeader)) {
+                resultsToPrint.add(startRoute.getD_directions1());
+                startTime = startRoute.getC_time();
+            } else {
+                resultsToPrint.add(startRoute.getG_directions2());
+                startTime = startRoute.getF_time();
+            }
+
+            resultsToPrint.add(endResultText);
+
+            ///////////////////////////////////////////////////////////
+
+            timeToPrint.add((long) startTime);
+        }
+        else if (STATE.equals("3")) {
+            ///////////////////////////////////////////////////////////
+            resultsToPrint.add(startResultText);
+            int endTime;
+            //add bottom chunk
+            if (endRoute.getB_nearestBusStop().equals(endBusHeader)) {
+                resultsToPrint.add(endRoute.getD_directions1());
+                endTime = endRoute.getC_time();
+            } else {
+                resultsToPrint.add(endRoute.getG_directions2());
+                endTime = endRoute.getF_time();
+            }
+            resultsToPrint.add(endResultText);
+            ///////////////////////////////////////////////////////////
+
+            timeToPrint.add((long) endTime);
+        }
 
         Log.d("checkResultsToPrint", resultsToPrint.toString());
         Log.d("checkTimeToPrint", timeToPrint.toString());
@@ -220,7 +256,10 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
     // 4) all diff: print chunk 1,2,3
     public void changeState() {
         if (startResultText.equals(startBusHeader)) {
-            if (endResultText.equals(endBusHeader)) {
+            if (startBusHeader.equals(endBusHeader)) {
+                Log.d("Changing State", "3");
+                STATE = "3";
+            } else if (endResultText.equals(endBusHeader)) {
                 Log.d("Changing State", "2");
                 STATE = "2";
             } else {
@@ -228,7 +267,10 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
                 STATE = "23";
             }
         } else {
-            if (endResultText.equals(endBusHeader)) {
+            if (startBusHeader.equals(endBusHeader)) {
+                Log.d("Changing State", "1");
+                STATE = "1";
+            } else if (endResultText.equals(endBusHeader)) {
                 Log.d("Changing State", "12");
                 STATE = "12";
             } else {

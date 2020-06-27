@@ -38,8 +38,6 @@ public class BusResultAdapter extends ArrayAdapter<String> {
     public View getView(int pos, @Nullable View convertView, @NonNull ViewGroup parent) {
         TextView print;
 
-
-
         int lastIndex = busResultsList.size() - 1;
         String textToPrint;
 
@@ -48,11 +46,15 @@ public class BusResultAdapter extends ArrayAdapter<String> {
         // or state:12 @ pos 0, 2, last;
         // or state:23 @ pos 0, last-2, last
         // or state:123 @ pos 0, 2, last-2, last
+        // or state:1 @ pos 0, last
+        // or state:3 @ pos 0, last
         if ( (STATE.equals("2") && (pos == 0 || pos == lastIndex)) ||
                 (STATE.equals("12") && (pos ==  0 || pos == 2 || pos == lastIndex)) ||
-                        (STATE.equals("23") && (pos == 0 || pos == (lastIndex-2) || pos == lastIndex)) ||
-                                (STATE.equals("123") && (pos == 0 || pos == 2 || pos == (lastIndex-2) || pos == lastIndex)) ) {
-
+                (STATE.equals("23") && (pos == 0 || pos == (lastIndex-2) || pos == lastIndex)) ||
+                (STATE.equals("123") && (pos == 0 || pos == 2 || pos == (lastIndex-2) || pos == lastIndex)) ||
+                (STATE.equals("1") && (pos == 0 || pos == lastIndex)) ||
+                (STATE.equals("3")&& (pos == 0 || pos == lastIndex)) )
+        {
             convertView = inflater.inflate(R.layout.bus_result_header, parent, false);
             print = convertView.findViewById(R.id.busResultHeader);
 
@@ -63,10 +65,14 @@ public class BusResultAdapter extends ArrayAdapter<String> {
         // if state:12 @ pos 1;
         // or state:23 @ pos last-1
         // or state:123 @ pos 1, last-1
+        // or state:1 @ pos 1
+        // or state:3 @ pos 1
         else if ( (STATE.equals("12") && pos == 1) ||
                 (STATE.equals("23") && pos == (lastIndex-1)) ||
-                (STATE.equals("123") && (pos == 1 || pos == (lastIndex-1))) ) {
-
+                (STATE.equals("123") && (pos == 1 || pos == (lastIndex-1))) ||
+                (STATE.equals("1") && pos == 1) ||
+                (STATE.equals("3") && pos == 1))
+        {
             convertView = inflater.inflate(R.layout.bus_result_directions, parent, false);
             print = convertView.findViewById(R.id.busResultDirection);
 
@@ -89,8 +95,8 @@ public class BusResultAdapter extends ArrayAdapter<String> {
         // or state:23 @ pos 1
         // or state:123 @ pos 3
         else if ( ((STATE.equals("2") || STATE.equals("23")) && (pos == 1)) ||
-                ((STATE.equals("12") || STATE.equals("123")) && (pos == 3)) ) {
-
+                ((STATE.equals("12") || STATE.equals("123")) && (pos == 3)) )
+        {
             convertView = inflater.inflate(R.layout.bus_result_buslabel, parent, false);
             print = convertView.findViewById(R.id.busResultCode);
             print.setBackgroundColor(Color.parseColor(this.getColour(busResultsList.get(pos))));

@@ -46,6 +46,9 @@ public class BusService {
         int first = nameList.indexOf(start);
         int last = nameList.indexOf(end);
 
+        if (first == last) {
+            return new ArrayList<>();
+        }
         return list.subList(first+1, last);
     }
 
@@ -78,7 +81,7 @@ public class BusService {
             // check 2)
             Long startNo = this.getByName(id, nearestStart).getBusStopNo();
             Long endNo = this.getByName(id, nearestEnd).getBusStopNo();
-            if (startNo < endNo) {
+            if (startNo <= endNo) {
                 if ((endNo - startNo) < numOfStops) {
                     Log.d("BusService: checkPASSED", list.toString());
                     return true;

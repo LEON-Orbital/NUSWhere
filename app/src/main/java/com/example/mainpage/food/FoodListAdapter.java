@@ -142,7 +142,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                         favBtn.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
                         favBtn2.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
                         Toast toast = Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 700);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
                         toast.show();
 
                     } else {
@@ -150,7 +150,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                         favBtn.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
                         favBtn2.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
                         Toast toast = Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 700);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
                         toast.show();
                     }
                 }

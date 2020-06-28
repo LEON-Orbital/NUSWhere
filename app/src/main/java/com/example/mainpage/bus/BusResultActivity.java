@@ -63,7 +63,13 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         // getOthers: get the start bus stop and end bus stop hashmap<string, string> ["start":"LT27", "end":"CLB", "bus":"A1"]
         // params: 2 BusVenues
         // returns: the bus code and the start and end bus stop
-        HashMap<String, String> headers = busService.getOthers(startRoute, endRoute);
+        HashMap<String, String> headers;
+        if (startRoute == null || endRoute == null) {
+            headers = new HashMap<>();
+        } else {
+            headers = busService.getOthers(startRoute, endRoute);
+        }
+
         if (!headers.isEmpty()) {
             busCode = headers.get("bus");
             startBusHeader = headers.get("start");
@@ -79,7 +85,9 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         int totalTime = busService.getTotalTime(list); // if NA, return 0
 
         // get the relevant information to inflate
-        this.changeState();
+        if (!headers.isEmpty()) {
+            this.changeState();
+        }
 
         // add stuff to the arraylist based on state
         // if NA, do nothing
@@ -233,8 +241,8 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         // set adapter to listview
         ListView busResultListView = findViewById(R.id.busResultListView);
         if (headers.isEmpty()) {
-            Toast toast = Toast.makeText(BusResultActivity.this, "Could not find route", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 700);
+            Toast toast = Toast.makeText(BusResultActivity.this, "Could not find route", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
             toast.show();
         } else {
             BusResultAdapter brAdapter = new BusResultAdapter(BusResultActivity.this, resultsToPrint, timeToPrint, STATE);
@@ -256,7 +264,7 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
     // 4) all diff: print chunk 1,2,3
     public void changeState() {
         if (startResultText.equals(startBusHeader)) {
-            if (startBusHeader.equals(endBusHeader)) {
+            if (startBusHeader.equals(endBusHeader)) { // AKA if no need take bus
                 Log.d("Changing State", "3");
                 STATE = "3";
             } else if (endResultText.equals(endBusHeader)) {
@@ -267,7 +275,7 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
                 STATE = "23";
             }
         } else {
-            if (startBusHeader.equals(endBusHeader)) {
+            if (startBusHeader.equals(endBusHeader)) { // AKA if no need take bus
                 Log.d("Changing State", "1");
                 STATE = "1";
             } else if (endResultText.equals(endBusHeader)) {

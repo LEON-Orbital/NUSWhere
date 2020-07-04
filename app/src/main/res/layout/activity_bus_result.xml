@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="132dp"
         android:background="#FFFFFF"
-        android:elevation="8dp"
+        android:elevation="10dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

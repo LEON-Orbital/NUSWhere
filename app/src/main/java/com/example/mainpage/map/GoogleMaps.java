@@ -109,6 +109,9 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                 roomName = "Location not found";
                 floor = "  ";
                 //Toast.makeText(getApplicationContext(), "Location not found",Toast.LENGTH_SHORT).show();
+
+                // SET foundLocation to false here!
+
             }
 
             TextView roomNameTV = findViewById(R.id.roomNameHere);
@@ -123,66 +126,15 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
             }
 
         });
-
-        /*
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                if (markerPresent) {
-                    venueMarker.remove();
-                }
-
-                String location = searchView.getQuery().toString().toLowerCase();
-
-
-                if (location != null || !location.equals("")) {
-
-                    for (Venue v : venueList.getVenueList()) {   // search for matching venueId from the API
-                        if (location.equals(v.getId().toLowerCase())) {
-                            locY = v.getLocY();
-                            locX = v.getLocX();
-                            roomName = v.getRoomName();
-                            floor = v.getFloor().toString();
-                            foundLocation = true;
-                            break;
-                        } else {               // if room not found, foundLocation remains false + Toast message
-                            roomName = "Location not found";
-                            floor = "  ";
-                            //Toast.makeText(getApplicationContext(), "Location not found",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    TextView roomNameTV = findViewById(R.id.roomNameHere);
-                    TextView floorTV = findViewById(R.id.floorNumHere);
-                    roomNameTV.setText(roomName);
-                    floorTV.setText(floor);
-                    if (foundLocation) {
-                        LatLng latLngNUS = new LatLng(locY, locX);
-                        venueMarker = mMap.addMarker(new MarkerOptions().position(latLngNUS).title(location));
-                        markerPresent = true;  // set markerPresent to true
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngNUS, 18));
-                    }
-                }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-
-        });
-
-        //mapFragment.getMapAsync(this);
-
-        */
     }
 
     private void fetchLastLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
             return;
-        }
+        } // CHECKED FOR PERMISSION GRANTED BUT NOT IF LOCATION IS SWITCHED ON
+          // THERE SHOULD BE A METHOD TO USE TO CHECK?
+
         Task<Location> task = fusedLocationProviderClient.getLastLocation();
         task.addOnSuccessListener(location -> {
             if (location != null) {
@@ -196,11 +148,13 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
+        //CURRENT LOCATION MAY BE NULL FROM fetchLastlocation
+
         LatLng currentLatLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions().position(currentLatLng).title("Your Location");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
         mMap = googleMap;
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18));
         googleMap.addMarker(markerOptions);                                                         // move to user's current location and set a marker
 

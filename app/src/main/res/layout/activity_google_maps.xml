@@ -88,6 +88,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"
@@ -106,15 +107,15 @@
                 android:id="@+id/roomNameHere"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
+                android:fontFamily="@font/lato_light"
                 android:paddingStart="22dp"
                 android:paddingLeft="22dp"
                 android:paddingEnd="12dp"
                 android:paddingRight="12dp"
                 android:paddingBottom="22dp"
                 android:textColor="#000000"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <View
                 android:id="@+id/view"
@@ -128,7 +129,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_regular"
+                android:fontFamily="@font/lato_light"
                 android:paddingStart="12dp"
                 android:paddingLeft="12dp"
                 android:paddingTop="22dp"
@@ -136,7 +137,6 @@
                 android:paddingRight="20dp"
                 android:text="Floor:"
                 android:textColor="#9A9A9A"
-                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/view"
                 app:layout_constraintTop_toTopOf="parent" />
 

@@ -19,6 +19,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
@@ -54,6 +55,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
     String floor;
     Boolean foundLocation = false; // check if the location is found alr or not
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +71,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
+
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         fetchLastLocation();
@@ -106,10 +109,10 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                 foundLocation = true;
             } else {
                 // if room not found, foundLocation remains false + Toast message
+                foundLocation = false;
                 roomName = "Location not found";
                 floor = "  ";
-                //Toast.makeText(getApplicationContext(), "Location not found",Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(getApplicationContext(), "Location not found", Toast.LENGTH_SHORT).show();
                 // SET foundLocation to false here!
 
             }

@@ -29,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="72dp"
         android:background="@drawable/main_top_rect"
-        android:elevation="23dp"
+        android:elevation="10dp"
         android:fontFamily="@font/playfair_display"
         android:gravity="center"
         android:paddingTop="17dp"

@@ -33,7 +33,6 @@ import com.google.android.gms.maps.GoogleMap;
 import static com.example.mainpage.map.Constants.ERROR_DIALOG_REQUEST;
 import static com.example.mainpage.map.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
 import static com.example.mainpage.map.Constants.PERMISSIONS_REQUEST_ENABLE_GPS;
-import static com.example.mainpage.map.PermissionsUtils.requestLocationPermission;
 
 public class MapActivity extends AppCompatActivity implements View.OnClickListener{
 

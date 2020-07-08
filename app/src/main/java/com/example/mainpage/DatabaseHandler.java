@@ -91,7 +91,7 @@ class DatabaseHandler {
                     ArrayList<StudySpot> spotList = new ArrayList<>();
 
                     ///// BECAUSE FOR NOW ONLY COMPUTING & UTOWN HAS EXTRA STUDY SPOTS
-                    if (name.equals("Computing")) {
+                    if (name.equals("Computing") || name.equals("Utown")) {
 
                         for (DataSnapshot studyArea : dS.child("studyAreas").getChildren()) {
 
@@ -108,30 +108,10 @@ class DatabaseHandler {
                             StudySpot newStudySpot = new StudySpot(images, location, spotName, nearbyBusStops, opHours, seatingCap);
                             spotList.add(newStudySpot);
                         }
+
+                        StudyFaculty newStudyFac = new StudyFaculty(image, name, spotList);
+                        studyList.add(newStudyFac);
                     }
-
-                    if (name.equals("Utown")) {
-
-                        for (DataSnapshot studyArea : dS.child("studyAreas").getChildren()) {
-
-                            ArrayList<String> images = new ArrayList<>();
-                            for (DataSnapshot imageURL : studyArea.child("images").getChildren()) {
-                                images.add((String)imageURL.getValue());
-                            }
-                            String location = (String) studyArea.child("location").getValue();
-                            String spotName = (String) studyArea.child("name").getValue();
-                            String nearbyBusStops = (String) studyArea.child("nearbyBusStops").getValue();
-                            String opHours = (String) studyArea.child("opHours").getValue();
-                            Long seatingCap = (Long) studyArea.child("seatingCap").getValue();
-
-                            StudySpot newStudySpot = new StudySpot(images, location, spotName, nearbyBusStops, opHours, seatingCap);
-                            spotList.add(newStudySpot);
-                        }
-                    }
-
-
-                    StudyFaculty newStudyFac = new StudyFaculty(image, name, spotList);
-                    studyList.add(newStudyFac);
                 }
                 fbCallback.onStudyCallBack(studyList);
             }

@@ -153,6 +153,13 @@
     <string name="scilib">SCIENCE LIBRARY</string>
     <string name="yalelib">YALE-NUS LIBRARY</string>
 
+    <string name="studySpotName">Name</string>
+    <string name="studySpotLocation">Location: </string>
+    <string name="studySpotSeat">Seating Capacity: </string>
+    <string name="studySpotBus">Nearby Bus Stops: </string>
+    <string name="studySpotHours">Opening Hours: </string>
+    <string name="studySpotPhotos">More Photos: </string>
+
 
     <string name="busbackground">Bus Background>Map</string>
     <string name="businputrect">Bus Input Rectangle</string>

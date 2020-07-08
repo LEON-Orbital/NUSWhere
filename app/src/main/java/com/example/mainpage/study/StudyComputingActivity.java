@@ -30,11 +30,11 @@ public class StudyComputingActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_computing);
 
-        StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.COM);
+        StudyFaculty studyFaculty = studyList.getFaculty(StudyNUSFaculties.COM);
 
-        String mainImage = studySpot.getImage();
-        String name = studySpot.getName();
-        ArrayList<StudySpot> studyAreas = studySpot.getStudyAreas();
+        String mainImage = studyFaculty.getImage();
+        String name = studyFaculty.getName();
+        ArrayList<StudySpot> studySpots = studyFaculty.getStudyAreas();
 
         ImageView imageStudy = findViewById(R.id.imageStudy);
         Picasso.get().load(mainImage).into(imageStudy);
@@ -49,7 +49,7 @@ public class StudyComputingActivity extends AppCompatActivity implements View.On
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
 
-        adapter = new StudySpotColumnAdapter(this, studyAreas);
+        adapter = new StudySpotColumnAdapter(this, studySpots);
         rcView.setAdapter(adapter);
 
         ImageButton backActivity = findViewById(R.id.backBtn);

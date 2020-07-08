@@ -1,10 +1,15 @@
 package com.example.mainpage.study;
 
+import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +24,12 @@ public class StudySpotColumnAdapter extends RecyclerView.Adapter<StudySpotColumn
 
     private Context context;
     private ArrayList<StudySpot> studySpotList;
+
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private TextView studySpotName, studySpotLocation, studySpotSeats, studySpotBus, studySpotHours;
+    private ListView studySpotPhotos;
+    private ImageButton studySpotCancel;
 
     StudySpotColumnAdapter(Context c, ArrayList<StudySpot> s) {
         this.context = c;
@@ -47,7 +58,7 @@ public class StudySpotColumnAdapter extends RecyclerView.Adapter<StudySpotColumn
         return studySpotList.size();
     }
 
-    static class StudySpotViewHolder extends RecyclerView.ViewHolder {
+    class StudySpotViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView name;
 
@@ -55,6 +66,51 @@ public class StudySpotColumnAdapter extends RecyclerView.Adapter<StudySpotColumn
             super(v);
             this.image = v.findViewById(R.id.imageStudySpot);
             this.name = v.findViewById(R.id.textStudySpot);
+
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    createNewDialog(position);
+                }
+            });
         }
+    }
+
+    public void createNewDialog(int pos) {
+        dialogBuilder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+        View contactPopUpView = inflater.inflate(R.layout.study_pop_up, null);
+
+        studySpotName = contactPopUpView.findViewById(R.id.studySpotName);
+        studySpotLocation = contactPopUpView.findViewById(R.id.studySpotLocation);
+        studySpotSeats = contactPopUpView.findViewById(R.id.studySpotSeats);
+        studySpotBus = contactPopUpView.findViewById(R.id.studySpotBus);
+        studySpotHours = contactPopUpView.findViewById(R.id.studySpotHours);
+
+        studySpotCancel = contactPopUpView.findViewById(R.id.studySpotCancel);
+
+        StudySpot studySpot = studySpotList.get(pos);
+
+        studySpotName.setText(studySpotList.get(pos).getName());
+        studySpotLocation.setText("Location: " + studySpot.getLocation());
+        studySpotSeats.setText("Seating Capacity: " + studySpot.getSeatingCap());
+        studySpotBus.setText("Nearby Bus Stops: " + studySpot.getNearbyBusStops());
+        studySpotHours.setText("Opening Hours: " + studySpot.getOpHours());
+
+        studySpotPhotos = contactPopUpView.findViewById(R.id.studySpotPhotosListView);
+        StudyPhotosAdapter adapter = new StudyPhotosAdapter(context, studySpot.getImages());
+        studySpotPhotos.setAdapter(adapter);
+
+        dialogBuilder.setView(contactPopUpView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        studySpotCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 }

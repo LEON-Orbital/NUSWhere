@@ -1,5 +1,6 @@
 package com.example.mainpage.study;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,11 +31,11 @@ public class StudyUtownActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_utown);
 
-        StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.UTOWN);
+        StudyFaculty studyFaculty = studyList.getFaculty(StudyNUSFaculties.UTOWN);
 
-        String mainImage = studySpot.getImage();
-        String name = studySpot.getName();
-        ArrayList<StudySpot> studyAreas = studySpot.getStudyAreas();
+        String mainImage = studyFaculty.getImage();
+        String name = studyFaculty.getName();
+        ArrayList<StudySpot> studySpots = studyFaculty.getStudyAreas();
 
         ImageView imageStudy = findViewById(R.id.imageStudy);
         Picasso.get().load(mainImage).into(imageStudy);
@@ -42,6 +43,7 @@ public class StudyUtownActivity extends AppCompatActivity implements View.OnClic
         TextView textStudy = findViewById(R.id.textStudy);
         textStudy.setText(name);
 
+        // set list and adapter
         rcView = findViewById(R.id.studySpotRcViewUTOWN);
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -49,7 +51,7 @@ public class StudyUtownActivity extends AppCompatActivity implements View.OnClic
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
 
-        adapter = new StudySpotColumnAdapter(this, studyAreas);
+        adapter = new StudySpotColumnAdapter(this, studySpots);
         rcView.setAdapter(adapter);
 
         ImageButton backActivity = findViewById(R.id.backBtn);

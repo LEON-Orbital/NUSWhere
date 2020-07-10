@@ -36,6 +36,7 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
     String STATE = ""; //(insert 12/23/2/123/1/3 here)
 
     ArrayList<String> resultsToPrint = new ArrayList<>();
+    ArrayList<String> busCodesToPrint = new ArrayList<>();
     ArrayList<Long> timeToPrint = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -68,13 +69,14 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
             headers = new HashMap<>();
         } else {
             headers = busService.getOthers(startRoute, endRoute);
+            busCodesToPrint = busService.getBusCodes();
+            Log.d("List of Buses", busCodesToPrint.toString());
         }
 
         if (!headers.isEmpty()) {
-            busCode = headers.get("bus");
+            busCode = busCodesToPrint.get(0);
             startBusHeader = headers.get("start");
             endBusHeader = headers.get("end");
-            Log.d("BusResultActvy buscode", busCode);
         }
 
         /////////////// FOR THE MIDDLE BUS ROUTE CHUNK/////////////////
@@ -245,13 +247,22 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
             toast.show();
         } else {
-            BusResultAdapter brAdapter = new BusResultAdapter(BusResultActivity.this, resultsToPrint, timeToPrint, STATE);
+            BusResultAdapter brAdapter = new BusResultAdapter(BusResultActivity.this, resultsToPrint, busCodesToPrint, timeToPrint, STATE);
             busResultListView.setAdapter(brAdapter);
         }
 
-        ///// IF new numBusStop == old numBusStop, return true and return multiple busCodes
-        ///// (presumably will have the same routes so will be ok)
 
+        ImageButton backActivity = findViewById(R.id.backBtn);
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        ImageButton busActivity = findViewById(R.id.busBtn);
+        ImageButton mapActivity = findViewById(R.id.mapBtn);
+
+        backActivity.setOnClickListener(this);
+        foodActivity.setOnClickListener(this);
+        studyActivity.setOnClickListener(this);
+        busActivity.setOnClickListener(this);
+        mapActivity.setOnClickListener(this);
 
     }
 
@@ -286,19 +297,6 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
                 STATE = "123";
             }
         }
-
-
-        ImageButton backActivity = findViewById(R.id.backBtn);
-        ImageButton foodActivity = findViewById(R.id.foodBtn);
-        ImageButton studyActivity = findViewById(R.id.studyBtn);
-        ImageButton busActivity = findViewById(R.id.busBtn);
-        ImageButton mapActivity = findViewById(R.id.mapBtn);
-
-        backActivity.setOnClickListener(this);
-        foodActivity.setOnClickListener(this);
-        studyActivity.setOnClickListener(this);
-        busActivity.setOnClickListener(this);
-        mapActivity.setOnClickListener(this);
     }
 
     public String getState() {

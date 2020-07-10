@@ -166,7 +166,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         switch(v.getId()) {
             //// NAV BAR ////
             case R.id.backBtn:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

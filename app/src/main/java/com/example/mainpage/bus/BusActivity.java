@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.mainpage.FirebaseCallback;
 import com.example.mainpage.FirebaseCallback2;
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.map.MapActivity;
 import com.example.mainpage.R;
 import com.example.mainpage.food.FoodActivity;

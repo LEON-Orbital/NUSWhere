@@ -163,7 +163,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etaBox" />
+        app:layout_constraintTop_toBottomOf="@+id/etaBox" >
+
+    </ListView>
 
 
     <ImageButton
@@ -177,6 +179,24 @@
         android:contentDescription="@string/backbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="95dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:padding="8dp"
+        android:text="@string/notice"
+        android:fontFamily="@font/lato_light"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        android:background="#FFFFFF"
+        android:elevation="1dp"
+        android:gravity="right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <include
         layout="@layout/bottom_bar_layout" />

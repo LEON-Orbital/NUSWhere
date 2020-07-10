@@ -19,20 +19,32 @@
         android:layout_marginLeft="23dp">
 
         <TextView
-            android:id="@+id/busResultCode"
+            android:id="@+id/busResultPlaceholder"
             android:layout_width="60dp"
             android:layout_height="20dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:gravity="center"
             android:fontFamily="@font/lato_regular"
-            android:text="A2"
             android:textColor="#FFFFFF"
             android:textSize="13sp"
-            android:background="#F76848"
+            android:background="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/busCodeRcView"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/busResultTime2"/>
 
         <TextView
             android:id="@+id/busResultTime2"

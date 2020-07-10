@@ -11,6 +11,7 @@ import java.util.Objects;
 public class BusService {
 
     private static HashMap<String, ArrayList<BusStop>> busRoutes = new HashMap<>();
+    private ArrayList<String> busCodes = new ArrayList<>();
 
     public BusService() {}
 
@@ -82,7 +83,7 @@ public class BusService {
             Long startNo = this.getByName(id, nearestStart).getBusStopNo();
             Long endNo = this.getByName(id, nearestEnd).getBusStopNo();
             if (startNo <= endNo) {
-                if ((endNo - startNo) < numOfStops) {
+                if ((endNo - startNo) <= numOfStops) {
                     Log.d("BusService: checkPASSED", list.toString());
                     return true;
                 }
@@ -94,8 +95,12 @@ public class BusService {
 
     public HashMap<String, String> getOthers(BusVenue startBS, BusVenue endBS) {
 
+        // list of the bus codes that can be taken
+        busCodes.clear();
+
         HashMap<String, String> results = new HashMap<>();
 
+        // get the nearest bus stops for both the input start and end locations
         String nearestStart1 = startBS.getB_nearestBusStop();
         String nearestStart2 = startBS.getE_nearestBusStop2();
         String nearestEnd1 = endBS.getB_nearestBusStop();
@@ -150,10 +155,21 @@ public class BusService {
             if (done) {
                 results.put("start", nearestStart);
                 results.put("end", nearestEnd);
-                results.put("bus", id);
+
+                if (id.length() > 2) {
+                    id = id.substring(0, 2);
+                }
+
+                if (!busCodes.contains(id)) {
+                    busCodes.add(id);
+                }
+                // results.put("bus", id);
             }
         }
         return results;
     }
 
+    public ArrayList<String> getBusCodes() {
+        return busCodes;
+    }
 }

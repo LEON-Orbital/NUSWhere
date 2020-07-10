@@ -6,10 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mainpage.R;
 
@@ -20,14 +23,16 @@ public class BusResultAdapter extends ArrayAdapter<String> {
 
     private Context context;
     ArrayList<String> busResultsList;
+    ArrayList<String> busCodesList;
     ArrayList<Long> timeResultsList;
     String STATE;
     LayoutInflater inflater;
 
-    public BusResultAdapter(Context c, ArrayList<String> bList, ArrayList<Long> tList, String s) {
+    public BusResultAdapter(Context c, ArrayList<String> bList, ArrayList<String> cList, ArrayList<Long> tList, String s) {
         super(c, R.layout.bus_result_header, bList);
         this.context = c;
         this.busResultsList = bList;
+        this.busCodesList = cList;
         this.timeResultsList = tList;
         this.STATE = s;
         this.inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -98,13 +103,18 @@ public class BusResultAdapter extends ArrayAdapter<String> {
                 ((STATE.equals("12") || STATE.equals("123")) && (pos == 3)) )
         {
             convertView = inflater.inflate(R.layout.bus_result_buslabel, parent, false);
-            print = convertView.findViewById(R.id.busResultCode);
-            print.setBackgroundColor(Color.parseColor(this.getColour(busResultsList.get(pos))));
+            RecyclerView busLabelRcView = convertView.findViewById(R.id.busCodeRcView);
+            LinearLayoutManager layoutManager
+                    = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+            busLabelRcView.setLayoutManager(layoutManager);
 
-            textToPrint = busResultsList.get(pos);
-            if (textToPrint.length() > 2) {
-                textToPrint = textToPrint.substring(0, 2);
-            }
+            BusLabelAdapter busLabelAdapter = new BusLabelAdapter(context, busCodesList);
+            busLabelRcView.setAdapter(busLabelAdapter);
+
+            print = convertView.findViewById(R.id.busResultPlaceholder);
+            //print.setBackgroundColor(Color.parseColor(this.getColour(busResultsList.get(pos))));
+            textToPrint = "";
+
 
             // print the time label
             TextView time = convertView.findViewById(R.id.busResultTime2);
@@ -131,22 +141,5 @@ public class BusResultAdapter extends ArrayAdapter<String> {
         return convertView;
     }
 
-    String getColour(String busCode) {
-        switch (busCode) {
-            case "A1":
-                return "#ffa84f";
-            case "A2":
-                return "#f86848";
-            case "B1":
-                return "#eac2f4";
-            case "B2":
-                return "#ff62ab";
-            case "C":
-                return "#ffd860";
-            case "D1":
-                return "#a1d5ec";
-            default:
-                return "#cade80";
-        }
-    }
+
 }

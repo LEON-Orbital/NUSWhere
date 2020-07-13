@@ -12,11 +12,13 @@ import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +41,7 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 
-public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener{
+public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
@@ -71,8 +73,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
-
-
+        
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         fetchLastLocation();
 
@@ -151,8 +152,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-        //CURRENT LOCATION MAY BE NULL FROM fetchLastlocation
-
         LatLng currentLatLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions().position(currentLatLng).title("Your Location");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
@@ -160,6 +159,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18));
         googleMap.addMarker(markerOptions);                                                         // move to user's current location and set a marker
+        googleMap.setPadding(100, 0, 0, 0);
 
     }
 

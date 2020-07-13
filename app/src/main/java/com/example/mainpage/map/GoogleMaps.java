@@ -31,6 +31,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -159,7 +160,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18));
         googleMap.addMarker(markerOptions);                                                         // move to user's current location and set a marker
-        googleMap.setPadding(100, 0, 0, 0);
+        googleMap.setPadding(0, 150, 0, 0);                                           // left, top, right, bottom
 
     }
 

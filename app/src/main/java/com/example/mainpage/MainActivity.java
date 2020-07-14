@@ -1,10 +1,5 @@
 package com.example.mainpage;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -19,15 +14,16 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.example.mainpage.API.NUSModsAPI;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.bus.BusVenue;
 import com.example.mainpage.bus.BusVenueList;
 import com.example.mainpage.food.Food;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
 import com.example.mainpage.food.FoodActivity;
 import com.example.mainpage.food.FoodList;
 import com.example.mainpage.map.GoogleMaps;
@@ -40,6 +36,9 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 import static com.example.mainpage.Constants.ERROR_DIALOG_REQUEST;
 import static com.example.mainpage.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
@@ -90,6 +89,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }, MainActivity.this);
 
+
+        if (checkMapServices()) {
+            if (mLocationPermissionGranted) {
+                // do nothing if permission granted
+            } else {
+                getLocationPermission();
+            }
+        }
+
+        new JSONTask().execute();
 
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
@@ -217,15 +226,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.mapBtn:
                 // task will execute in the background and do the OnPostExecute stuff when its done
-                if (checkMapServices()) {
-                    if (mLocationPermissionGranted) {
-                        new JSONTask().execute();
-                    } else {
-                        getLocationPermission();
-                    }
-                }
+                //new JSONTask().execute();
                 // **AFTER CHANGING OUR ONPOSTEXECUTE METHOD** switch screen while app is fetching venues in the background
-                // startActivity(new Intent(MainActivity.this, MapActivity.class));
+                startActivity(new Intent(MainActivity.this, GoogleMaps.class));
                 break;
         }
     }
@@ -251,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // right now its opening the map activity only after all venue data has been loaded.
             // but that takes long so preferably we will insert the relevant method below
             // BUT FOR NOW I did this bc we haven't done anything with the lat and long yet.
-            startActivity(new Intent(MainActivity.this, GoogleMaps.class));
+            //startActivity(new Intent(MainActivity.this, GoogleMaps.class));
             //insert a setLocationMarker method here or smth
         }
     }

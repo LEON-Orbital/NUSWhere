@@ -1,4 +1,4 @@
-package com.example.mainpage.map;
+package com.example.mainpage;
 
 public class Constants {
     public static final int ERROR_DIALOG_REQUEST = 9001;

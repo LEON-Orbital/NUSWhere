@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.mainpage.bus.BusActivity;
-import com.example.mainpage.map.MapActivity;
+import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
 import com.example.mainpage.study.StudyActivity;
 
@@ -65,7 +65,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
                 break;
             case R.id.mapBtn:
-                startActivity(new Intent(getApplicationContext(), MapActivity.class));
+                startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;
 
             ////////////// Food cases //////////////

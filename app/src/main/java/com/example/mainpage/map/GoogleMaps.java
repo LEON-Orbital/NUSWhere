@@ -68,8 +68,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
-        ImageButton mapActivity = findViewById(R.id.busRouteButton);
-        mapActivity.setOnClickListener(this);
+
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
@@ -188,11 +187,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                 break;
             case R.id.busBtn:
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
-                break;
-
-            //// MAP BUTTONS ////
-            case R.id.busRouteButton:
-                startActivity(new Intent(getApplicationContext(), MapActivity.class));
                 break;
 
         }

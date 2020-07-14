@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
-import com.example.mainpage.map.MapActivity;
+import com.example.mainpage.map.GoogleMaps;
 import com.squareup.picasso.Picasso;
 
 public class StudyMedicalLibraryActivity extends AppCompatActivity implements View.OnClickListener {
@@ -66,7 +66,7 @@ public class StudyMedicalLibraryActivity extends AppCompatActivity implements Vi
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
                 break;
             case R.id.mapBtn:
-                startActivity(new Intent(getApplicationContext(), MapActivity.class));
+                startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;
         }
     }

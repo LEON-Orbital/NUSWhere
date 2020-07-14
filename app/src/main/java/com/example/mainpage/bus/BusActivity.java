@@ -11,14 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.mainpage.FirebaseCallback;
 import com.example.mainpage.FirebaseCallback2;
-import com.example.mainpage.MainActivity;
-import com.example.mainpage.map.MapActivity;
+import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
 import com.example.mainpage.food.FoodActivity;
 import com.example.mainpage.study.StudyActivity;
@@ -148,7 +146,7 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
                 break;
             case R.id.mapBtn:
-                startActivity(new Intent(getApplicationContext(), MapActivity.class));
+                startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;
             case R.id.busSearch:
 

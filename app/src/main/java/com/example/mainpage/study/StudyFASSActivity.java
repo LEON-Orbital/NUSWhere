@@ -1,7 +1,5 @@
 package com.example.mainpage.study;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +7,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.food.FoodActivity;
-import com.example.mainpage.map.MapActivity;
+import com.example.mainpage.map.GoogleMaps;
 import com.squareup.picasso.Picasso;
+
 
 public class StudyFASSActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -61,7 +62,7 @@ public class StudyFASSActivity extends AppCompatActivity implements View.OnClick
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
                 break;
             case R.id.mapBtn:
-                startActivity(new Intent(getApplicationContext(), MapActivity.class));
+                startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;
         }
     }

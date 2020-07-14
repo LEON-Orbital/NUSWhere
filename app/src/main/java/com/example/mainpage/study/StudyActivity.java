@@ -8,9 +8,8 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.example.mainpage.MainActivity;
 import com.example.mainpage.bus.BusActivity;
-import com.example.mainpage.map.MapActivity;
+import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
 import com.example.mainpage.food.FoodActivity;
 
@@ -53,7 +52,7 @@ public class StudyActivity extends AppCompatActivity {
         // map button
         ImageButton mapActivity = findViewById(R.id.mapBtn);
         mapActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MapActivity.class);
+            Intent intent = new Intent(getApplicationContext(), GoogleMaps.class);
             startActivity(intent);
         });
 

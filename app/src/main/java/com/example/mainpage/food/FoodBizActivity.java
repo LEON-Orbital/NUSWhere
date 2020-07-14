@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.SearchView;
 
 import com.example.mainpage.bus.BusActivity;
-import com.example.mainpage.map.MapActivity;
+import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
 import com.example.mainpage.study.StudyActivity;
 
@@ -95,7 +95,7 @@ public class FoodBizActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
                 break;
             case R.id.mapBtn:
-                startActivity(new Intent(getApplicationContext(), MapActivity.class));
+                startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;
         }
     }

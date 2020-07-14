@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.mainpage.R;
 import com.example.mainpage.food.FoodActivity;
-import com.example.mainpage.map.MapActivity;
+import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.study.StudyActivity;
 
 import java.util.ArrayList;
@@ -319,7 +319,7 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
                 break;
             case R.id.mapBtn:
-                startActivity(new Intent(getApplicationContext(), MapActivity.class));
+                startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;
         }
     }

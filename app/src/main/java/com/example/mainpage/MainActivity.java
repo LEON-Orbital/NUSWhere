@@ -1,12 +1,23 @@
 package com.example.mainpage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.mainpage.API.NUSModsAPI;
 import com.example.mainpage.bus.BusActivity;
@@ -20,14 +31,19 @@ import java.util.ArrayList;
 import com.example.mainpage.food.FoodActivity;
 import com.example.mainpage.food.FoodList;
 import com.example.mainpage.map.GoogleMaps;
-import com.example.mainpage.map.MapActivity;
 import com.example.mainpage.study.Library;
 import com.example.mainpage.study.LibraryList;
 import com.example.mainpage.study.StudyActivity;
 import com.example.mainpage.study.StudyFaculty;
 import com.example.mainpage.study.StudyList;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import org.json.JSONException;
+
+import static com.example.mainpage.Constants.ERROR_DIALOG_REQUEST;
+import static com.example.mainpage.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
+import static com.example.mainpage.Constants.PERMISSIONS_REQUEST_ENABLE_GPS;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -35,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     LibraryList libraryList;
     StudyList studyList;
     BusVenueList busVenueList;
+
+    private static final String TAG = "";
+    private boolean mLocationPermissionGranted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +102,107 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mapActivity.setOnClickListener(this);
     }
 
+    private boolean checkMapServices(){
+        if(isServicesOK()){
+            if(isMapsEnabled()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isServicesOK() {
+        Log.d(TAG, "isServicesOK: checking google services version");
+
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
+
+        if(available == ConnectionResult.SUCCESS){
+            //everything is fine and the user can make map requests
+            Log.d(TAG, "isServicesOK: Google Play Services is working");
+            return true;
+        }
+        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
+            //an error occurred but we can resolve it
+            Log.d(TAG, "isServicesOK: an error occured but we can fix it");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainActivity.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        }else{
+            Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+    private void buildAlertMessageNoGps() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Map feature requires GPS to work properly, do you want to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                        Intent enableGpsIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                        startActivityForResult(enableGpsIntent, PERMISSIONS_REQUEST_ENABLE_GPS);
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public boolean isMapsEnabled(){
+        final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+
+        if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+            buildAlertMessageNoGps();
+            return false;
+        }
+        return true;
+    }
+
+    private void getLocationPermission() {
+        /*
+         * Request location permission, so that we can get the location of the
+         * device. The result of the permission request is handled by a callback,
+         * onRequestPermissionsResult.
+         */
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mLocationPermissionGranted = true;
+            // DO SOME STUFF HERE
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult: called.");
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_ENABLE_GPS: {
+                if(mLocationPermissionGranted == false){
+                    getLocationPermission();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        mLocationPermissionGranted = false;
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mLocationPermissionGranted = true;
+                }
+            }
+        }
+    }
+
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
@@ -97,7 +217,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.mapBtn:
                 // task will execute in the background and do the OnPostExecute stuff when its done
-                new JSONTask().execute();
+                if (checkMapServices()) {
+                    if (mLocationPermissionGranted) {
+                        new JSONTask().execute();
+                    } else {
+                        getLocationPermission();
+                    }
+                }
                 // **AFTER CHANGING OUR ONPOSTEXECUTE METHOD** switch screen while app is fetching venues in the background
                 // startActivity(new Intent(MainActivity.this, MapActivity.class));
                 break;
@@ -125,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // right now its opening the map activity only after all venue data has been loaded.
             // but that takes long so preferably we will insert the relevant method below
             // BUT FOR NOW I did this bc we haven't done anything with the lat and long yet.
-            startActivity(new Intent(MainActivity.this, MapActivity.class));
+            startActivity(new Intent(MainActivity.this, GoogleMaps.class));
             //insert a setLocationMarker method here or smth
         }
     }

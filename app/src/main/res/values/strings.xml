@@ -181,7 +181,7 @@
     <string name="eta">Estimated Travel Time: </string>
     <string name="busCircle">Bus Circle</string>
     <string name="busDirection">Directions</string>
-    <string name="notice">Results are purely estimates and does not account for bus waiting time.</string>
+    <string name="notice">Results are estimates and do not account for bus waiting time.</string>
 
 
 </resources>

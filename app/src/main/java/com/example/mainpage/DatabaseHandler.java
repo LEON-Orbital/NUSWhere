@@ -108,10 +108,9 @@ class DatabaseHandler {
                             StudySpot newStudySpot = new StudySpot(images, location, spotName, nearbyBusStops, opHours, seatingCap);
                             spotList.add(newStudySpot);
                         }
-
-                        StudyFaculty newStudyFac = new StudyFaculty(image, name, spotList);
-                        studyList.add(newStudyFac);
                     }
+                    StudyFaculty newStudyFac = new StudyFaculty(image, name, spotList);
+                    studyList.add(newStudyFac);
                 }
                 fbCallback.onStudyCallBack(studyList);
             }

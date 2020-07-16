@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -89,7 +91,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }, MainActivity.this);
 
+        //  CHECK FOR INTERNET CONNECTION HERE
+        ConnectivityManager conMgr = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 
+        if ( conMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED    // It has to be single | not double || else java wont check the second condition !!
+                | conMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED ) {
+            // do nothing if user is online
+            // CHECK IF LOCATION PERMISSION IS GRANTED
+            if (checkMapServices()) {
+                if (mLocationPermissionGranted) {
+                    // do nothing if permission granted
+                } else {
+                    getLocationPermission();
+                }
+            }
+
+            new JSONTask().execute();
+        }
+        else if ( conMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.DISCONNECTED
+                | conMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.DISCONNECTED) {
+
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("This application requires internet to work, please ensure that your internet is on.")
+                    .setCancelable(false)
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Does nothing, clicking it dismisses the message
+                        }
+                    });
+            final AlertDialog alert = builder.create();
+            alert.show();
+        }
+/*
+        // CHECK IF LOCATION PERMISSION IS GRANTED
         if (checkMapServices()) {
             if (mLocationPermissionGranted) {
                 // do nothing if permission granted
@@ -98,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
 
-        new JSONTask().execute();
+        new JSONTask().execute();*/
 
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
@@ -189,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "onActivityResult: called.");
         switch (requestCode) {
             case PERMISSIONS_REQUEST_ENABLE_GPS: {
-                if(mLocationPermissionGranted == false){
+                if(!mLocationPermissionGranted){
                     getLocationPermission();
                 }
             }

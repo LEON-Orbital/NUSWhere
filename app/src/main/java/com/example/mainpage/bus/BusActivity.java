@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Map;
 
 public class BusActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -98,11 +100,14 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
+        Button busMapActivity = findViewById(R.id.busViewMapBtn);
+
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
         mapActivity.setOnClickListener(this);
+        busMapActivity.setOnClickListener(this);
 
         busResult.setOnClickListener(this);
     }
@@ -147,6 +152,9 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.mapBtn:
                 startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
+                break;
+            case R.id.busViewMapBtn:
+                startActivity(new Intent(getApplicationContext(), BusMapActivity.class));
                 break;
             case R.id.busSearch:
 

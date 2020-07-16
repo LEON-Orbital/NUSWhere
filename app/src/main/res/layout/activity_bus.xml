@@ -112,6 +112,23 @@
             app:srcCompat="@drawable/busenter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <Button
+        android:id="@+id/busViewMapBtn"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="95dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:elevation="4dp"
+        android:background="#F2EFEA"
+        android:text="@string/viewMap"
+        android:fontFamily="@font/lato_light"
+        android:textAllCaps="false"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
     <include
         android:id="@+id/include"
         layout="@layout/bottom_bar_layout" />

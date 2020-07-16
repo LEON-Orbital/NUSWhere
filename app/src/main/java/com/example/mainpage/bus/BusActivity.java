@@ -97,7 +97,7 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
-        ImageButton busActivity = findViewById(R.id.busBtn);
+        //ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
         Button busMapActivity = findViewById(R.id.busViewMapBtn);
@@ -105,7 +105,7 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
-        busActivity.setOnClickListener(this);
+        //busActivity.setOnClickListener(this);
         mapActivity.setOnClickListener(this);
         busMapActivity.setOnClickListener(this);
 
@@ -147,9 +147,9 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.studyBtn:
                 startActivity(new Intent(getApplicationContext(), StudyActivity.class));
                 break;
-            case R.id.busBtn:
-                startActivity(new Intent(getApplicationContext(), BusActivity.class));
-                break;
+            //case R.id.busBtn:
+            //    startActivity(new Intent(getApplicationContext(), BusActivity.class));
+             //   break;
             case R.id.mapBtn:
                 startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;

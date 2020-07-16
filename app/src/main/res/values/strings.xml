@@ -182,6 +182,7 @@
     <string name="busCircle">Bus Circle</string>
     <string name="busDirection">Directions</string>
     <string name="notice">Results are estimates and do not account for bus waiting time.</string>
+    <string name="viewMap">View Bus Map ></string>
 
 
 </resources>

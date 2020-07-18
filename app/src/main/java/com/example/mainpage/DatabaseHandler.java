@@ -91,7 +91,8 @@ class DatabaseHandler {
                     ArrayList<StudySpot> spotList = new ArrayList<>();
 
                     ///// BECAUSE FOR NOW ONLY COMPUTING & UTOWN HAS EXTRA STUDY SPOTS
-                    if (name.equals("Business") ||
+                    if (name.equals("Arts and Social Sciences") ||
+                            name.equals("Business") ||
                             name.equals("Computing") ||
                             name.equals("Utown")) {
 

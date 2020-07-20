@@ -26,6 +26,10 @@ public class FoodMedicineActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_medicine);
+
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
+        foodActivity.setImageResource(R.drawable.food_button);
+
         rcView = findViewById(R.id.medFoodRecView);
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
@@ -65,7 +69,6 @@ public class FoodMedicineActivity extends AppCompatActivity implements View.OnCl
         });
 
         ImageButton backActivity = findViewById(R.id.backBtn);
-        ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);

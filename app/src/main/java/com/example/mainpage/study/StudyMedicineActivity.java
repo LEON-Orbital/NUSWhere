@@ -25,6 +25,9 @@ public class StudyMedicineActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_medicine);
 
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        studyActivity.setImageResource(R.drawable.study_button);
+
         StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.MED);
 
         ImageView imageStudy = findViewById(R.id.imageStudy);
@@ -35,7 +38,6 @@ public class StudyMedicineActivity extends AppCompatActivity implements View.OnC
 
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
-        ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 

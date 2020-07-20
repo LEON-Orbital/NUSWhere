@@ -27,6 +27,9 @@ public class FoodFASSActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_f_a_s_s);
 
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
+        foodActivity.setImageResource(R.drawable.food_button);
+
         rcView = findViewById(R.id.fassFoodRecView);
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
@@ -66,7 +69,6 @@ public class FoodFASSActivity extends AppCompatActivity implements View.OnClickL
         });
 
         ImageButton backActivity = findViewById(R.id.backBtn);
-        ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);

@@ -25,6 +25,9 @@ public class StudySDEActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_s_d_e);
 
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        studyActivity.setImageResource(R.drawable.study_button);
+
         StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.SDE);
 
         ImageView imageStudy = findViewById(R.id.imageStudy);
@@ -35,7 +38,6 @@ public class StudySDEActivity extends AppCompatActivity implements View.OnClickL
 
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
-        ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 

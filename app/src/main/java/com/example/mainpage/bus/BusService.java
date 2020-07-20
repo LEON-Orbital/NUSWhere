@@ -28,14 +28,17 @@ public class BusService {
     }
 
     public BusStop getByName(String id, String name) {
-        for (BusStop bs : Objects.requireNonNull(busRoutes.get(id))) {
-            if (bs.getName().equals(name)) {
-                return bs;
+        if (!id.equals("")) {
+            for (BusStop bs : Objects.requireNonNull(busRoutes.get(id))) {
+                if (bs.getName().equals(name)) {
+                    return bs;
+                }
             }
         }
         return null;
     }
 
+    // returns a list of bus stops in between start and end input
     public List<BusStop> getInBetween(String id, String start, String end) {
         if (id.equals("")) {
             return new ArrayList<>();

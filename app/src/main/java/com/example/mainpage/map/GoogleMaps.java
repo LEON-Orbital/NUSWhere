@@ -64,6 +64,9 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_maps);
 
+        ImageButton mapActivity = findViewById(R.id.mapBtn);
+        mapActivity.setImageResource(R.drawable.map_button);
+
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
@@ -136,8 +139,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
             return;
-        } // CHECKED FOR PERMISSION GRANTED BUT NOT IF LOCATION IS SWITCHED ON
-          // THERE SHOULD BE A METHOD TO USE TO CHECK?
+        }
 
         Task<Location> task = fusedLocationProviderClient.getLastLocation();
         task.addOnSuccessListener(location -> {

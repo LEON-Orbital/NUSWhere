@@ -44,6 +44,9 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus);
 
+        ImageButton busActivity = findViewById(R.id.busBtn);
+        busActivity.setImageResource(R.drawable.bus_button);
+
         startLocation = findViewById(R.id.startLocation);
         destination = findViewById(R.id.destination);
         busResult = findViewById(R.id.busSearch);
@@ -97,7 +100,6 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
-        //ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
         Button busMapActivity = findViewById(R.id.busViewMapBtn);
@@ -105,7 +107,6 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
-        //busActivity.setOnClickListener(this);
         mapActivity.setOnClickListener(this);
         busMapActivity.setOnClickListener(this);
 

@@ -21,6 +21,9 @@ public class StudyScienceLibraryActivity extends AppCompatActivity implements Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_science_library);
 
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        studyActivity.setImageResource(R.drawable.study_button);
+
         Library sciL = getIntent().getParcelableExtra("add");
 
         ImageView mainImage = findViewById(R.id.imageSL);
@@ -40,12 +43,13 @@ public class StudyScienceLibraryActivity extends AppCompatActivity implements Vi
 
 
         ImageButton backActivity = findViewById(R.id.backBtn);
-        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
 
         backActivity.setOnClickListener(this);
+        foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
         mapActivity.setOnClickListener(this);

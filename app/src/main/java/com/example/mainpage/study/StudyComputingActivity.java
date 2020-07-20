@@ -30,6 +30,9 @@ public class StudyComputingActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_computing);
 
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        studyActivity.setImageResource(R.drawable.study_button);
+
         StudyFaculty studyFaculty = studyList.getFaculty(StudyNUSFaculties.COM);
 
         String mainImage = studyFaculty.getImage();
@@ -54,7 +57,6 @@ public class StudyComputingActivity extends AppCompatActivity implements View.On
 
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
-        ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 

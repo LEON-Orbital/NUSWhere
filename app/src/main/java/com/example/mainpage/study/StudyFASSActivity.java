@@ -31,6 +31,9 @@ public class StudyFASSActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_f_a_s_s);
 
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        studyActivity.setImageResource(R.drawable.study_button);
+
         StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.FASS);
 
         ArrayList<StudySpot> studySpots = studySpot.getStudyAreas();
@@ -53,7 +56,6 @@ public class StudyFASSActivity extends AppCompatActivity implements View.OnClick
 
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
-        ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 

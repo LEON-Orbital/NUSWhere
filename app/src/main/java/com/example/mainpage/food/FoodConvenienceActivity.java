@@ -27,6 +27,9 @@ public class FoodConvenienceActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_convenience);
 
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
+        foodActivity.setImageResource(R.drawable.food_button);
+
         rcView = findViewById(R.id.martRecView);
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
@@ -66,7 +69,6 @@ public class FoodConvenienceActivity extends AppCompatActivity implements View.O
         });
 
         ImageButton backActivity = findViewById(R.id.backBtn);
-        ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);

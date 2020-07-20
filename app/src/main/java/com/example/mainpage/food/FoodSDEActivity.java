@@ -27,6 +27,9 @@ public class FoodSDEActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_s_d_e);
 
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
+        foodActivity.setImageResource(R.drawable.food_button);
+
         rcView = findViewById(R.id.sdeFoodRecView);
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
@@ -66,7 +69,6 @@ public class FoodSDEActivity extends AppCompatActivity implements View.OnClickLi
         });
 
         ImageButton backActivity = findViewById(R.id.backBtn);
-        ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);

@@ -22,8 +22,10 @@ public class FoodStoreActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_store);
 
-        ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
+        foodActivity.setImageResource(R.drawable.food_button);
+
+        ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);

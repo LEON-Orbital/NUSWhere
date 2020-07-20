@@ -2,28 +2,31 @@ package com.example.mainpage.study;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
 import com.example.mainpage.food.FoodActivity;
 
-public class StudyActivity extends AppCompatActivity {
+public class StudyActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
 
-        LibraryList libraryList = new LibraryList();
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        studyActivity.setImageResource(R.drawable.study_button);
 
-        ImageButton back = findViewById(R.id.backBtn);
-        back.setOnClickListener(v -> finish());
+        LibraryList libraryList = new LibraryList();
 
         //Study area list
         ListView listView = findViewById(R.id.studyAreaListView);
@@ -35,26 +38,15 @@ public class StudyActivity extends AppCompatActivity {
 
         ///////////////////////////////////////////////////////////////////
 
-        // food button
+        ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
-        foodActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
-            startActivity(intent);
-        });
-
-        // bus button
         ImageButton busActivity = findViewById(R.id.busBtn);
-        busActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), BusActivity.class);
-            startActivity(intent);
-        });
-
-        // map button
         ImageButton mapActivity = findViewById(R.id.mapBtn);
-        mapActivity.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), GoogleMaps.class);
-            startActivity(intent);
-        });
+
+        backActivity.setOnClickListener(this);
+        foodActivity.setOnClickListener(this);
+        busActivity.setOnClickListener(this);
+        mapActivity.setOnClickListener(this);
 
         ///////////////////////////////////////////////////////////////////
 
@@ -172,7 +164,24 @@ public class StudyActivity extends AppCompatActivity {
             }
 
         });
-
-
     }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.backBtn:
+                finish();
+                break;
+            case R.id.foodBtn:
+                startActivity(new Intent(getApplicationContext(), FoodActivity.class));
+                break;
+            case R.id.busBtn:
+                startActivity(new Intent(getApplicationContext(), BusActivity.class));
+                break;
+            case R.id.mapBtn:
+                startActivity(new Intent(StudyActivity.this, GoogleMaps.class));
+                break;
+        }
+    }
+
 }

@@ -45,6 +45,9 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_result);
 
+        ImageButton busActivity = findViewById(R.id.busBtn);
+        busActivity.setImageResource(R.drawable.bus_button);
+
         // get the text input by user
         startResultText = getIntent().getExtras().getString("first");
         endResultText = getIntent().getExtras().getString("second");
@@ -84,7 +87,12 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         List<BusStop> list = busService.getInBetween(busCode, startBusHeader, endBusHeader); // if NA, return empty list
         // get the list of names and total time --- put list into adapter??
         ArrayList<String> busServiceStopList = busService.getNames(list); // if NA, return empty list
+
+        // get the total time for the buses in between
         int totalTime = busService.getTotalTime(list); // if NA, return 0
+        // in the case where the start and end input are one bus stop apart
+        BusStop endBusStop = busService.getByName(busCode, endBusHeader);
+        totalTime += endBusStop.getTime();
 
         // get the relevant information to inflate
         if (!headers.isEmpty()) {
@@ -255,7 +263,6 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
-        ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
         backActivity.setOnClickListener(this);

@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
@@ -63,7 +64,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         String halal =  "Halal Certified: " + foodList.get(position).getHalalCertified();
         String termTime = foodList.get(position).getTermOperatingHours();
         String vacationTime = foodList.get(position).getVacationOperatingHours();
-
+        boolean favourite = foodList.get(position).getFavStatus();
 
         String opHours;
         String opHours2;
@@ -86,12 +87,19 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         holder.operatingHours.setText(opHours);
         holder.operatingHours2.setText(opHours2);
 
+        if (favourite) {
+            holder.favBtn.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
+            holder.favBtn2.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
+        } else {
+            holder.favBtn.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
+            holder.favBtn2.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
+        }
+
         if (expanded) {
             holder.foodShowMoreCard.setVisibility(View.VISIBLE);
         } else {
             holder.foodShowMoreCard.setVisibility(View.GONE);
         }
-
 
     }
 
@@ -111,8 +119,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         TextView location2;
         CardView foodShowLessCard;
         CardView foodShowMoreCard;
-        View favBtn;
-        View favBtn2;
+        Button favBtn;
+        Button favBtn2;
 
         FoodViewHolder(View v, OnItemClickListener listener) {
             super(v);
@@ -139,16 +147,37 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
                     if (!food.getFavStatus()) {
                         food.setFavStatus(true);
-                        favBtn.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
-                        favBtn2.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
+                        notifyItemChanged(position);
                         Toast toast = Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
                         toast.show();
 
                     } else {
                         food.setFavStatus(false);
-                        favBtn.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
-                        favBtn2.setBackgroundResource(R.drawable.ic_favorite_shadow_24dp);
+                        notifyItemChanged(position);
+                        Toast toast = Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
+                        toast.show();
+                    }
+                }
+            });
+
+            favBtn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    Food food = foodList.get(position);
+
+                    if (!food.getFavStatus()) {
+                        food.setFavStatus(true);
+                        notifyItemChanged(position);
+                        Toast toast = Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
+                        toast.show();
+
+                    } else {
+                        food.setFavStatus(false);
+                        notifyItemChanged(position);
                         Toast toast = Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
                         toast.show();

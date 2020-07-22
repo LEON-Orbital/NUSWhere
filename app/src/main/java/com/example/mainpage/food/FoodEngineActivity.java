@@ -22,6 +22,8 @@ public class FoodEngineActivity extends AppCompatActivity implements View.OnClic
     RecyclerView rcView;
     FoodListAdapter adapter;
 
+    FoodList foodList = new FoodList();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,7 @@ public class FoodEngineActivity extends AppCompatActivity implements View.OnClic
         rcView.setNestedScrollingEnabled(false);
         rcView.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<Food> engineFoodList = getIntent().getParcelableArrayListExtra("add");
+        ArrayList<Food> engineFoodList = foodList.getByFaculty("Engineering");
         adapter = new FoodListAdapter(FoodEngineActivity.this, engineFoodList);
         rcView.setAdapter(adapter);
 
@@ -68,11 +70,13 @@ public class FoodEngineActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        ImageButton favActivity = findViewById(R.id.favPageBtn);
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
+        favActivity.setOnClickListener(this);
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
@@ -83,6 +87,9 @@ public class FoodEngineActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
+            case R.id.favPageBtn:
+                startActivity(new Intent(getApplicationContext(), FoodFavouritesActivity.class));
+                break;
             case R.id.backBtn:
                 finish();
                 break;

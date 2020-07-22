@@ -80,40 +80,31 @@ public class FacultyFoodActivity extends AppCompatActivity implements View.OnCli
 
             ////////////// Faculty Cases //////////////
             case R.id.bizCardView:
-                ArrayList<Food> bizFoodList = getIntent().getParcelableArrayListExtra("addBiz");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodBizActivity.class).putExtra("add", bizFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodBizActivity.class));
                 break;
             case R.id.comCardView:
-                ArrayList<Food> comFoodList = getIntent().getParcelableArrayListExtra("addCom");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodComActivity.class).putExtra("add", comFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodComActivity.class));
                 break;
             case R.id.engineCardView:
-                ArrayList<Food> engineFoodList = getIntent().getParcelableArrayListExtra("addEngine");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodEngineActivity.class).putExtra("add", engineFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodEngineActivity.class));
                 break;
             case R.id.fassCardView:
-                ArrayList<Food> fassFoodList = getIntent().getParcelableArrayListExtra("addFASS");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodFASSActivity.class).putExtra("add", fassFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodFASSActivity.class));
                 break;
             case R.id.medCardView:
-                ArrayList<Food> medFoodList = getIntent().getParcelableArrayListExtra("addMed");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodMedicineActivity.class).putExtra("add", medFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodMedicineActivity.class));
                 break;
             case R.id.sciCardView:
-                ArrayList<Food> sciFoodList = getIntent().getParcelableArrayListExtra("addSci");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodScienceActivity.class).putExtra("add", sciFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodScienceActivity.class));
                 break;
             case R.id.sdeCardView:
-                ArrayList<Food> sdeFoodList = getIntent().getParcelableArrayListExtra("addSDE");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodSDEActivity.class).putExtra("add", sdeFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodSDEActivity.class));
                 break;
             case R.id.utownCardView:
-                ArrayList<Food> utownFoodList = getIntent().getParcelableArrayListExtra("addUTown");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodUtownActivity.class).putExtra("add", utownFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodUtownActivity.class));
                 break;
             case R.id.ystCardView:
-                ArrayList<Food> ystFoodList = getIntent().getParcelableArrayListExtra("addYST");
-                startActivity(new Intent(FacultyFoodActivity.this, FoodYSTCMActivity.class).putExtra("add", ystFoodList));
+                startActivity(new Intent(FacultyFoodActivity.this, FoodYSTCMActivity.class));
                 break;
         }
     }

@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bus.BusMapActivity"></activity>
+        <activity android:name=".food.FoodFavouritesActivity"></activity>
+        <activity android:name=".bus.BusMapActivity" />
         <activity android:name=".study.StudyUtownActivity" />
         <activity android:name=".study.StudyYaleLibraryActivity" />
         <activity android:name=".study.StudyScienceLibraryActivity" />

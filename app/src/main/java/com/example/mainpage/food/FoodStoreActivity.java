@@ -68,16 +68,13 @@ public class FoodStoreActivity extends AppCompatActivity implements View.OnClick
 
             ////////////// Food cases //////////////
             case R.id.foodStallCardView:
-                ArrayList<Food> foodStallList = getIntent().getParcelableArrayListExtra("addStall");
-                startActivity(new Intent(FoodStoreActivity.this, FoodStallActivity.class).putExtra("add", foodStallList));
+                startActivity(new Intent(FoodStoreActivity.this, FoodStallActivity.class));
                 break;
             case R.id.restaurantCardView:
-                ArrayList<Food> restaurantList = getIntent().getParcelableArrayListExtra("addRes");
-                startActivity(new Intent(FoodStoreActivity.this, FoodRestaurantActivity.class).putExtra("add", restaurantList));
+                startActivity(new Intent(FoodStoreActivity.this, FoodRestaurantActivity.class));
                 break;
             case R.id.martCardView:
-                ArrayList<Food> martList = getIntent().getParcelableArrayListExtra("addMart");
-                startActivity(new Intent(FoodStoreActivity.this, FoodConvenienceActivity.class).putExtra("add", martList));
+                startActivity(new Intent(FoodStoreActivity.this, FoodConvenienceActivity.class));
                 break;
         }
     }

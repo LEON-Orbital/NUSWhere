@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.map.GoogleMaps;
@@ -44,24 +45,27 @@ public class StudyCentralLibraryActivity extends AppCompatActivity implements Vi
 
 
         ImageButton backActivity = findViewById(R.id.backBtn);
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
-
         backActivity.setOnClickListener(this);
+        homeActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
         mapActivity.setOnClickListener(this);
-
     }
 
+    @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            ////////////// Navigation bar //////////////
+        switch(v.getId()) {
             case R.id.backBtn:
                 finish();
+                break;
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.studyBtn:
                 startActivity(new Intent(getApplicationContext(), StudyActivity.class));

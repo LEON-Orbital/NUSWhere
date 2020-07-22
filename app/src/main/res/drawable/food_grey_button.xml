@@ -11,10 +11,10 @@
     </item>
     <item
         android:drawable="@drawable/foodgrey"
-        android:height="40dp"
-        android:width="40dp"
-        android:top="20dp"
-        android:left="21dp">
+        android:height="35dp"
+        android:width="35dp"
+        android:top="23dp"
+        android:left="24dp">
 
     </item>
 

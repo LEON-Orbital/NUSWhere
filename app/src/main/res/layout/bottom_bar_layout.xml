@@ -5,16 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="86dp"
-        android:background="@drawable/back"
-        android:contentDescription="@string/backbutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -26,12 +16,12 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <LinearLayout
-        android:layout_width="350dp"
+        android:layout_width="360dp"
         android:layout_height="82dp"
         android:elevation="23dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        android:weightSum="4"
+        android:weightSum="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -51,6 +41,14 @@
             android:layout_weight="1"
             android:contentDescription="@string/foodBtn"
             android:src="@drawable/study_grey_button" />
+
+        <ImageButton
+            android:id="@+id/homeBtn"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/homeBtn"
+            android:src="@drawable/home_grey_button" />
 
         <ImageButton
             android:id="@+id/busBtn"

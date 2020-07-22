@@ -61,12 +61,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
+        homeActivity.setImageResource(R.drawable.home_button);
+
         // initialises classes with static variables
         foodList = new FoodList();
         libraryList = new LibraryList();
         studyList = new StudyList();
         busVenueList = new BusVenueList();
-
 
         // retrieves the data and stores it inside static variables
         new DatabaseHandler().readFoodData(new FirebaseCallback() {

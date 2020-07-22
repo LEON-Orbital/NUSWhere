@@ -23,6 +23,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.food.FoodActivity;
@@ -66,16 +67,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 
         ImageButton mapActivity = findViewById(R.id.mapBtn);
         mapActivity.setImageResource(R.drawable.map_button);
-
-        ImageButton backActivity = findViewById(R.id.backBtn);
-        ImageButton foodActivity = findViewById(R.id.foodBtn);
-        ImageButton studyActivity = findViewById(R.id.studyBtn);
-        ImageButton busActivity = findViewById(R.id.busBtn);
-
-        backActivity.setOnClickListener(this);
-        foodActivity.setOnClickListener(this);
-        studyActivity.setOnClickListener(this);
-        busActivity.setOnClickListener(this);
         
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         fetchLastLocation();
@@ -133,6 +124,16 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
             }
 
         });
+
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
+        ImageButton foodActivity = findViewById(R.id.foodBtn);
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        ImageButton busActivity = findViewById(R.id.busBtn);
+
+        homeActivity.setOnClickListener(this);
+        foodActivity.setOnClickListener(this);
+        studyActivity.setOnClickListener(this);
+        busActivity.setOnClickListener(this);
     }
 
     private void fetchLastLocation() {
@@ -177,9 +178,8 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            //// NAV BAR ////
-            case R.id.backBtn:
-                finish();
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

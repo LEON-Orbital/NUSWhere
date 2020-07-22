@@ -10,11 +10,12 @@
         </shape>
     </item>
     <item
-        android:drawable="@drawable/bus"
-        android:height="32dp"
-        android:width="32dp"
-        android:top="25dp"
-        android:left="25dp">
+        android:drawable="@drawable/homegrey"
+        android:height="35dp"
+        android:width="35dp"
+        android:top="23dp"
+        android:left="24dp">
+
     </item>
 
 

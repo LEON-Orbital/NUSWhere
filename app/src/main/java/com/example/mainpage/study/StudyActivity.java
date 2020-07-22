@@ -38,12 +38,12 @@ public class StudyActivity extends AppCompatActivity implements View.OnClickList
 
         ///////////////////////////////////////////////////////////////////
 
-        ImageButton backActivity = findViewById(R.id.backBtn);
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
-        backActivity.setOnClickListener(this);
+        homeActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
         mapActivity.setOnClickListener(this);
@@ -169,8 +169,8 @@ public class StudyActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.backBtn:
-                finish();
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

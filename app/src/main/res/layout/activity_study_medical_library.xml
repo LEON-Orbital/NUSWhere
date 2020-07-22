@@ -186,19 +186,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
-        android:id="@+id/studyBackBtn"
-        android:layout_width="23dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="86dp"
-        android:background="@drawable/back"
-        android:contentDescription="@string/backbutton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible"
-        android:layout_marginLeft="10dp" />
 
+
+    <include layout="@layout/back_button_layout"/>
     <include layout="@layout/bottom_bar_layout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

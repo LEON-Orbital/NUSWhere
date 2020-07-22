@@ -12,6 +12,7 @@
     <string name="search2">Search NUS venues</string>
     <string name="backbutton">backButton</string>
     <string name="what_can_we_help_you_with_today">What can we help you with today?</string>
+    <string name="homeBtn">homeBtn</string>
     <string name="foodBtn">foodBtn</string>
     <string name="studyBtn">studyBtn</string>
     <string name="busBtn">busBtn</string>

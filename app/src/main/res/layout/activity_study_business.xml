@@ -73,6 +73,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <include layout="@layout/back_button_layout"/>
     <include
         android:id="@+id/include4"
         layout="@layout/bottom_bar_layout" />

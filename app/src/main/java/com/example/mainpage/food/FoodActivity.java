@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
@@ -28,7 +29,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         foodActivity.setImageResource(R.drawable.food_button);
 
-        ImageButton backActivity = findViewById(R.id.backBtn);
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
@@ -41,7 +42,7 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
         CardView supperCardView = findViewById(R.id.supperCardView);
 
 
-        backActivity.setOnClickListener(this);
+        homeActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
         mapActivity.setOnClickListener(this);
@@ -58,8 +59,8 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()) {
             ////////////// Navigation bar //////////////
-            case R.id.backBtn:
-                finish();
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.studyBtn:
                 startActivity(new Intent(getApplicationContext(), StudyActivity.class));

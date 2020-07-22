@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.mainpage.FirebaseCallback;
 import com.example.mainpage.FirebaseCallback2;
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
 import com.example.mainpage.food.FoodActivity;
@@ -97,14 +98,14 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
 
 
         // compulsory buttons
-        ImageButton backActivity = findViewById(R.id.backBtn);
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
         Button busMapActivity = findViewById(R.id.busViewMapBtn);
 
-        backActivity.setOnClickListener(this);
+        homeActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         mapActivity.setOnClickListener(this);
@@ -139,8 +140,8 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-            case R.id.backBtn:
-                finish();
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));
@@ -148,9 +149,6 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.studyBtn:
                 startActivity(new Intent(getApplicationContext(), StudyActivity.class));
                 break;
-            //case R.id.busBtn:
-            //    startActivity(new Intent(getApplicationContext(), BusActivity.class));
-             //   break;
             case R.id.mapBtn:
                 startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;

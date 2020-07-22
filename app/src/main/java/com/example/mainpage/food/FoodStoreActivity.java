@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
@@ -25,17 +26,18 @@ public class FoodStoreActivity extends AppCompatActivity implements View.OnClick
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         foodActivity.setImageResource(R.drawable.food_button);
 
-        ImageButton backActivity = findViewById(R.id.backBtn);
-        ImageButton studyActivity = findViewById(R.id.studyBtn);
-        ImageButton busActivity = findViewById(R.id.busBtn);
-        ImageButton mapActivity = findViewById(R.id.mapBtn);
-
         CardView foodStallCardView = findViewById(R.id.foodStallCardView);
         CardView restaurantCardView = findViewById(R.id.restaurantCardView);
         CardView martCardView = findViewById(R.id.martCardView);
 
+        ImageButton backActivity = findViewById(R.id.backBtn);
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
+        ImageButton studyActivity = findViewById(R.id.studyBtn);
+        ImageButton busActivity = findViewById(R.id.busBtn);
+        ImageButton mapActivity = findViewById(R.id.mapBtn);
 
         backActivity.setOnClickListener(this);
+        homeActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
@@ -52,6 +54,9 @@ public class FoodStoreActivity extends AppCompatActivity implements View.OnClick
             ////////////// Navigation bar //////////////
             case R.id.backBtn:
                 finish();
+                break;
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

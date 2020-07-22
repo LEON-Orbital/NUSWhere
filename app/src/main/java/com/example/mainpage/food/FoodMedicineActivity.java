@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
@@ -72,12 +73,14 @@ public class FoodMedicineActivity extends AppCompatActivity implements View.OnCl
 
         ImageButton favActivity = findViewById(R.id.favPageBtn);
         ImageButton backActivity = findViewById(R.id.backBtn);
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
         favActivity.setOnClickListener(this);
         backActivity.setOnClickListener(this);
+        homeActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
@@ -92,6 +95,9 @@ public class FoodMedicineActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.backBtn:
                 finish();
+                break;
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

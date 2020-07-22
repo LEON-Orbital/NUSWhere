@@ -19,7 +19,6 @@ public class Food implements Comparable<Food>, Parcelable {
     private boolean favourite = false;
 
 
-
     Food() {}
 
     public boolean getFavStatus() { return favourite;}

@@ -22,6 +22,8 @@ public class FoodStallActivity extends AppCompatActivity implements View.OnClick
     RecyclerView rcView;
     FoodListAdapter adapter;
 
+    FoodList foodList = new FoodList();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +37,8 @@ public class FoodStallActivity extends AppCompatActivity implements View.OnClick
         rcView.setNestedScrollingEnabled(false);
         rcView.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<Food> foodCourtList = getIntent().getParcelableArrayListExtra("add");
-        adapter = new FoodListAdapter(FoodStallActivity.this, foodCourtList);
+        ArrayList<Food> foodStallList = foodList.getByType("Stall");
+        adapter = new FoodListAdapter(FoodStallActivity.this, foodStallList);
         rcView.setAdapter(adapter);
 
         // Pop up information
@@ -68,11 +70,13 @@ public class FoodStallActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
+        ImageButton favActivity = findViewById(R.id.favPageBtn);
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
+        favActivity.setOnClickListener(this);
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
@@ -83,6 +87,9 @@ public class FoodStallActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
+            case R.id.favPageBtn:
+                startActivity(new Intent(getApplicationContext(), FoodFavouritesActivity.class));
+                break;
             case R.id.backBtn:
                 finish();
                 break;

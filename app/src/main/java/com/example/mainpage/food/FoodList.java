@@ -21,7 +21,8 @@ public class FoodList {
 
     ArrayList<Food> getAll() {
         Collections.sort(foodList);
-        return foodList;
+        ArrayList<Food> allFoodList = new ArrayList<>(foodList);
+        return allFoodList;
     }
 
     ArrayList<Food> getByFaculty(String fac) {
@@ -57,4 +58,14 @@ public class FoodList {
         return newFoodList;
     }
 
+    ArrayList<Food> getFavourites() {
+        ArrayList<Food> favFoodList = new ArrayList<>();
+        for (Food f : foodList) {
+            if (f.getFavStatus()) {
+                favFoodList.add(f);
+            }
+        }
+        Collections.sort(favFoodList);
+        return favFoodList;
+    }
 }

@@ -73,56 +73,22 @@ public class FoodActivity extends AppCompatActivity implements View.OnClickListe
 
             ////////////// Food cases //////////////
             case R.id.allCardView:
-                ArrayList<Food> allFoodList = foodList.getAll();  // gets all the food from the static foodList variable initialised in MainActivity
-                startActivity(new Intent(FoodActivity.this, FoodAllActivity.class).putExtra("add", allFoodList));
+                startActivity(new Intent(FoodActivity.this, FoodAllActivity.class));
                 break;
             case R.id.facultyCardView:
-                ArrayList<Food> bizFoodList = foodList.getByFaculty("Business");
-                ArrayList<Food> comFoodList = foodList.getByFaculty("Computing");
-                ArrayList<Food> engineFoodList = foodList.getByFaculty("Engineering");
-                ArrayList<Food> fassFoodList = foodList.getByFaculty("FASS");
-                ArrayList<Food> medFoodList = foodList.getByFaculty("Medicine");
-                ArrayList<Food> sciFoodList = foodList.getByFaculty("Science");
-                ArrayList<Food> sdeFoodList = foodList.getByFaculty("SDE");
-                ArrayList<Food> utownFoodList = foodList.getByFaculty("Utown");
-                ArrayList<Food> ystFoodList = foodList.getByFaculty("YSTCM");
-
-                Intent intent1 = new Intent(FoodActivity.this, FacultyFoodActivity.class);
-                intent1.putExtra("addBiz", bizFoodList);
-                intent1.putExtra("addCom", comFoodList);
-                intent1.putExtra("addEngine", engineFoodList);
-                intent1.putExtra("addFASS", fassFoodList);
-                intent1.putExtra("addMed", medFoodList);
-                intent1.putExtra("addSci", sciFoodList);
-                intent1.putExtra("addSDE", sdeFoodList);
-                intent1.putExtra("addUTown", utownFoodList);
-                intent1.putExtra("addYST", ystFoodList);
-                startActivity(intent1);
+                startActivity(new Intent(FoodActivity.this, FacultyFoodActivity.class));
                 break;
             case R.id.foodCourtCardView:
-                ArrayList<Food> foodCourtList = foodList.getByType("Foodcourt");
-                startActivity(new Intent(FoodActivity.this, FoodCourtActivity.class).putExtra("add", foodCourtList));
+                startActivity(new Intent(FoodActivity.this, FoodCourtActivity.class));
                 break;
             case R.id.foodStoreCardView:
-                ArrayList<Food> foodStallList = foodList.getByType("Stall");
-                ArrayList<Food> restaurantList = foodList.getByType("Restaurant");
-                ArrayList<Food> martList = foodList.getByType("ConvenienceStore");
-
-                Intent intent2 = new Intent(FoodActivity.this, FoodStoreActivity.class);
-                intent2.putExtra("addStall", foodStallList);
-                intent2.putExtra("addRes", restaurantList);
-                intent2.putExtra("addMart", martList);
-                startActivity(intent2);
+                startActivity(new Intent(FoodActivity.this, FoodStoreActivity.class));
                 break;
             case R.id.cafeCardView:
-                ArrayList<Food> cafeList = foodList.getByType("Cafe");
-                ArrayList<Food> bakeryList = foodList.getByType("Bakery");
-                cafeList.addAll(bakeryList);
-                startActivity(new Intent(FoodActivity.this, FoodCafeBakeryActivity.class).putExtra("add", cafeList));
+                startActivity(new Intent(FoodActivity.this, FoodCafeBakeryActivity.class));
                 break;
             case R.id.supperCardView:
-                ArrayList<Food> supperList = foodList.getLateNight();
-                startActivity(new Intent(FoodActivity.this, FoodLateNightActivity.class).putExtra("add", supperList));
+                startActivity(new Intent(FoodActivity.this, FoodLateNightActivity.class));
                 break;
         }
     }

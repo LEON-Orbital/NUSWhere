@@ -4,21 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 
+import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.map.GoogleMaps;
-import com.example.mainpage.R;
 import com.example.mainpage.study.StudyActivity;
 
 import java.util.ArrayList;
 
-public class FoodAllActivity extends AppCompatActivity implements View.OnClickListener {
+public class FoodFavouritesActivity extends AppCompatActivity implements View.OnClickListener {
 
     RecyclerView rcView;
     FoodListAdapter adapter;
@@ -28,18 +27,20 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_all);
+        setContentView(R.layout.activity_food_favourites);
 
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         foodActivity.setImageResource(R.drawable.food_button);
 
+        ImageButton favActivity = findViewById(R.id.favPageBtn);
+        favActivity.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
         rcView = findViewById(R.id.allFoodRecView);
         rcView.setLayoutManager(new LinearLayoutManager(this));
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
 
-        ArrayList<Food> allFoodList = foodList.getAll();
-        adapter = new FoodListAdapter(FoodAllActivity.this, allFoodList);
+        ArrayList<Food> favFoodList = foodList.getFavourites();
+        adapter = new FoodListAdapter(FoodFavouritesActivity.this, favFoodList);
         rcView.setAdapter(adapter);
 
         // Pop up information
@@ -56,22 +57,7 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        // Food search
-        SearchView foodSearch = findViewById(R.id.foodSearchView);
-        foodSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-
-        ImageButton favActivity = findViewById(R.id.favPageBtn);
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
@@ -89,8 +75,6 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.favPageBtn:
-                startActivity(new Intent(getApplicationContext(), FoodFavouritesActivity.class));
-                break;
             case R.id.backBtn:
                 finish();
                 break;
@@ -107,6 +91,5 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(getApplicationContext(), GoogleMaps.class));
                 break;
         }
-
     }
 }

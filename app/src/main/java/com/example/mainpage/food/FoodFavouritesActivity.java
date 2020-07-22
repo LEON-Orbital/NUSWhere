@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.R;
 import com.example.mainpage.bus.BusActivity;
 import com.example.mainpage.map.GoogleMaps;
@@ -58,13 +60,13 @@ public class FoodFavouritesActivity extends AppCompatActivity implements View.On
         });
 
 
-        ImageButton backActivity = findViewById(R.id.backBtn);
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton mapActivity = findViewById(R.id.mapBtn);
 
         favActivity.setOnClickListener(this);
-        backActivity.setOnClickListener(this);
+        homeActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
@@ -74,8 +76,10 @@ public class FoodFavouritesActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                break;
             case R.id.favPageBtn:
-            case R.id.backBtn:
                 finish();
                 break;
             case R.id.foodBtn:

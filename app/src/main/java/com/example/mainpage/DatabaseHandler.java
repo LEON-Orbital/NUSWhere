@@ -95,6 +95,7 @@ class DatabaseHandler {
                             name.equals("Business") ||
                             name.equals("Computing") ||
                             name.equals("Medicine") ||
+                            name.equals("Science") ||
                             name.equals("Utown")) {
 
                         for (DataSnapshot studyArea : dS.child("studyAreas").getChildren()) {

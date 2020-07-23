@@ -1,6 +1,8 @@
 package com.example.mainpage.study;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,10 +18,13 @@ import com.example.mainpage.food.FoodActivity;
 import com.example.mainpage.map.GoogleMaps;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 public class StudyScienceActivity extends AppCompatActivity implements View.OnClickListener {
 
     StudyList studyList = new StudyList();
-
+    RecyclerView rcView;
+    StudySpotColumnAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +36,23 @@ public class StudyScienceActivity extends AppCompatActivity implements View.OnCl
 
         StudyFaculty studySpot = studyList.getFaculty(StudyNUSFaculties.SCI);
 
+        ArrayList<StudySpot> studySpots = studySpot.getStudyAreas();
+
         ImageView imageStudy = findViewById(R.id.imageStudy);
         Picasso.get().load(studySpot.getImage()).into(imageStudy);
 
         TextView textStudy = findViewById(R.id.textStudy);
         textStudy.setText(studySpot.getName());
+
+        rcView = findViewById(R.id.studySpotRcView);
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        rcView.setLayoutManager(layoutManager);
+        rcView.setHasFixedSize(true);
+        rcView.setNestedScrollingEnabled(false);
+
+        adapter = new StudySpotColumnAdapter(this, studySpots);
+        rcView.setAdapter(adapter);
 
         ImageButton backActivity = findViewById(R.id.backBtn);
         ImageButton homeActivity = findViewById(R.id.homeBtn);

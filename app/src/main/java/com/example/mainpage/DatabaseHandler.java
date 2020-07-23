@@ -90,10 +90,11 @@ class DatabaseHandler {
                     String name = (String) dS.child("name").getValue();
                     ArrayList<StudySpot> spotList = new ArrayList<>();
 
-                    ///// BECAUSE FOR NOW ONLY COMPUTING & UTOWN HAS EXTRA STUDY SPOTS
+                      ///// CAN REMOVE THIS AFTER ALL ARE ADDED /// ###################################################################################################################################
                     if (name.equals("Arts and Social Sciences") ||
                             name.equals("Business") ||
                             name.equals("Computing") ||
+                            name.equals("Medicine") ||
                             name.equals("Utown")) {
 
                         for (DataSnapshot studyArea : dS.child("studyAreas").getChildren()) {

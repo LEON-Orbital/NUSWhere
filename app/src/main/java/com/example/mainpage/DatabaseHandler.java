@@ -94,6 +94,7 @@ class DatabaseHandler {
                     if (name.equals("Arts and Social Sciences") ||
                             name.equals("Business") ||
                             name.equals("Computing") ||
+                            name.equals("Engineering") ||
                             name.equals("Medicine") ||
                             name.equals("Science") ||
                             name.equals("Utown")) {

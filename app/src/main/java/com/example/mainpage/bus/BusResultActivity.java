@@ -23,6 +23,7 @@ import com.example.mainpage.study.StudyActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BusResultActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -92,9 +93,11 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         // get the total time for the buses in between
         int totalTime = busService.getTotalTime(list); // if NA, return 0
         // in the case where the start and end input are one bus stop apart
-        BusStop endBusStop = busService.getByName(busCode, endBusHeader);
-        totalTime += endBusStop.getTime();
+        if (!busCodesToPrint.isEmpty()) {
+            BusStop endBusStop = busService.getByName(busCode, endBusHeader);
+            totalTime += endBusStop.getTime();
 
+        }
         // get the relevant information to inflate
         if (!headers.isEmpty()) {
             this.changeState();
@@ -256,6 +259,8 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
             toast.show();
         } else {
+            // pass the results to the recyclerview adapter (list of headers, bus stops, directions, bus codes, time, state)
+            busCodesToPrint = busCodesToPrint.stream().map(x -> x.substring(0, 2)).distinct().collect(Collectors.toCollection(ArrayList::new));
             BusResultAdapter brAdapter = new BusResultAdapter(BusResultActivity.this, resultsToPrint, busCodesToPrint, timeToPrint, STATE);
             busResultListView.setAdapter(brAdapter);
         }

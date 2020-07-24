@@ -50,6 +50,8 @@ public class BusService {
         int first = nameList.indexOf(start);
         int last = nameList.indexOf(end);
 
+        Log.d("GetInBetween", String.valueOf(first) + ',' + last);
+
         if (first == last) {
             return new ArrayList<>();
         }
@@ -74,8 +76,6 @@ public class BusService {
 
     public boolean passed(String id, ArrayList<String> list, String nearestStart, String nearestEnd, long numOfStops) {
 
-        Log.d("BusService: checkPASSED", String.valueOf(numOfStops));
-
         // two criterias to fulfil:
         // 1) both bus stops must be in the list
         // 2) the end bus stop comes after the start bus stop
@@ -98,6 +98,9 @@ public class BusService {
 
     public HashMap<String, String> getOthers(BusVenue startBS, BusVenue endBS) {
 
+        Log.d("START:", startBS.getA_location());
+        Log.d("DESTINATION:", endBS.getA_location());
+
         // list of the bus codes that can be taken
         busCodes.clear();
 
@@ -108,7 +111,6 @@ public class BusService {
         String nearestStart2 = startBS.getE_nearestBusStop2();
         String nearestEnd1 = endBS.getB_nearestBusStop();
         String nearestEnd2 = endBS.getE_nearestBusStop2();
-        Log.d("BusService: Dest: ", nearestEnd1);
 
         String nearestStart = "";
         String nearestEnd = "";
@@ -125,28 +127,46 @@ public class BusService {
             // the method checks if the provided bus stops pass the criterias
             if (this.passed(id, list, nearestStart1, nearestEnd1, numOfStops)) {
 
-                numOfStops = this.getByName(id, nearestEnd1).getBusStopNo() - this.getByName(id, nearestStart1).getBusStopNo();
+                long newNumOfStops = this.getByName(id, nearestEnd1).getBusStopNo() - this.getByName(id, nearestStart1).getBusStopNo();
+                if (newNumOfStops < numOfStops) {
+                    numOfStops = newNumOfStops;
+                    busCodes.clear();
+                }
                 done = true;
                 nearestStart = nearestStart1;
                 nearestEnd = nearestEnd1;
 
             } else if (this.passed(id, list, nearestStart1, nearestEnd2, numOfStops)){
 
-                numOfStops = this.getByName(id, nearestEnd2).getBusStopNo() - this.getByName(id, nearestStart1).getBusStopNo();
+                //numOfStops = this.getByName(id, nearestEnd2).getBusStopNo() - this.getByName(id, nearestStart1).getBusStopNo();
+
+                long newNumOfStops = this.getByName(id, nearestEnd2).getBusStopNo() - this.getByName(id, nearestStart1).getBusStopNo();
+                if (newNumOfStops < numOfStops) {
+                    numOfStops = newNumOfStops;
+                    busCodes.clear();
+                }
                 done = true;
                 nearestStart = nearestStart1;
                 nearestEnd = nearestEnd2;
 
             } else if (this.passed(id, list, nearestStart2, nearestEnd1, numOfStops)) {
 
-                numOfStops = this.getByName(id, nearestEnd1).getBusStopNo() - this.getByName(id, nearestStart2).getBusStopNo();
+                long newNumOfStops = this.getByName(id, nearestEnd1).getBusStopNo() - this.getByName(id, nearestStart2).getBusStopNo();
+                if (newNumOfStops < numOfStops) {
+                    numOfStops = newNumOfStops;
+                    busCodes.clear();
+                }
                 done = true;
                 nearestStart = nearestStart2;
                 nearestEnd = nearestEnd1;
 
             } else if (this.passed(id, list, nearestStart2, nearestEnd2, numOfStops)) {
 
-                numOfStops = this.getByName(id, nearestEnd2).getBusStopNo() - this.getByName(id, nearestStart2).getBusStopNo();
+                long newNumOfStops = this.getByName(id, nearestEnd2).getBusStopNo() - this.getByName(id, nearestStart2).getBusStopNo();
+                if (newNumOfStops < numOfStops) {
+                    numOfStops = newNumOfStops;
+                    busCodes.clear();
+                }
                 done = true;
                 nearestStart = nearestStart2;
                 nearestEnd = nearestEnd2;
@@ -158,10 +178,6 @@ public class BusService {
             if (done) {
                 results.put("start", nearestStart);
                 results.put("end", nearestEnd);
-
-                if (id.length() > 2) {
-                    id = id.substring(0, 2);
-                }
 
                 if (!busCodes.contains(id)) {
                     busCodes.add(id);

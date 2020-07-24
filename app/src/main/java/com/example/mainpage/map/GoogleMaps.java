@@ -162,7 +162,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 //        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18));
         googleMap.addMarker(markerOptions);                                                         // move to user's current location and set a marker
-        googleMap.setPadding(0, 150, 0, 0);                                           // left, top, right, bottom
+        //googleMap.setPadding(0, 150, 0, 0);                                           // left, top, right, bottom
 
     }
 

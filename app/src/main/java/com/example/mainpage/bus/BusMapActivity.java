@@ -32,12 +32,14 @@ public class BusMapActivity extends AppCompatActivity implements View.OnClickLis
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
         ImageButton homeActivity = findViewById(R.id.homeBtn);
+        ImageButton googleMapActivity = findViewById(R.id.mapBtn);
 
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
         homeActivity.setOnClickListener(this);
+        googleMapActivity.setOnClickListener(this);
     }
 
     @Override

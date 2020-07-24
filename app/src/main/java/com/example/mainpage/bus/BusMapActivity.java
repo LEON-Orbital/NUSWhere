@@ -21,6 +21,9 @@ public class BusMapActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_map);
 
+        ImageButton busMapActivity = findViewById(R.id.busBtn);
+        busMapActivity.setImageResource(R.drawable.bus_button);
+
         PhotoView photoView = (PhotoView) findViewById(R.id.photo_view);
         photoView.setImageResource(R.drawable.busmap);
 

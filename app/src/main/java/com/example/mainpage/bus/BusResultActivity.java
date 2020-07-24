@@ -260,7 +260,12 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
             toast.show();
         } else {
             // pass the results to the recyclerview adapter (list of headers, bus stops, directions, bus codes, time, state)
-            busCodesToPrint = busCodesToPrint.stream().map(x -> x.substring(0, 2)).distinct().collect(Collectors.toCollection(ArrayList::new));
+            busCodesToPrint = busCodesToPrint.stream()
+                    .map(x -> x.length() > 2
+                            ? x.substring(0, 2)
+                            : x)
+                    .distinct()
+                    .collect(Collectors.toCollection(ArrayList::new));
             BusResultAdapter brAdapter = new BusResultAdapter(BusResultActivity.this, resultsToPrint, busCodesToPrint, timeToPrint, STATE);
             busResultListView.setAdapter(brAdapter);
         }

@@ -1,12 +1,13 @@
 package com.example.mainpage.bus;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mainpage.MainActivity;
 import com.example.mainpage.R;
 import com.example.mainpage.food.FoodActivity;
 import com.example.mainpage.map.GoogleMaps;
@@ -27,11 +28,13 @@ public class BusMapActivity extends AppCompatActivity implements View.OnClickLis
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);
         ImageButton busActivity = findViewById(R.id.busBtn);
+        ImageButton homeActivity = findViewById(R.id.homeBtn);
 
         backActivity.setOnClickListener(this);
         foodActivity.setOnClickListener(this);
         studyActivity.setOnClickListener(this);
         busActivity.setOnClickListener(this);
+        homeActivity.setOnClickListener(this);
     }
 
     @Override
@@ -40,6 +43,9 @@ public class BusMapActivity extends AppCompatActivity implements View.OnClickLis
             //// NAV BAR ////
             case R.id.backBtn:
                 finish();
+                break;
+            case R.id.homeBtn:
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

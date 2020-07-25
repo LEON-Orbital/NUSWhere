@@ -88,6 +88,12 @@ public class FoodScienceActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.favPageBtn:

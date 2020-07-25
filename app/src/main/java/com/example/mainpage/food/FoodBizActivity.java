@@ -88,6 +88,12 @@ public class FoodBizActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.favPageBtn:

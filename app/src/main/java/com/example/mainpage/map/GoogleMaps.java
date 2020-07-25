@@ -1,7 +1,9 @@
 package com.example.mainpage.map;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
@@ -32,7 +34,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
 import in.galaxyofandroid.spinerdialog.SpinnerDialog;
@@ -40,6 +41,7 @@ import in.galaxyofandroid.spinerdialog.SpinnerDialog;
 public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
     Location currentLocation;
     LatLng currentLatLng;
+    LatLng latLngNUS;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
 
@@ -53,9 +55,11 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
     String floor;
     Boolean foundLocation = false; // check if the location is found alr or not
 
+    TextView gMapsTopBar;
     SpinnerDialog spinnerDialog;
     ImageButton gMapsSearchButton;
     ImageButton gMapsLocationButton;
+    CardView gMapsCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,13 +74,17 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 
         VenueList venueList = new VenueList();
 
-        // searchView = findViewById(R.id.sv_location);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
+        // set font for top bar
+        gMapsTopBar = findViewById(R.id.gMapsTopBar);
+        gMapsTopBar.setTypeface(ResourcesCompat.getFont(this, R.font.playfair_display));
 
+        // get the list of venues for the search bar
         ArrayList<String> mapList = venueList.getVenueListString();
 
+        // button for search bar dialog
         gMapsSearchButton = findViewById(R.id.gMapsSearchButton);
         gMapsSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +92,14 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                 spinnerDialog.showSpinerDialog();
             }
         });
+        gMapsTopBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spinnerDialog.showSpinerDialog();
+            }
+        });
 
+        // create search bar spinner dialog box
         spinnerDialog = new SpinnerDialog(GoogleMaps.this, mapList, "Select venue", R.style.DialogAnimations_SmileWindow);
         spinnerDialog.bindOnSpinerListener(new OnSpinerItemClick() {
             @Override
@@ -106,7 +121,6 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                     roomName = "Location not found";
                     floor = "  ";
                     Toast.makeText(getApplicationContext(), "Location not found", Toast.LENGTH_SHORT).show();
-                    // SET foundLocation to false here!
 
                 }
 
@@ -115,7 +129,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                 roomNameTV.setText(roomName);
                 floorTV.setText(floor);
                 if (foundLocation) {
-                    LatLng latLngNUS = new LatLng(locY, locX);
+                    latLngNUS = new LatLng(locY, locX);
                     venueMarker = mMap.addMarker(new MarkerOptions().position(latLngNUS).title(item));
                     markerPresent = true;  // set markerPresent to true
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngNUS, 18));
@@ -123,11 +137,23 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
             }
         });
 
+        // button to return to current location
         gMapsLocationButton = findViewById(R.id.gMapsLocationButton);
         gMapsLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18));
+            }
+        });
+
+        // cardview to return to searched location
+        gMapsCardView = findViewById(R.id.gMapsCardView);
+        gMapsCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (foundLocation) {
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLngNUS, 18));
+                }
             }
         });
 

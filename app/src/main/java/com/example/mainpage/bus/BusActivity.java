@@ -164,6 +164,7 @@ public class BusActivity extends AppCompatActivity implements View.OnClickListen
                 intent.putExtra("first", startResultText);
                 intent.putExtra("second", endResultText);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay_at_position);
         }
     }
 }

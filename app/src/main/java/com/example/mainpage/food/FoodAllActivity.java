@@ -93,6 +93,7 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
         switch(v.getId()) {
             case R.id.favPageBtn:
                 startActivity(new Intent(getApplicationContext(), FoodFavouritesActivity.class));
+                overridePendingTransition(R.anim.slide_in_top, R.anim.stay_at_position);
                 break;
             case R.id.backBtn:
                 finish();

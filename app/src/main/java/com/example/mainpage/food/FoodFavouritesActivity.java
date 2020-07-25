@@ -81,6 +81,7 @@ public class FoodFavouritesActivity extends AppCompatActivity implements View.On
                 break;
             case R.id.favPageBtn:
                 finish();
+                overridePendingTransition(R.anim.stay_at_position, R.anim.slide_out_top);
                 break;
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));

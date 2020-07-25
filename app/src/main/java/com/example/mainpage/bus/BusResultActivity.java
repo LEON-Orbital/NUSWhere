@@ -328,6 +328,7 @@ public class BusResultActivity extends AppCompatActivity implements View.OnClick
         switch(v.getId()) {
             case R.id.backBtn:
                 finish();
+                overridePendingTransition(R.anim.stay_at_position, R.anim.slide_out_right);
                 break;
             case R.id.homeBtn:
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));

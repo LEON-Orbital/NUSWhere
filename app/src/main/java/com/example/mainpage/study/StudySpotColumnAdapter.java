@@ -99,7 +99,8 @@ public class StudySpotColumnAdapter extends RecyclerView.Adapter<StudySpotColumn
         studySpotHours.setText("Opening Hours: " + studySpot.getOpHours());
 
         studySpotPhotos = contactPopUpView.findViewById(R.id.studySpotPhotosListView);
-        StudyPhotosAdapter adapter = new StudyPhotosAdapter(context, studySpot.getImages());
+        ArrayList<String> studySpotImages = studySpot.getImages();
+        StudyPhotosAdapter adapter = new StudyPhotosAdapter(context, studySpotImages);
         studySpotPhotos.setAdapter(adapter);
 
         dialogBuilder.setView(contactPopUpView);

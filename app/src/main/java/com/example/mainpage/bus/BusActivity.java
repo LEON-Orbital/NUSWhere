@@ -15,8 +15,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.mainpage.FirebaseCallback;
-import com.example.mainpage.FirebaseCallback2;
 import com.example.mainpage.MainActivity;
 import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.R;
@@ -30,7 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Map;
 
 public class BusActivity extends AppCompatActivity implements View.OnClickListener {
 

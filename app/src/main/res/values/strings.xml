@@ -12,6 +12,8 @@
     <string name="search2">Search NUS venues</string>
     <string name="backbutton">backButton</string>
     <string name="what_can_we_help_you_with_today">What can we help you with today?</string>
+    <string name="where_are_you_headed">Where are you headed?</string>
+    <string name="searchNUS">Explore NUS</string>
     <string name="homeBtn">homeBtn</string>
     <string name="foodBtn">foodBtn</string>
     <string name="studyBtn">studyBtn</string>
@@ -76,7 +78,6 @@
     <string name="category">Category:</string>
     <string name="bus">bus</string>
     <string name="science">Science</string>
-    <string name="where_are_you_headed">Where are you headed?</string>
     <string name="enter">Enter</string>
     <string name="start_location">Start Location</string>
     <string name="destination">Destination</string>

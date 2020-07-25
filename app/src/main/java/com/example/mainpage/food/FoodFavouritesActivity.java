@@ -36,6 +36,7 @@ public class FoodFavouritesActivity extends AppCompatActivity implements View.On
 
         ImageButton favActivity = findViewById(R.id.favPageBtn);
         favActivity.setBackgroundResource(R.drawable.ic_favorite_red_24dp);
+        
         rcView = findViewById(R.id.allFoodRecView);
         rcView.setLayoutManager(new LinearLayoutManager(this));
         rcView.setHasFixedSize(true);

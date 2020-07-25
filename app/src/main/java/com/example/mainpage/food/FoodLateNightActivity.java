@@ -88,6 +88,12 @@ public class FoodLateNightActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.favPageBtn:

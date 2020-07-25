@@ -1,11 +1,5 @@
 package com.example.mainpage.map;
 
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.fragment.app.FragmentActivity;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,6 +9,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.FragmentActivity;
 
 import com.example.mainpage.MainActivity;
 import com.example.mainpage.R;
@@ -34,6 +34,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import in.galaxyofandroid.spinerdialog.OnSpinerItemClick;
 import in.galaxyofandroid.spinerdialog.SpinnerDialog;
@@ -83,6 +84,7 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
 
         // get the list of venues for the search bar
         ArrayList<String> mapList = venueList.getVenueListString();
+        Collections.sort(mapList);
 
         // button for search bar dialog
         gMapsSearchButton = findViewById(R.id.gMapsSearchButton);

@@ -38,7 +38,9 @@ class DatabaseHandler {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dS : dataSnapshot.getChildren()) {
                     Food f = dS.getValue(Food.class);
-                    foodList.add(f);
+                    if (!foodList.contains(f)) {
+                        foodList.add(f);
+                    }
                 }
                 fbCallback.onFoodCallBack(foodList);
 
@@ -132,7 +134,9 @@ class DatabaseHandler {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dS : dataSnapshot.getChildren()) {
                     BusVenue bv = dS.getValue(BusVenue.class);
-                    busVenueList.add(bv);
+                    if (!busVenueList.contains(bv)) {
+                        busVenueList.add(bv);
+                    }
                 }
                 Log.d("No. of Bus Input Venues", String.valueOf(busVenueList.size()));
                 fbCallback.onBusCallBack(busVenueList);

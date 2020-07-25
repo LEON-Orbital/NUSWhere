@@ -134,7 +134,7 @@ class DatabaseHandler {
                     BusVenue bv = dS.getValue(BusVenue.class);
                     busVenueList.add(bv);
                 }
-                Log.d("CheckDatabaseHandler", String.valueOf(busVenueList.size()));
+                Log.d("No. of Bus Input Venues", String.valueOf(busVenueList.size()));
                 fbCallback.onBusCallBack(busVenueList);
 
             }

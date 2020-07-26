@@ -90,6 +90,7 @@ public class FoodConvenienceActivity extends AppCompatActivity implements View.O
     @Override
     public void onResume() {
         super.onResume();
+        adapter.collapse();
         adapter.notifyDataSetChanged();
     }
 

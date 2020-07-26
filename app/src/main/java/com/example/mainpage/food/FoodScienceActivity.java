@@ -90,6 +90,7 @@ public class FoodScienceActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onResume() {
         super.onResume();
+        adapter.collapse();
         adapter.notifyDataSetChanged();
     }
 

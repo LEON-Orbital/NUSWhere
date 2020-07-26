@@ -91,6 +91,7 @@ public class FoodAllActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onResume() {
         super.onResume();
+        adapter.collapse();
         adapter.notifyDataSetChanged();
     }
 

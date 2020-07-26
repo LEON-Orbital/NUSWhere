@@ -90,6 +90,7 @@ public class FoodFASSActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onResume() {
         super.onResume();
+        adapter.collapse();
         adapter.notifyDataSetChanged();
     }
 

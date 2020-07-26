@@ -90,6 +90,7 @@ public class FoodEngineActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onResume() {
         super.onResume();
+        adapter.collapse();
         adapter.notifyDataSetChanged();
     }
 

@@ -90,6 +90,7 @@ public class FoodLateNightActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onResume() {
         super.onResume();
+        adapter.collapse();
         adapter.notifyDataSetChanged();
     }
 

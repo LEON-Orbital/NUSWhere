@@ -90,6 +90,7 @@ public class FoodYSTCMActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onResume() {
         super.onResume();
+        adapter.collapse();
         adapter.notifyDataSetChanged();
     }
 

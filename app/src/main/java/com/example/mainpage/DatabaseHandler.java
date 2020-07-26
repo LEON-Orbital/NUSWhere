@@ -1,6 +1,7 @@
 package com.example.mainpage;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 class DatabaseHandler {
 
@@ -32,6 +34,10 @@ class DatabaseHandler {
         DatabaseReference dbStudyRef = FirebaseDatabase.getInstance().getReference().child("Study");
         DatabaseReference dbBusRef = FirebaseDatabase.getInstance().getReference().child("BusRoutes");
 
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Favourites", Context.MODE_PRIVATE);
+        Map<String, String> allFavourites = (Map<String, String>) sharedPreferences.getAll();
+        ArrayList<String> allFoodId = new ArrayList<>(allFavourites.values());
+        // Log.d("DatabaseHandler Favourited Food", allFoodId.toString());
 
         ValueEventListener velFood = new ValueEventListener() {
             @Override
@@ -39,6 +45,9 @@ class DatabaseHandler {
                 for (DataSnapshot dS : dataSnapshot.getChildren()) {
                     Food f = dS.getValue(Food.class);
                     if (!foodList.contains(f)) {
+                        if (allFoodId.contains(f.getId())) {
+                            f.setFavStatus(true);
+                        }
                         foodList.add(f);
                     }
                 }

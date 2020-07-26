@@ -58,11 +58,14 @@ public class FoodList {
         return newFoodList;
     }
 
-    ArrayList<Food> getFavourites() {
+    // takes in a list of food id and returns the list of food
+    ArrayList<Food> getFavourites(ArrayList<String> favList) {
         ArrayList<Food> favFoodList = new ArrayList<>();
-        for (Food f : foodList) {
-            if (f.getFavStatus()) {
-                favFoodList.add(f);
+        for (String s : favList) {
+            for (Food f : foodList) {
+                if (s.equals(f.getId())) {
+                    favFoodList.add(f);
+                }
             }
         }
         Collections.sort(favFoodList);

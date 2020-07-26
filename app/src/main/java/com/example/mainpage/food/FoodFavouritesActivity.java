@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SearchView;
@@ -18,6 +20,7 @@ import com.example.mainpage.map.GoogleMaps;
 import com.example.mainpage.study.StudyActivity;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class FoodFavouritesActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,6 +34,8 @@ public class FoodFavouritesActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_favourites);
 
+        SharedPreferences mPrefs = getSharedPreferences("Favourites", MODE_PRIVATE);
+
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         foodActivity.setImageResource(R.drawable.food_button);
 
@@ -42,7 +47,13 @@ public class FoodFavouritesActivity extends AppCompatActivity implements View.On
         rcView.setHasFixedSize(true);
         rcView.setNestedScrollingEnabled(false);
 
-        ArrayList<Food> favFoodList = foodList.getFavourites();
+        // get a map and then a list of favourited food ids
+        Map<String, String> allFavourites = (Map<String, String>) mPrefs.getAll();
+        ArrayList<String> allFoodId = new ArrayList<>(allFavourites.values());
+        Log.d("Favourited Food", allFoodId.toString());
+
+        ArrayList<Food> favFoodList = foodList.getFavourites(allFoodId);
+
         adapter = new FoodListAdapter(FoodFavouritesActivity.this, favFoodList);
         rcView.setAdapter(adapter);
 

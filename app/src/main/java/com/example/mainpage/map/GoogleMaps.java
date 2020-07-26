@@ -1,6 +1,8 @@
 package com.example.mainpage.map;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -102,7 +104,8 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
         });
 
         // create search bar spinner dialog box
-        spinnerDialog = new SpinnerDialog(GoogleMaps.this, mapList, "Select venue", R.style.DialogAnimations_SmileWindow);
+        spinnerDialog = new SpinnerDialog(GoogleMaps.this, mapList,
+                "Select venue", R.style.DialogAnimations_SmileWindow);
         spinnerDialog.bindOnSpinerListener(new OnSpinerItemClick() {
             @Override
             public void onClick(String item, int position) {
@@ -158,6 +161,18 @@ public class GoogleMaps extends FragmentActivity implements OnMapReadyCallback, 
                 }
             }
         });
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Searchable venues consist of currently used venues in NUS only.")
+                .setCancelable(false)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Does nothing, clicking it dismisses the message
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
 
 
         ImageButton homeActivity = findViewById(R.id.homeBtn);

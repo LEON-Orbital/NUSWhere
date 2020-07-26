@@ -261,7 +261,14 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                 }
             });
 
-            foodShowLessCard.setOnClickListener(v2 -> {
+            CardView foodSelectCard;
+            if (expanded) {
+                foodSelectCard = foodShowMoreCard;
+            } else {
+                foodSelectCard = foodShowLessCard;
+            }
+
+            foodSelectCard.setOnClickListener(v2 -> {
                 if (listener != null) {
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {

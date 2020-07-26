@@ -251,18 +251,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()) {
             case R.id.foodBtn:
                 startActivity(new Intent(getApplicationContext(), FoodActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 break;
             case R.id.studyBtn:
                 startActivity(new Intent(getApplicationContext(), StudyActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 break;
             case R.id.busBtn:
                 startActivity(new Intent(getApplicationContext(), BusActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 break;
             case R.id.mapBtn:
                 // task will execute in the background and do the OnPostExecute stuff when its done
                 //new JSONTask().execute();
                 // **AFTER CHANGING OUR ONPOSTEXECUTE METHOD** switch screen while app is fetching venues in the background
                 startActivity(new Intent(MainActivity.this, GoogleMaps.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 break;
         }
     }

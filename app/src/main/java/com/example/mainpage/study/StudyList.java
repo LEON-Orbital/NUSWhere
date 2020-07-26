@@ -50,4 +50,8 @@ public class StudyList {
         }
     }
 
+    public boolean isEmpty() {
+        return studyList.isEmpty();
+    }
+
 }

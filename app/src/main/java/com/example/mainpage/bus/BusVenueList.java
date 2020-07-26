@@ -33,4 +33,8 @@ public class BusVenueList {
         }
         return null;
     }
+
+    public boolean isEmpty() {
+        return busVenueList.isEmpty();
+    }
 }

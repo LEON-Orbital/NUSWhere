@@ -68,4 +68,8 @@ public class FoodList {
         Collections.sort(favFoodList);
         return favFoodList;
     }
+
+    public boolean isEmpty() {
+        return foodList.isEmpty();
+    }
 }

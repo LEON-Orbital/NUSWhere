@@ -74,22 +74,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         new DatabaseHandler().readFoodData(new FirebaseCallback() {
             @Override
             public void onFoodCallBack(ArrayList<Food> list) {
-                foodList.addAll(list);  // adds all the food data into the static variable in FoodList class
+                if (foodList.isEmpty()) {
+                    foodList.addAll(list);
+                }
             }
 
             @Override
             public void onLibraryCallBack(ArrayList<Library> list) {
-                libraryList.addAll(list);
+                if (libraryList.isEmpty()) {
+                    libraryList.addAll(list);
+                }
             }
 
             @Override
             public void onStudyCallBack(ArrayList<StudyFaculty> list) {
-                studyList.addAll(list);
+                if (studyList.isEmpty()) {
+                    studyList.addAll(list);
+                }
             }
 
             @Override
             public void onBusCallBack(ArrayList<BusVenue> list) {
-                busVenueList.addAll(list);
+                if (busVenueList.isEmpty()) {
+                    busVenueList.addAll(list);
+                }
             }
         }, MainActivity.this);
 
@@ -125,17 +133,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             final AlertDialog alert = builder.create();
             alert.show();
         }
-/*
-        // CHECK IF LOCATION PERMISSION IS GRANTED
-        if (checkMapServices()) {
-            if (mLocationPermissionGranted) {
-                // do nothing if permission granted
-            } else {
-                getLocationPermission();
-            }
-        }
-
-        new JSONTask().execute();*/
 
         ImageButton foodActivity = findViewById(R.id.foodBtn);
         ImageButton studyActivity = findViewById(R.id.studyBtn);

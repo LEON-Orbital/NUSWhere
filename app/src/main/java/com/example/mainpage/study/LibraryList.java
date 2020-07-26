@@ -25,4 +25,8 @@ public class LibraryList {
         }
         return null;
     }
+
+    public boolean isEmpty() {
+        return libraryList.isEmpty();
+    }
 }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.view.Gravity;
@@ -38,11 +39,15 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
     private boolean expanded = false;
     private int expandedPosition = -1;
 
+    SharedPreferences mPrefs;
+    SharedPreferences.Editor prefsEditor;
 
     FoodListAdapter(Context c, ArrayList<Food> f) {
         this.context = c;
         this.foodList = f;
         this.foodListFull = new ArrayList<>(f);
+        this.mPrefs = context.getSharedPreferences("Favourites", Context.MODE_PRIVATE);
+        this.prefsEditor = mPrefs.edit();
     }
 
     public interface OnItemClickListener {
@@ -150,6 +155,10 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                     Food food = foodList.get(position);
 
                     if (!food.getFavStatus()) {
+
+                        // add favourited food into shared preferences using food id
+                        prefsEditor.putString(food.getId(), food.getId()).commit();
+
                         food.setFavStatus(true);
                         notifyItemChanged(position);
                         Toast toast = Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT);
@@ -170,6 +179,9 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
                             builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
+                                    // remove favourited food from shared preferences
+                                    prefsEditor.remove(food.getId()).apply();
+
                                     food.setFavStatus(false);
                                     foodList.remove(food);
                                     notifyDataSetChanged();
@@ -192,6 +204,9 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                             alert.show();
 
                         } else {
+                            // remove favourited food from shared preferences
+                            prefsEditor.remove(food.getId()).apply();
+
                             food.setFavStatus(false);
                             notifyItemChanged(position);
                             Toast toast = Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT);
@@ -202,64 +217,6 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                 }
             });
 
-            favBtn2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    Food food = foodList.get(position);
-
-                    if (!food.getFavStatus()) {
-                        food.setFavStatus(true);
-                        notifyItemChanged(position);
-                        Toast toast = Toast.makeText(context, "Added to Favourites", Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
-                        toast.show();
-
-                    } else {
-                        if (context instanceof FoodFavouritesActivity) {
-
-                            TextView alertText = new TextView(context);
-                            alertText.setText("Remove from favourites?");
-                            alertText.setPadding(60,65,60,18);
-                            alertText.setTextSize(19);
-                            alertText.setTypeface(ResourcesCompat.getFont(context, R.font.lato_regular));
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(context)
-                                    .setView(alertText);
-
-                            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    food.setFavStatus(false);
-                                    foodList.remove(food);
-                                    notifyDataSetChanged();
-                                    dialog.dismiss();
-                                    Toast toast = Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT);
-                                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
-                                    toast.show();
-                                }
-                            });
-
-                            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // Do nothing
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            AlertDialog alert = builder.create();
-                            alert.show();
-
-                        } else {
-                            food.setFavStatus(false);
-                            notifyItemChanged(position);
-                            Toast toast = Toast.makeText(context, "Removed from Favourites", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.CENTER_VERTICAL, 0, 675);
-                            toast.show();
-                        }
-                    }
-                }
-            });
 
             CardView foodSelectCard;
             if (expanded) {

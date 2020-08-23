@@ -35,15 +35,19 @@ We aim to make navigating around NUS easy by providing bus routes, food and stud
    - Real-time Location
    - Search for lesson venues (taken from NUSMods) that will be projected onto map (e.g “LT26”, “BIZ1-0202", "CEREBRO") 
 
-## Example Screenshots
+## Sample Screenshots
 
-![alt text](https://i.imgur.com/Qts6T4a.png)    ![alt text](https://i.imgur.com/K58dxwL.png)    ![alt text](https://i.imgur.com/tOZgAfe.png)    ![alt text](https://i.imgur.com/Se9Ar2d.png)    
+![alt text](https://i.imgur.com/Qts6T4a.png | width=200)    ![alt text](https://i.imgur.com/K58dxwL.png | width=200)    ![alt text](https://i.imgur.com/ZImFJPH.jpg | width=200)    ![alt text](https://i.imgur.com/tOZgAfe.png | width=200)    ![alt text](https://i.imgur.com/lM1wtkK.jpg | width=200)        ![alt text](https://i.imgur.com/Se9Ar2d.png | width=200)    
 
 ## Credits
 
-* This project was made with the following:
+This project was made with the following:
   - [Android Studio](https://developer.android.com/studio)
   - [Firebase](https://firebase.google.com)
-* Contributors:
+  - External APIs:
+    - [NUSMods API](https://nusmods.com/)
+    - [Google Maps](https://developers.google.com/maps/documentation)
+  
+Contributors:
   - Wee Shaun
   - Leanne Tan

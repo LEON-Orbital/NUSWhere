@@ -37,7 +37,17 @@ We aim to make navigating around NUS easy by providing bus routes, food and stud
 
 ## Sample Screenshots
 
-<img src="https://i.imgur.com/Qts6T4a.png" width="200" height="400">   <img src="https://i.imgur.com/K58dxwL.png" width="200" height="400">   <img src="https://i.imgur.com/ZImFJPH.jpg" width="200" height="400">   <img src="https://i.imgur.com/tOZgAfe.png" width="200" height="400">   <img src="https://i.imgur.com/lM1wtkK.jpg" width="200" height="400">   <img src="https://i.imgur.com/Se9Ar2d.png" width="200" height="400">
+###### Food Page
+<img src="https://i.imgur.com/Qts6T4a.png" width="130" height="260">   
+
+###### Study Page
+<img src="https://i.imgur.com/K58dxwL.png" width="130" height="260">      <img src="https://i.imgur.com/ZImFJPH.jpg" width="130" height="260">   
+
+###### Bus Navigation Page
+<img src="https://i.imgur.com/tOZgAfe.png" width="130" height="260">      <img src="https://i.imgur.com/lM1wtkK.jpg" width="130" height="260">   
+
+###### Maps Page
+<img src="https://i.imgur.com/Se9Ar2d.png" width="130" height="260">
 
 
 ## Credits

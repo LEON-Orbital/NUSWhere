@@ -37,9 +37,8 @@ We aim to make navigating around NUS easy by providing bus routes, food and stud
 
 ## Sample Screenshots
 
-<img src="https://i.imgur.com/Qts6T4a.png" width="200" height="400">
+<img src="https://i.imgur.com/Qts6T4a.png" width="200" height="400">   <img src="https://i.imgur.com/K58dxwL.png" width="200" height="400">   <img src="https://i.imgur.com/ZImFJPH.jpg" width="200" height="400">   <img src="https://i.imgur.com/tOZgAfe.png" width="200" height="400">   <img src="https://i.imgur.com/lM1wtkK.jpg" width="200" height="400">   <img src="https://i.imgur.com/Se9Ar2d.png" width="200" height="400">
 
-![alt text](https://i.imgur.com/Qts6T4a.png | width=200)    ![alt text](https://i.imgur.com/K58dxwL.png | width=200)    ![alt text](https://i.imgur.com/ZImFJPH.jpg | width=200)    ![alt text](https://i.imgur.com/tOZgAfe.png | width=200)    ![alt text](https://i.imgur.com/lM1wtkK.jpg | width=200)        ![alt text](https://i.imgur.com/Se9Ar2d.png | width=200)    
 
 ## Credits
 
